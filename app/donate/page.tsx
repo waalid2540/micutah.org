@@ -86,7 +86,7 @@ export default function DonatePage() {
             <Heart className="h-10 w-10 text-white" />
           </div>
           <h1 className="text-4xl font-heading font-bold text-primary mb-4">
-            Support Masjid Madina
+            Support Madina Islamic Center
           </h1>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Your generous donations help us maintain our 24/7 operations, support

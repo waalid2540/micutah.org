@@ -60,7 +60,7 @@ export default function PrayerTimesPage() {
           </h1>
           <div className="flex items-center justify-center gap-2 text-gray-600">
             <MapPin className="h-5 w-5" />
-            <span>Salt Lake City, UT - Masjid Madina</span>
+            <span>Salt Lake City, UT - Madina Islamic Center</span>
           </div>
         </div>
 

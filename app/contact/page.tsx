@@ -291,7 +291,7 @@ export default function ContactPage() {
                     allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    title="Masjid Madina Location"
+                    title="Madina Islamic Center Location"
                   ></iframe>
                 </div>
               </CardContent>

@@ -22,17 +22,17 @@ Available flavors:
 
 We also offer bulk orders for events and catering. Special Ramadan pricing available!
 
-Pickup available near Masjid Madina or delivery within Salt Lake Valley for orders over $30.`,
+Pickup available near Madina Islamic Center or delivery within Salt Lake Valley for orders over $30.`,
   category: "Food & Catering",
   price: 15,
   priceLabel: "per dozen",
   contact: "Sister Fatima",
   phone: "(801) 555-0101",
   email: "fatima@example.com",
-  location: "Near Masjid Madina, Salt Lake City",
+  location: "Near Madina Islamic Center, Salt Lake City",
   image: null,
   featured: true,
-  createdAt: "2025-02-15",
+  createdAt: "2026-02-15",
 };
 
 export default function ListingDetailPage({ params }: { params: { id: string } }) {

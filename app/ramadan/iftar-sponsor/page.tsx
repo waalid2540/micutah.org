@@ -12,7 +12,7 @@ import { Badge } from "@/components/ui/badge";
 
 // Generate Ramadan dates (sample - would be calculated properly in production)
 const ramadanDates = Array.from({ length: 30 }, (_, i) => {
-  const date = new Date(2025, 2, 1 + i); // March 2025
+  const date = new Date(2026, 2, 1 + i); // March 2026
   return {
     day: i + 1,
     date: date.toISOString().split("T")[0],
@@ -73,7 +73,7 @@ export default function IftarSponsorPage() {
           </h1>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Feed the community and earn the reward of everyone who breaks their
-            fast at Masjid Madina. Each sponsorship provides a complete Iftar meal
+            fast at Madina Islamic Center. Each sponsorship provides a complete Iftar meal
             for 50+ community members.
           </p>
         </div>

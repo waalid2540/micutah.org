@@ -108,10 +108,10 @@ export function getHijriDate(date: Date): string {
 
 // Get Ramadan countdown
 export function getRamadanCountdown(): { days: number; isRamadan: boolean } {
-  // For 2025, Ramadan is expected to start around March 1st
+  // For 2026, Ramadan is expected to start around February 17th
   // This should be updated based on moon sighting
-  const ramadanStart = new Date('2025-03-01');
-  const ramadanEnd = new Date('2025-03-30');
+  const ramadanStart = new Date('2026-02-17');
+  const ramadanEnd = new Date('2026-03-19');
   const now = new Date();
 
   if (now >= ramadanStart && now <= ramadanEnd) {

@@ -11,7 +11,7 @@ const events = [
     title: "Ramadan Preparation Workshop",
     description:
       "Join us for a comprehensive workshop on preparing spiritually, mentally, and physically for Ramadan.",
-    date: "2025-02-22",
+    date: "2026-02-07",
     time: "2:00 PM - 4:00 PM",
     location: "Main Prayer Hall",
     category: "Workshop",
@@ -22,7 +22,7 @@ const events = [
     title: "Youth Islamic Quiz Night",
     description:
       "Fun and educational quiz competition for youth ages 10-18. Prizes for winners!",
-    date: "2025-02-23",
+    date: "2026-02-08",
     time: "6:00 PM - 8:00 PM",
     location: "Community Center",
     category: "Youth",
@@ -33,7 +33,7 @@ const events = [
     title: "Sisters' Halaqah",
     description:
       "Weekly sisters' study circle discussing Tafsir of Surah Al-Baqarah.",
-    date: "2025-02-24",
+    date: "2026-02-09",
     time: "11:00 AM - 12:30 PM",
     location: "Sisters' Section",
     category: "Sisters",
@@ -44,7 +44,7 @@ const events = [
     title: "New Muslim Support Group",
     description:
       "Monthly meeting for new Muslims to learn, connect, and grow together in faith.",
-    date: "2025-02-25",
+    date: "2026-02-10",
     time: "7:00 PM - 8:30 PM",
     location: "Meeting Room B",
     category: "Community",
@@ -55,7 +55,7 @@ const events = [
     title: "Fiqh of Fasting Class",
     description:
       "Learn the essential rulings of fasting in preparation for Ramadan with Sheikh Ahmad.",
-    date: "2025-02-28",
+    date: "2026-02-14",
     time: "After Maghrib",
     location: "Main Prayer Hall",
     category: "Education",
@@ -66,7 +66,7 @@ const events = [
     title: "Community Clean-up Day",
     description:
       "Help beautify our masjid and surrounding area in preparation for Ramadan.",
-    date: "2025-03-01",
+    date: "2026-02-15",
     time: "9:00 AM - 12:00 PM",
     location: "Masjid Grounds",
     category: "Volunteer",
@@ -101,7 +101,7 @@ export default function EventsPage() {
           </h1>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Join us for educational programs, community gatherings, and special
-            events at Masjid Madina. Something for everyone!
+            events at Madina Islamic Center. Something for everyone!
           </p>
         </div>
 

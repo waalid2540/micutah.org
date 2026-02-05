@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 const milestones = [
-  { year: "2010", event: "Masjid Madina founded" },
+  { year: "2010", event: "Madina Islamic Center founded" },
   { year: "2012", event: "Community center expanded" },
   { year: "2015", event: "Youth program launched" },
   { year: "2018", event: "24/7 access established" },
@@ -38,7 +38,7 @@ export default function AboutPage() {
       <section className="bg-primary text-white py-16 islamic-pattern">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl lg:text-5xl font-heading font-bold mb-4">
-            About Masjid Madina
+            About Madina Islamic Center
           </h1>
           <p className="text-xl text-white/80 max-w-2xl mx-auto">
             A welcoming home for Muslims in Salt Lake City, serving our local
@@ -57,7 +57,7 @@ export default function AboutPage() {
                   Our Mission
                 </h2>
                 <p className="text-lg text-gray-700 text-center leading-relaxed">
-                  Masjid Madina is dedicated to serving the spiritual, educational,
+                  Madina Islamic Center is dedicated to serving the spiritual, educational,
                   and social needs of the Muslim community in Salt Lake City and
                   the surrounding areas. We strive to be a beacon of faith, unity,
                   and service, welcoming both locals and travelers to worship,
@@ -259,7 +259,7 @@ export default function AboutPage() {
           <p className="text-white/80 mb-8 max-w-xl mx-auto">
             Whether you&apos;re looking for a place to pray, want to learn more
             about Islam, or simply want to connect with the Muslim community,
-            you&apos;re always welcome at Masjid Madina.
+            you&apos;re always welcome at Madina Islamic Center.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link href="/prayer-times">

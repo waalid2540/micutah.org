@@ -50,10 +50,10 @@ export default function RamadanPage() {
         <div className="container mx-auto px-4 text-center">
           <Moon className="h-16 w-16 text-accent mx-auto mb-6" />
           <h1 className="text-4xl lg:text-5xl font-heading font-bold mb-4">
-            Ramadan 2025
+            Ramadan 2026
           </h1>
           <p className="text-xl text-white/80 max-w-2xl mx-auto mb-8">
-            Join us for a blessed month of fasting, prayer, and community at Masjid Madina.
+            Join us for a blessed month of fasting, prayer, and community at Madina Islamic Center.
             Experience the spiritual beauty of Ramadan together.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
@@ -228,7 +228,7 @@ export default function RamadanPage() {
               <CardContent className="pt-6">
                 <p className="text-sm text-gray-600">First Day of Ramadan</p>
                 <p className="text-2xl font-heading font-bold text-primary">
-                  March 1, 2025*
+                  February 17, 2026*
                 </p>
                 <p className="text-xs text-gray-500 mt-2">
                   *Subject to moon sighting
@@ -239,7 +239,7 @@ export default function RamadanPage() {
               <CardContent className="pt-6">
                 <p className="text-sm text-gray-600">Last 10 Nights Begin</p>
                 <p className="text-2xl font-heading font-bold text-accent">
-                  March 21, 2025*
+                  March 9, 2026*
                 </p>
                 <p className="text-xs text-gray-500 mt-2">
                   Seek Laylatul Qadr
@@ -250,7 +250,7 @@ export default function RamadanPage() {
               <CardContent className="pt-6">
                 <p className="text-sm text-gray-600">Eid ul-Fitr</p>
                 <p className="text-2xl font-heading font-bold text-primary">
-                  March 30, 2025*
+                  March 19, 2026*
                 </p>
                 <p className="text-xs text-gray-500 mt-2">
                   *Subject to moon sighting

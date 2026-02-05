@@ -7,8 +7,8 @@ import { Badge } from "@/components/ui/badge";
 // Sample blog post content (would come from database in production)
 const samplePost = {
   id: "1",
-  slug: "preparing-for-ramadan-2025",
-  title: "Preparing for Ramadan 2025: A Spiritual Guide",
+  slug: "preparing-for-ramadan-2026",
+  title: "Preparing for Ramadan 2026: A Spiritual Guide",
   excerpt:
     "As Ramadan approaches, learn how to prepare yourself spiritually, mentally, and physically for the blessed month ahead.",
   content: `
@@ -52,7 +52,7 @@ Plan your meals in advance and stock up on nutritious foods that will sustain yo
 
 ## Community Preparation
 
-At Masjid Madina, we're preparing an exciting lineup of programs for Ramadan 2025:
+At Madina Islamic Center, we're preparing an exciting lineup of programs for Ramadan 2026:
 
 - **Daily Iftar**: Join us for community Iftar every evening
 - **Taraweeh Prayers**: 20 rakaat with beautiful Quran recitation
@@ -77,9 +77,9 @@ May Allah allow us to reach Ramadan and make it a month of spiritual growth, for
 *For more information about our Ramadan programs, visit our [Ramadan page](/ramadan) or contact the masjid office.*
   `,
   author: "Imam Abdullah",
-  authorTitle: "Head Imam, Masjid Madina",
+  authorTitle: "Head Imam, Madina Islamic Center",
   category: "Spiritual",
-  date: "2025-02-15",
+  date: "2026-02-15",
   image: null,
 };
 

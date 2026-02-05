@@ -73,7 +73,7 @@ const sampleListings = [
     id: "5",
     title: "Apartment for Rent - Near Masjid",
     description:
-      "2-bedroom apartment available for rent, walking distance to Masjid Madina. Family-friendly building.",
+      "2-bedroom apartment available for rent, walking distance to Madina Islamic Center. Family-friendly building.",
     category: "Real Estate",
     price: 1200,
     priceLabel: "per month",

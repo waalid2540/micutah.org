@@ -254,7 +254,7 @@ export default function PostListingPage() {
                     onChange={(e) =>
                       setFormData({ ...formData, location: e.target.value })
                     }
-                    placeholder="e.g., Near Masjid Madina, Salt Lake City"
+                    placeholder="e.g., Near Madina Islamic Center, Salt Lake City"
                   />
                 </div>
               </div>

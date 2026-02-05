@@ -8,13 +8,13 @@ import { Badge } from "@/components/ui/badge";
 const blogPosts = [
   {
     id: "1",
-    slug: "preparing-for-ramadan-2025",
-    title: "Preparing for Ramadan 2025: A Spiritual Guide",
+    slug: "preparing-for-ramadan-2026",
+    title: "Preparing for Ramadan 2026: A Spiritual Guide",
     excerpt:
       "As Ramadan approaches, learn how to prepare yourself spiritually, mentally, and physically for the blessed month ahead.",
     author: "Imam Abdullah",
     category: "Spiritual",
-    date: "2025-02-15",
+    date: "2026-02-15",
     image: null,
     featured: true,
   },
@@ -26,7 +26,7 @@ const blogPosts = [
       "Key lessons from last Friday's khutbah on maintaining sabr (patience) during difficult times and finding strength in faith.",
     author: "Imam Abdullah",
     category: "Khutbah",
-    date: "2025-02-10",
+    date: "2026-02-10",
     image: null,
     featured: false,
   },
@@ -38,7 +38,7 @@ const blogPosts = [
       "Volunteers are working hard to prepare for our daily community Iftar program. Learn how you can contribute.",
     author: "Masjid Admin",
     category: "Community",
-    date: "2025-02-08",
+    date: "2026-02-08",
     image: null,
     featured: false,
   },
@@ -50,7 +50,7 @@ const blogPosts = [
       "A comprehensive guide to understanding and calculating your Zakat obligations, including nisab rates and eligible recipients.",
     author: "Sheikh Ahmad",
     category: "Islamic Knowledge",
-    date: "2025-02-05",
+    date: "2026-02-05",
     image: null,
     featured: true,
   },
@@ -59,10 +59,10 @@ const blogPosts = [
     slug: "youth-program-announcement",
     title: "New Youth Program Starting This Month",
     excerpt:
-      "Exciting new youth program launching at Masjid Madina, featuring Islamic education, sports, and community service.",
+      "Exciting new youth program launching at Madina Islamic Center, featuring Islamic education, sports, and community service.",
     author: "Youth Committee",
     category: "Community",
-    date: "2025-02-01",
+    date: "2026-02-01",
     image: null,
     featured: false,
   },
@@ -74,7 +74,7 @@ const blogPosts = [
       "Learn about the significance of Shaban and the recommended acts of worship during this blessed month before Ramadan.",
     author: "Imam Abdullah",
     category: "Spiritual",
-    date: "2025-01-28",
+    date: "2026-01-28",
     image: null,
     featured: false,
   },
@@ -105,7 +105,7 @@ export default function BlogPage() {
           </h1>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Stay updated with khutbah summaries, Islamic knowledge, community
-            news, and spiritual guidance from Masjid Madina.
+            news, and spiritual guidance from Madina Islamic Center.
           </p>
         </div>
 

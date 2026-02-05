@@ -5,13 +5,13 @@ import Footer from "@/components/layout/Footer";
 import AIChatbot from "@/components/chat/AIChatbot";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://masjidmadina.org"),
+  metadataBase: new URL("https://micutah.org"),
   title: {
-    default: "Masjid Madina | Salt Lake City Mosque - Open 24/7 Near Love's Truck Stop",
-    template: "%s | Masjid Madina - Salt Lake City",
+    default: "Madina Islamic Center | Salt Lake City Mosque - Open 24/7 Near Love's Truck Stop",
+    template: "%s | Madina Islamic Center - Salt Lake City",
   },
   description:
-    "Masjid Madina is a 24/7 mosque in Salt Lake City, UT, right next to Love's Truck Stop & Flying J on I-80. Free truck parking, clean wudu facilities, daily prayers, Ramadan programs, and a welcoming community for travelers and locals. 1773 W North Temple, SLC.",
+    "Madina Islamic Center is a 24/7 mosque in Salt Lake City, UT, right next to Love's Truck Stop & Flying J on I-80. Free truck parking, clean wudu facilities, daily prayers, Ramadan programs, and a welcoming community for travelers and locals. 1773 W North Temple, SLC.",
   keywords: [
     "masjid madina",
     "mosque salt lake city",
@@ -38,24 +38,24 @@ export const metadata: Metadata = {
     "sadaqah",
   ],
   openGraph: {
-    title: "Masjid Madina | Salt Lake City Mosque - Open 24/7",
+    title: "Madina Islamic Center | Salt Lake City Mosque - Open 24/7",
     description:
       "A welcoming 24/7 mosque right next to Love's Truck Stop & Flying J in Salt Lake City. Free truck parking, wudu facilities, daily prayers, Ramadan programs, and community services. 5 min from SLC Airport.",
     type: "website",
     locale: "en_US",
-    siteName: "Masjid Madina",
+    siteName: "Madina Islamic Center",
     images: [
       {
         url: "/images/masjid-1.jpg",
         width: 1200,
         height: 630,
-        alt: "Masjid Madina prayer hall in Salt Lake City",
+        alt: "Madina Islamic Center prayer hall in Salt Lake City",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Masjid Madina | Salt Lake City Mosque - Open 24/7",
+    title: "Madina Islamic Center | Salt Lake City Mosque - Open 24/7",
     description:
       "24/7 mosque next to Love's Truck Stop & Flying J. Free truck parking, daily prayers, Ramadan programs. 1773 W North Temple, SLC.",
     images: ["/images/masjid-1.jpg"],
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://masjidmadina.org",
+    canonical: "https://micutah.org",
   },
   verification: {
     google: "your-google-verification-code",
