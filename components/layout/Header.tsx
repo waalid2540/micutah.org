@@ -12,9 +12,9 @@ const navigation = [
   { name: "Prayer Times", href: "/prayer-times" },
   { name: "Ramadan", href: "/ramadan" },
   { name: "Events", href: "/events" },
+  { name: "Directory", href: "/directory" },
   { name: "Marketplace", href: "/marketplace" },
   { name: "Blog", href: "/blog" },
-  { name: "Quizzes", href: "/quizzes" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
 ];

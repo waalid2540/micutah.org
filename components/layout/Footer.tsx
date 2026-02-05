@@ -6,6 +6,7 @@ const quickLinks = [
   { name: "Prayer Times", href: "/prayer-times" },
   { name: "Ramadan", href: "/ramadan" },
   { name: "Events", href: "/events" },
+  { name: "Directory", href: "/directory" },
   { name: "Donate", href: "/donate" },
   { name: "Marketplace", href: "/marketplace" },
   { name: "Contact", href: "/contact" },
@@ -108,8 +109,8 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2 text-sm text-primary-foreground/80">
                 <Mail className="h-5 w-5 shrink-0" />
-                <a href="mailto:info@masjidmadina.org" className="hover:text-accent transition-colors">
-                  info@masjidmadina.org
+                <a href="mailto:info@micutah.org" className="hover:text-accent transition-colors">
+                  info@micutah.org
                 </a>
               </li>
               <li className="flex items-center gap-2 text-sm text-primary-foreground/80">
@@ -123,7 +124,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-primary-light mt-8 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-sm text-primary-foreground/60">
-            &copy; {new Date().getFullYear()} Masjid Madina. All rights reserved.
+            &copy; {new Date().getFullYear()} Madina Islamic Center. All rights reserved.
           </p>
           <div className="flex gap-4 text-sm text-primary-foreground/60">
             <Link href="/privacy" className="hover:text-accent transition-colors">
