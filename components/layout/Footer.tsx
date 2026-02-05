@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Youtube } from "lucide-react";
 
 const quickLinks = [
@@ -24,13 +25,17 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* About Section */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                <span className="text-primary font-arabic text-lg">م</span>
-              </div>
+            <div className="flex items-center gap-3 mb-4">
+              <Image
+                src="/images/logo.png"
+                alt="Madina Islamic Center"
+                width={50}
+                height={50}
+                className="rounded-lg bg-white p-1"
+              />
               <div>
-                <h3 className="font-heading text-xl font-bold">Masjid Madina</h3>
-                <p className="text-xs text-primary-foreground/70">Salt Lake City, UT</p>
+                <h3 className="font-heading text-lg font-bold">Madina Islamic Center</h3>
+                <p className="text-xs text-primary-foreground/70">MICUTAH</p>
               </div>
             </div>
             <p className="text-sm text-primary-foreground/80 mb-4">

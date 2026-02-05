@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { Menu, X, Heart, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -67,16 +68,20 @@ export default function Header() {
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-3 group">
-              <div className="w-11 h-11 bg-hero-gradient rounded-xl flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow">
-                <span className="text-white font-arabic text-xl">م</span>
-              </div>
-              <div>
-                <h1 className="font-heading text-xl font-bold text-primary leading-tight">
-                  Masjid Madina
+            <Link href="/" className="flex items-center gap-2 group">
+              <Image
+                src="/images/logo.png"
+                alt="Madina Islamic Center"
+                width={50}
+                height={50}
+                className="group-hover:scale-105 transition-transform"
+              />
+              <div className="hidden sm:block">
+                <h1 className="font-heading text-lg font-bold text-primary leading-tight">
+                  Madina Islamic Center
                 </h1>
-                <p className="text-[11px] text-gray-500 tracking-wide">
-                  Salt Lake City, UT
+                <p className="text-[10px] text-gray-500 tracking-wide">
+                  MICUTAH
                 </p>
               </div>
             </Link>
