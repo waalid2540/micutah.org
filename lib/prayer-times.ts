@@ -1,11 +1,15 @@
 import { Coordinates, PrayerTimes, CalculationMethod, Madhab } from 'adhan';
 import { format } from 'date-fns';
+import { formatInTimeZone } from 'date-fns-tz';
 
 // Salt Lake City coordinates
 const MASJID_COORDINATES = {
   latitude: 40.7718,
   longitude: -111.9298,
 };
+
+// Timezone for Salt Lake City
+const TIMEZONE = 'America/Denver';
 
 export interface PrayerTimeData {
   fajr: string;
@@ -31,7 +35,7 @@ export function calculatePrayerTimes(date: Date = new Date()): PrayerTimeData {
   const prayerTimes = new PrayerTimes(coordinates, date, params);
 
   const formatTime = (time: Date): string => {
-    return format(time, 'HH:mm');
+    return formatInTimeZone(time, TIMEZONE, 'h:mm a');
   };
 
   return {
