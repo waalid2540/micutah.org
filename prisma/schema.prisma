@@ -15,10 +15,12 @@ model User {
   email         String      @unique
   name          String?
   password      String?
-  role          String      @default("USER") // USER, ADMIN
+  role          String      @default("USER") // USER, ADMIN, VENDOR
   listings      Listing[]
   donations     Donation[]
   quizScores    QuizScore[]
+  vendors       Vendor[]
+  reviews       Review[]
   createdAt     DateTime    @default(now())
   updatedAt     DateTime    @updatedAt
 }
@@ -68,21 +70,169 @@ model Donation {
   createdAt DateTime @default(now())
 }
 
+// ============== HALAL MARKETPLACE ==============
+
+model Vendor {
+  id              String   @id @default(cuid())
+  
+  // Business Info
+  businessName    String
+  slug            String   @unique
+  description     String?
+  logo            String?
+  coverImage      String?
+  
+  // Contact
+  email           String
+  phone           String
+  whatsapp        String?
+  website         String?
+  
+  // Location
+  address         String?
+  city            String?
+  state           String   @default("UT")
+  zipCode         String?
+  serviceArea     String?  // "Salt Lake City" or "Nationwide"
+  
+  // Verification
+  status          String   @default("pending") // pending, approved, rejected, suspended
+  verifiedBy      String?  // masjid that verified them
+  verifiedAt      DateTime?
+  halalCertified  Boolean  @default(false)
+  certificationDoc String?
+  
+  // Owner
+  userId          String
+  user            User     @relation(fields: [userId], references: [id])
+  
+  // Relations
+  listings        Listing[]
+  reviews         Review[]
+  
+  // Stats
+  totalSales      Int      @default(0)
+  rating          Float    @default(0)
+  reviewCount     Int      @default(0)
+  
+  // Subscription
+  plan            String   @default("free") // free, featured, premium
+  planExpiresAt   DateTime?
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model ListingCategory {
+  id          String    @id @default(cuid())
+  name        String    @unique
+  slug        String    @unique
+  description String?
+  icon        String?
+  order       Int       @default(0)
+  active      Boolean   @default(true)
+  listings    Listing[]
+}
+
 model Listing {
   id          String   @id @default(cuid())
+  
+  // Basic Info
   title       String
+  slug        String   @unique
   description String
+  
+  // Pricing
   price       Float?
-  category    String
-  contact     String
-  phone       String?
-  image       String?
-  userId      String
-  user        User     @relation(fields: [userId], references: [id])
-  approved    Boolean  @default(false)
+  priceLabel  String?  // "per hour", "per dozen", "Contact for quote"
+  priceType   String   @default("fixed") // fixed, negotiable, free, contact
+  
+  // Category
+  categoryId  String?
+  category    ListingCategory? @relation(fields: [categoryId], references: [id])
+  categoryName String   // Denormalized for quick display
+  
+  // Type
+  listingType String   @default("product") // product, service, job, housing, event
+  
+  // Media
+  images      String?  // JSON array of image URLs
+  
+  // Contact (for non-vendor listings)
+  contactName String?
+  contactPhone String?
+  contactEmail String?
+  contactWhatsapp String?
+  
+  // Vendor (if vendor listing)
+  vendorId    String?
+  vendor      Vendor?  @relation(fields: [vendorId], references: [id])
+  
+  // Legacy user relation
+  userId      String?
+  user        User?    @relation(fields: [userId], references: [id])
+  
+  // Status
+  status      String   @default("pending") // pending, approved, rejected, expired, sold
   featured    Boolean  @default(false)
+  featuredUntil DateTime?
+  
+  // Location
+  city        String?
+  state       String   @default("UT")
+  
+  // Engagement
+  views       Int      @default(0)
+  inquiries   Int      @default(0)
+  
+  // Timestamps
+  expiresAt   DateTime?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  
+  // Legacy field mappings
+  approved    Boolean  @default(false)
+  contact     String?
+  phone       String?
+  image       String?
+}
+
+model Review {
+  id          String   @id @default(cuid())
+  
+  vendorId    String
+  vendor      Vendor   @relation(fields: [vendorId], references: [id], onDelete: Cascade)
+  
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  
+  rating      Int      // 1-5
+  title       String?
+  comment     String?
+  
+  verified    Boolean  @default(false) // Did they actually transact?
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@unique([vendorId, userId]) // One review per user per vendor
+}
+
+model MarketplaceInquiry {
+  id          String   @id @default(cuid())
+  
+  listingId   String
+  
+  // Inquirer info
+  name        String
+  email       String
+  phone       String?
+  message     String
+  
+  // Status
+  status      String   @default("new") // new, responded, closed
+  
+  createdAt   DateTime @default(now())
 }
 
 model BlogPost {
