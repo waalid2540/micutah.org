@@ -48,7 +48,10 @@ export default function ListingDetailPage({ params }: { params: { id: string } }
                 {/* Location */}
                 <div className="flex items-center gap-2 text-gray-600 mb-6">
                   <MapPin className="h-5 w-5" />
-                  <span>{listing.city}, Utah</span>
+                  <span>
+                    {listing.address && `${listing.address}, `}
+                    {listing.city}, Utah {listing.zipCode}
+                  </span>
                 </div>
 
                 {/* Description */}
@@ -71,8 +74,17 @@ export default function ListingDetailPage({ params }: { params: { id: string } }
                       <MapPin className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <p className="text-sm text-gray-600">Location</p>
-                      <p className="font-medium">{listing.city}, Utah</p>
+                      <p className="text-sm text-gray-600">Address</p>
+                      <p className="font-medium">
+                        {listing.address ? (
+                          <>
+                            {listing.address}<br />
+                            {listing.city}, UT {listing.zipCode}
+                          </>
+                        ) : (
+                          `${listing.city}, Utah`
+                        )}
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
