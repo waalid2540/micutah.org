@@ -336,7 +336,7 @@ function ListingCard({ listing, featured = false }: { listing: any; featured?: b
                 </Button>
               </a>
             )}
-            <Link href={`/marketplace/${listing.id}`}>
+            <Link href={`/marketplace/${listing.slug || listing.id}`}>
               <Button size="sm">View</Button>
             </Link>
           </div>
