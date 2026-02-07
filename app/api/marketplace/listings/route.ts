@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { marketplaceListings } from "@/lib/marketplace-data";
 
 // GET /api/marketplace/listings - Get all approved listings
 export async function GET(request: NextRequest) {
@@ -44,31 +45,66 @@ export async function GET(request: NextRequest) {
       ];
     }
 
-    const [listings, total] = await Promise.all([
-      prisma.listing.findMany({
-        where,
-        include: {
-          vendor: {
-            select: {
-              id: true,
-              businessName: true,
-              slug: true,
-              logo: true,
-              rating: true,
-              halalCertified: true,
+    let listings: any[] = [];
+    let total = 0;
+
+    try {
+      const result = await Promise.all([
+        prisma.listing.findMany({
+          where,
+          include: {
+            vendor: {
+              select: {
+                id: true,
+                businessName: true,
+                slug: true,
+                logo: true,
+                rating: true,
+                halalCertified: true,
+              },
             },
+            category: true,
           },
-          category: true,
-        },
-        orderBy: [
-          { featured: "desc" },
-          { createdAt: "desc" },
-        ],
-        skip: (page - 1) * limit,
-        take: limit,
-      }),
-      prisma.listing.count({ where }),
-    ]);
+          orderBy: [
+            { featured: "desc" },
+            { createdAt: "desc" },
+          ],
+          skip: (page - 1) * limit,
+          take: limit,
+        }),
+        prisma.listing.count({ where }),
+      ]);
+      listings = result[0];
+      total = result[1];
+    } catch (dbError) {
+      console.log("Database not available, using fallback data");
+    }
+
+    // Use fallback data if database is empty
+    if (listings.length === 0) {
+      let fallbackData = [...marketplaceListings];
+      
+      // Apply filters to fallback data
+      if (category && category !== "all") {
+        fallbackData = fallbackData.filter(l => l.categoryName === category);
+      }
+      if (search) {
+        const searchLower = search.toLowerCase();
+        fallbackData = fallbackData.filter(l => 
+          l.title.toLowerCase().includes(searchLower) ||
+          l.description.toLowerCase().includes(searchLower)
+        );
+      }
+      if (featured === "true") {
+        fallbackData = fallbackData.filter(l => l.featured);
+      }
+      
+      // Sort: featured first
+      fallbackData.sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
+      
+      total = fallbackData.length;
+      listings = fallbackData.slice((page - 1) * limit, page * limit);
+    }
 
     return NextResponse.json({
       listings,

@@ -1,19 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { marketplaceCategories } from "@/lib/marketplace-data";
 
 // Default categories if none exist
-const defaultCategories = [
-  { name: "Food & Catering", slug: "food-catering", icon: "🍽️", order: 1 },
-  { name: "Services", slug: "services", icon: "🔧", order: 2 },
-  { name: "Products", slug: "products", icon: "📦", order: 3 },
-  { name: "Real Estate", slug: "real-estate", icon: "🏠", order: 4 },
-  { name: "Jobs", slug: "jobs", icon: "💼", order: 5 },
-  { name: "Health & Wellness", slug: "health-wellness", icon: "💊", order: 6 },
-  { name: "Education", slug: "education", icon: "📚", order: 7 },
-  { name: "Automotive", slug: "automotive", icon: "🚗", order: 8 },
-  { name: "Events", slug: "events", icon: "🎉", order: 9 },
-  { name: "Other", slug: "other", icon: "📌", order: 99 },
-];
+const defaultCategories = marketplaceCategories;
 
 // GET /api/marketplace/categories - Get all categories
 export async function GET() {
