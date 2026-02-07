@@ -228,7 +228,7 @@ export default function RamadanPage() {
               <CardContent className="pt-6">
                 <p className="text-sm text-gray-600">First Day of Ramadan</p>
                 <p className="text-2xl font-heading font-bold text-primary">
-                  February 17, 2026*
+                  February 18, 2026*
                 </p>
                 <p className="text-xs text-gray-500 mt-2">
                   *Subject to moon sighting
@@ -239,7 +239,7 @@ export default function RamadanPage() {
               <CardContent className="pt-6">
                 <p className="text-sm text-gray-600">Last 10 Nights Begin</p>
                 <p className="text-2xl font-heading font-bold text-accent">
-                  March 9, 2026*
+                  March 10, 2026*
                 </p>
                 <p className="text-xs text-gray-500 mt-2">
                   Seek Laylatul Qadr
@@ -250,7 +250,7 @@ export default function RamadanPage() {
               <CardContent className="pt-6">
                 <p className="text-sm text-gray-600">Eid ul-Fitr</p>
                 <p className="text-2xl font-heading font-bold text-primary">
-                  March 19, 2026*
+                  March 20, 2026*
                 </p>
                 <p className="text-xs text-gray-500 mt-2">
                   *Subject to moon sighting
