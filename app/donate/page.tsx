@@ -67,14 +67,38 @@ export default function DonatePage() {
     }
   };
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In production, this would create a Stripe checkout session
-    alert(
-      `In production, this would process a $${amount} ${
-        isRecurring ? "monthly" : "one-time"
-      } ${selectedCategory} donation. Thank you!`
-    );
+    setIsLoading(true);
+
+    try {
+      const response = await fetch("/api/donations", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          amount,
+          category: selectedCategory,
+          isRecurring,
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        alert("Error: " + (data.error || "Failed to process donation"));
+        setIsLoading(false);
+      }
+    } catch (error) {
+      alert("Error processing donation. Please try again.");
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -309,9 +333,9 @@ export default function DonatePage() {
                     </div>
                   </div>
 
-                  <Button type="submit" size="xl" className="w-full gap-2">
+                  <Button type="submit" size="xl" className="w-full gap-2" disabled={isLoading}>
                     <Heart className="h-5 w-5" />
-                    Complete Donation
+                    {isLoading ? "Processing..." : "Complete Donation"}
                   </Button>
 
                   <div className="flex items-center justify-center gap-6 mt-6 text-sm text-gray-600">

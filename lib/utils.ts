@@ -22,6 +22,11 @@ export function formatDate(date: Date | string): string {
 }
 
 export function formatTime(time: string): string {
+  // If time is already formatted (contains AM/PM), return as-is
+  if (time.includes("AM") || time.includes("PM")) {
+    return time;
+  }
+  // Otherwise, convert from 24-hour format
   const [hours, minutes] = time.split(":");
   const date = new Date();
   date.setHours(parseInt(hours), parseInt(minutes));

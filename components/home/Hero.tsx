@@ -55,12 +55,7 @@ const slides = [
   },
 ];
 
-function formatTime(time24: string): string {
-  const [h, m] = time24.split(":").map(Number);
-  const ampm = h >= 12 ? "PM" : "AM";
-  const hour12 = h % 12 || 12;
-  return `${hour12}:${m.toString().padStart(2, "0")} ${ampm}`;
-}
+// Prayer times are already formatted from the library, no conversion needed
 
 export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -74,12 +69,12 @@ export default function Hero() {
     const next = getNextPrayer(pt);
     setPrayerData({
       times: [
-        { name: "Fajr", time: formatTime(pt.fajr) },
-        { name: "Sunrise", time: formatTime(pt.sunrise) },
-        { name: "Dhuhr", time: formatTime(pt.dhuhr) },
-        { name: "Asr", time: formatTime(pt.asr) },
-        { name: "Maghrib", time: formatTime(pt.maghrib) },
-        { name: "Isha", time: formatTime(pt.isha) },
+        { name: "Fajr", time: pt.fajr },
+        { name: "Sunrise", time: pt.sunrise },
+        { name: "Dhuhr", time: pt.dhuhr },
+        { name: "Asr", time: pt.asr },
+        { name: "Maghrib", time: pt.maghrib },
+        { name: "Isha", time: pt.isha },
       ],
       nextPrayer: next.name,
     });
