@@ -1,5 +1,17 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { getRamadanPlannerWelcomeEmail } from "@/lib/email-templates/ramadan-planner-welcome";
+
+// Dynamic import to avoid build-time initialization
+let resendClient: any = null;
+
+async function getResend() {
+  if (!resendClient && process.env.RESEND_API_KEY) {
+    const { Resend } = await import("resend");
+    resendClient = new Resend(process.env.RESEND_API_KEY);
+  }
+  return resendClient;
+}
 
 export async function POST(request: Request) {
   try {
@@ -15,21 +27,21 @@ export async function POST(request: Request) {
     }
 
     // Store the lead in database
-    // Note: You'll need to create this table in your Prisma schema
-    // For now, we'll try to store it and handle if table doesn't exist
+    let leadId: string | null = null;
     try {
-      await prisma.ramadanPlannerLead.create({
+      const lead = await prisma.ramadanPlannerLead.create({
         data: {
           email,
           firstName,
           country,
           interestedInUmrah: interestedInUmrah || false,
           source: "ramadan-planner-2026",
-          createdAt: new Date(),
         },
       });
-    } catch (dbError) {
-      // If table doesn't exist, log to console (you can see in Render logs)
+      leadId = lead.id;
+    } catch (dbError: any) {
+      // If duplicate email or table doesn't exist, log and continue
+      console.log("Database note:", dbError.message);
       console.log("New Ramadan Planner Lead:", {
         email,
         firstName,
@@ -39,32 +51,43 @@ export async function POST(request: Request) {
       });
     }
 
-    // TODO: Integrate with email service (ConvertKit, Mailchimp, etc.)
-    // For now, we'll just return success and let the client handle download
-    
-    // Example ConvertKit integration (uncomment when ready):
-    /*
-    const CONVERTKIT_API_KEY = process.env.CONVERTKIT_API_KEY;
-    const CONVERTKIT_FORM_ID = process.env.CONVERTKIT_FORM_ID;
-    
-    if (CONVERTKIT_API_KEY && CONVERTKIT_FORM_ID) {
-      await fetch(`https://api.convertkit.com/v3/forms/${CONVERTKIT_FORM_ID}/subscribe`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          api_key: CONVERTKIT_API_KEY,
-          email,
-          first_name: firstName,
-          fields: {
-            country,
-            interested_in_umrah: interestedInUmrah ? "yes" : "no",
-          },
-        }),
-      });
-    }
-    */
+    // Send welcome email with planner
+    if (process.env.RESEND_API_KEY) {
+      try {
+        const resend = await getResend();
+        if (resend) {
+          const { subject, html } = getRamadanPlannerWelcomeEmail(firstName);
+          
+          await resend.emails.send({
+            from: process.env.EMAIL_FROM || "MIC Utah <noreply@micutah.org>",
+            to: email,
+            subject,
+            html,
+          });
 
-    return NextResponse.json({ success: true });
+          // Update lead to mark email as sent
+          if (leadId) {
+            await prisma.ramadanPlannerLead.update({
+              where: { id: leadId },
+              data: { emailSent: true },
+            });
+          }
+
+          console.log(`✓ Welcome email sent to ${email}`);
+        }
+      } catch (emailError: any) {
+        console.error("Email send error:", emailError.message);
+        // Don't fail the request if email fails - they can still download
+      }
+    } else {
+      console.log("RESEND_API_KEY not set - skipping email");
+    }
+
+    return NextResponse.json({ 
+      success: true,
+      message: "Signup successful",
+      downloadUrl: "/downloads/ramadan-planner-2026.pdf"
+    });
   } catch (error) {
     console.error("Error processing ramadan planner signup:", error);
     return NextResponse.json(
@@ -74,10 +97,9 @@ export async function POST(request: Request) {
   }
 }
 
-// GET endpoint to retrieve leads (admin only - add auth in production)
+// GET endpoint to retrieve leads (admin only)
 export async function GET(request: Request) {
   try {
-    // Basic auth check - improve this for production
     const authHeader = request.headers.get("authorization");
     if (authHeader !== `Bearer ${process.env.ADMIN_API_KEY}`) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -87,7 +109,17 @@ export async function GET(request: Request) {
       orderBy: { createdAt: "desc" },
     });
 
-    return NextResponse.json({ leads, count: leads.length });
+    // Stats
+    const stats = {
+      total: leads.length,
+      interestedInUmrah: leads.filter(l => l.interestedInUmrah).length,
+      byCountry: leads.reduce((acc: any, l) => {
+        acc[l.country] = (acc[l.country] || 0) + 1;
+        return acc;
+      }, {}),
+    };
+
+    return NextResponse.json({ leads, stats });
   } catch (error) {
     console.error("Error fetching leads:", error);
     return NextResponse.json(

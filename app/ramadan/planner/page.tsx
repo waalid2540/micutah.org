@@ -87,6 +87,13 @@ export default function RamadanPlannerPage() {
 
       if (response.ok) {
         setIsSubmitted(true);
+        // Auto-download the PDF
+        const link = document.createElement('a');
+        link.href = '/downloads/ramadan-planner-2026.pdf';
+        link.download = 'Ramadan-Planner-2026-MIC-Utah.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
       } else {
         setError("Something went wrong. Please try again.");
       }
