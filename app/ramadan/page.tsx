@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Moon, Heart, Calendar, Clock, Utensils, BookOpen } from "lucide-react";
+import { Moon, Heart, Calendar, Clock, Utensils, BookOpen, Download, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -66,6 +66,27 @@ export default function RamadanPage() {
             <Link href="/ramadan/donations">
               <Button size="xl" variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
                 Ramadan Donations
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* FREE Ramadan Planner Banner */}
+      <section className="py-6 bg-gradient-to-r from-amber-500 to-amber-600 text-white">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <Sparkles className="h-8 w-8" />
+              <div>
+                <p className="font-bold text-lg">FREE: Ultimate Ramadan Planner 2026</p>
+                <p className="text-white/90 text-sm">40+ pages of daily trackers, duas, and more!</p>
+              </div>
+            </div>
+            <Link href="/ramadan/planner">
+              <Button className="bg-white text-amber-600 hover:bg-white/90 gap-2">
+                <Download className="h-4 w-4" />
+                Get Free Planner
               </Button>
             </Link>
           </div>

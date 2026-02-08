@@ -318,3 +318,26 @@ model RamadanDonation {
   status    String   @default("pending")
   createdAt DateTime @default(now())
 }
+
+// ============== RAMADAN PLANNER LEADS ==============
+
+model RamadanPlannerLead {
+  id               String   @id @default(cuid())
+  email            String   
+  firstName        String
+  country          String
+  interestedInUmrah Boolean @default(false)
+  source           String   @default("ramadan-planner-2026")
+  
+  // Email engagement tracking
+  emailSent        Boolean  @default(false)
+  emailOpened      Boolean  @default(false)
+  downloaded       Boolean  @default(false)
+  
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  
+  @@index([email])
+  @@index([country])
+  @@index([interestedInUmrah])
+}

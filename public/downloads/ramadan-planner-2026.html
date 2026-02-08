@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Ramadan Planner 2026 | MIC Utah</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a5f4a;
+            --primary-light: #2d8a6e;
+            --gold: #c9a227;
+            --gold-light: #f4e4ba;
+            --dark: #1a1a2e;
+            --gray: #6b7280;
+            --light: #f8f9fa;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            background: var(--white);
+        }
+        
+        .arabic {
+            font-family: 'Amiri', serif;
+            font-size: 1.4em;
+            direction: rtl;
+            line-height: 2;
+        }
+        
+        .page {
+            width: 8.5in;
+            min-height: 11in;
+            margin: 0 auto;
+            padding: 0.75in;
+            background: var(--white);
+            page-break-after: always;
+        }
+        
+        @media print {
+            .page {
+                margin: 0;
+                padding: 0.5in;
+                page-break-after: always;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+        
+        /* Cover Page */
+        .cover {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cover::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(201,162,39,0.1) 0%, transparent 50%);
+        }
+        
+        .cover .moon {
+            font-size: 120px;
+            margin-bottom: 20px;
+        }
+        
+        .cover h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+        
+        .cover .subtitle {
+            font-size: 24px;
+            color: var(--gold);
+            margin-bottom: 40px;
+        }
+        
+        .cover .tagline {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 400px;
+            margin-bottom: 60px;
+        }
+        
+        .cover .brand {
+            position: absolute;
+            bottom: 60px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        .cover .brand strong {
+            color: var(--gold);
+        }
+        
+        /* Section Headers */
+        .section-header {
+            background: var(--primary);
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .section-header .icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+        
+        .section-header h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        
+        .section-header p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        /* Content Pages */
+        h1 {
+            color: var(--primary);
+            font-size: 28px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--gold);
+        }
+        
+        h2 {
+            color: var(--primary);
+            font-size: 22px;
+            margin: 25px 0 15px 0;
+        }
+        
+        h3 {
+            color: var(--primary-light);
+            font-size: 18px;
+            margin: 20px 0 10px 0;
+        }
+        
+        p {
+            margin-bottom: 12px;
+        }
+        
+        ul, ol {
+            margin: 15px 0 15px 25px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .checkbox-list {
+            list-style: none;
+            margin-left: 0;
+        }
+        
+        .checkbox-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+        
+        .checkbox-list li::before {
+            content: '☐';
+            font-size: 18px;
+            color: var(--primary);
+        }
+        
+        .highlight-box {
+            background: var(--gold-light);
+            border-left: 4px solid var(--gold);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .tip-box {
+            background: #e8f5f1;
+            border-left: 4px solid var(--primary);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .dua-box {
+            background: var(--light);
+            border: 2px solid var(--primary);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .dua-box .arabic {
+            color: var(--primary);
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .dua-box .transliteration {
+            font-style: italic;
+            color: var(--gray);
+            margin-bottom: 10px;
+        }
+        
+        .dua-box .meaning {
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th {
+            background: var(--primary);
+            color: var(--white);
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        
+        tr:nth-child(even) {
+            background: var(--light);
+        }
+        
+        .write-line {
+            border-bottom: 1px solid #ccc;
+            min-height: 30px;
+            margin: 10px 0;
+        }
+        
+        .write-box {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            min-height: 100px;
+            margin: 15px 0;
+            padding: 15px;
+        }
+        
+        .daily-page {
+            border: 2px solid var(--primary);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .daily-header {
+            background: var(--primary);
+            color: var(--white);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .daily-header h3 {
+            color: var(--white);
+            margin: 0;
+            font-size: 20px;
+        }
+        
+        .daily-content {
+            padding: 20px;
+        }
+        
+        .prayer-times {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .prayer-time {
+            background: var(--light);
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .prayer-time .name {
+            font-size: 12px;
+            color: var(--gray);
+            text-transform: uppercase;
+        }
+        
+        .prayer-time .time {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .section-divider {
+            border-top: 1px dashed #ccc;
+            margin: 20px 0;
+        }
+        
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        .rating {
+            display: flex;
+            gap: 10px;
+            font-size: 24px;
+        }
+        
+        .rating span {
+            opacity: 0.3;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e5e5;
+            color: var(--gray);
+            font-size: 12px;
+        }
+        
+        .toc-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px dotted #ccc;
+        }
+        
+        .quran-tracker {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 8px;
+        }
+        
+        .juz-box {
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            padding: 8px;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        .juz-box .num {
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .last-ten {
+            background: linear-gradient(135deg, var(--dark) 0%, #2d1f4e 100%);
+            color: var(--white);
+        }
+        
+        .last-ten h1, .last-ten h2, .last-ten h3 {
+            color: var(--gold);
+        }
+        
+        .last-ten .dua-box {
+            background: rgba(255,255,255,0.1);
+            border-color: var(--gold);
+        }
+        
+        .last-ten .dua-box .arabic {
+            color: var(--gold);
+        }
+        
+        .last-ten .dua-box .meaning {
+            color: var(--white);
+        }
+        
+        .star {
+            color: var(--gold);
+        }
+        
+        .meal-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .meal-box {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        
+        .meal-box h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        .kids-chart {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            text-align: center;
+        }
+        
+        .kids-chart .day {
+            background: var(--light);
+            padding: 15px 5px;
+            border-radius: 8px;
+            font-size: 12px;
+        }
+        
+        .kids-chart .day .num {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .print-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .print-btn:hover {
+            background: var(--primary-light);
+        }
+    </style>
+</head>
+<body>
+
+<button class="print-btn no-print" onclick="window.print()">📄 Save as PDF</button>
+
+<!-- COVER PAGE -->
+<div class="page cover">
+    <div class="moon">🌙</div>
+    <h1>The Ultimate<br>Ramadan Planner</h1>
+    <div class="subtitle">2026 Edition</div>
+    <p class="tagline">Your complete guide to the most blessed month — goals, duas, trackers, and everything you need for your best Ramadan yet.</p>
+    <div class="brand">From <strong>Madina Islamic Center (MIC Utah)</strong><br>Serving Muslims locally and globally</div>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="page">
+    <h1>📋 Table of Contents</h1>
+    
+    <div class="toc-item"><span>Welcome & How to Use This Planner</span><span>3</span></div>
+    <div class="toc-item"><span>Ramadan 2026 Key Dates</span><span>4</span></div>
+    <div class="toc-item"><span>Pre-Ramadan Preparation Checklist</span><span>5</span></div>
+    <div class="toc-item"><span>My Ramadan Goals</span><span>6</span></div>
+    <div class="toc-item"><span>Daily Planner Pages (Days 1-30)</span><span>7-36</span></div>
+    <div class="toc-item"><span>Quran Completion Tracker</span><span>37</span></div>
+    <div class="toc-item"><span>30 Daily Duas with Meanings</span><span>38-42</span></div>
+    <div class="toc-item"><span>Last 10 Nights Battle Plan</span><span>43-45</span></div>
+    <div class="toc-item"><span>Meal Planning Templates</span><span>46-47</span></div>
+    <div class="toc-item"><span>Kids Ramadan Section</span><span>48-49</span></div>
+    <div class="toc-item"><span>Eid Preparation Checklist</span><span>50</span></div>
+    <div class="toc-item"><span>Post-Ramadan: Keeping Momentum</span><span>51</span></div>
+    <div class="toc-item"><span>My Ramadan Reflections</span><span>52-53</span></div>
+    
+    <div class="highlight-box" style="margin-top: 40px;">
+        <h3>💡 How to Use This Planner</h3>
+        <ol>
+            <li><strong>Print it out</strong> or use digitally on your tablet</li>
+            <li><strong>Complete the Pre-Ramadan section</strong> before Day 1</li>
+            <li><strong>Use one daily page each day</strong> — don't skip!</li>
+            <li><strong>Track your Quran progress</strong> on the tracker page</li>
+            <li><strong>Review weekly</strong> using the reflection pages</li>
+            <li><strong>Go ALL IN</strong> during the Last 10 Nights</li>
+        </ol>
+    </div>
+</div>
+
+<!-- WELCOME PAGE -->
+<div class="page">
+    <h1>🌙 Welcome to Your Best Ramadan</h1>
+    
+    <p style="font-size: 18px; margin-bottom: 30px;">Assalamu Alaikum!</p>
+    
+    <p>You're holding more than a planner. This is your roadmap to the most transformative month of the year.</p>
+    
+    <p>Ramadan isn't just about not eating. It's about:</p>
+    
+    <ul>
+        <li><strong>Resetting</strong> your relationship with Allah</li>
+        <li><strong>Breaking</strong> bad habits</li>
+        <li><strong>Building</strong> new ones</li>
+        <li><strong>Purifying</strong> your heart</li>
+        <li><strong>Connecting</strong> with the Quran</li>
+        <li><strong>Giving</strong> generously</li>
+        <li><strong>Growing</strong> spiritually</li>
+    </ul>
+    
+    <div class="dua-box">
+        <span class="arabic">شَهْرُ رَمَضَانَ الَّذِي أُنزِلَ فِيهِ الْقُرْآنُ هُدًى لِّلنَّاسِ</span>
+        <p class="meaning">"The month of Ramadan in which the Quran was revealed, a guidance for the people."</p>
+        <p style="font-size: 12px; color: var(--gray);">— Surah Al-Baqarah, 2:185</p>
+    </div>
+    
+    <div class="tip-box">
+        <h3>🎯 Your Mission This Month</h3>
+        <p>Write your ONE big intention for this Ramadan:</p>
+        <div class="write-box" style="min-height: 80px;"></div>
+    </div>
+    
+    <p><em>Let's make this your best Ramadan yet.</em></p>
+    <p><strong>— Your brothers and sisters at MIC Utah</strong></p>
+</div>
+
+<!-- KEY DATES -->
+<div class="page">
+    <h1>📅 Ramadan 2026 Key Dates</h1>
+    
+    <table>
+        <tr>
+            <th>Event</th>
+            <th>Expected Date</th>
+            <th>Day</th>
+        </tr>
+        <tr>
+            <td>🌙 First day of Ramadan</td>
+            <td>February 28, 2026*</td>
+            <td>Saturday</td>
+        </tr>
+        <tr>
+            <td>📖 Halfway point (Day 15)</td>
+            <td>March 14, 2026</td>
+            <td>Saturday</td>
+        </tr>
+        <tr>
+            <td>⭐ Last 10 Nights begin</td>
+            <td>March 19, 2026</td>
+            <td>Thursday</td>
+        </tr>
+        <tr>
+            <td>✨ 21st Night (Odd)</td>
+            <td>March 20, 2026</td>
+            <td>Friday</td>
+        </tr>
+        <tr>
+            <td>✨ 23rd Night (Odd)</td>
+            <td>March 22, 2026</td>
+            <td>Sunday</td>
+        </tr>
+        <tr>
+            <td>✨ 25th Night (Odd)</td>
+            <td>March 24, 2026</td>
+            <td>Tuesday</td>
+        </tr>
+        <tr>
+            <td>✨ 27th Night (Odd)</td>
+            <td>March 26, 2026</td>
+            <td>Thursday</td>
+        </tr>
+        <tr>
+            <td>✨ 29th Night (Odd)</td>
+            <td>March 28, 2026</td>
+            <td>Saturday</td>
+        </tr>
+        <tr>
+            <td>🎉 Eid al-Fitr (expected)</td>
+            <td>March 29-30, 2026</td>
+            <td>Sun-Mon</td>
+        </tr>
+    </table>
+    
+    <p style="font-size: 12px; color: var(--gray);">*Dates depend on moon sighting. Always confirm with your local masjid.</p>
+    
+    <div class="highlight-box">
+        <h3>⭐ About Laylatul Qadr</h3>
+        <p>The Prophet ﷺ said: <em>"Search for Laylatul Qadr in the odd nights of the last ten nights of Ramadan."</em></p>
+        <p style="margin-top: 10px;">This one night is better than <strong>1,000 months</strong> (83+ years). Don't miss the odd nights!</p>
+    </div>
+    
+    <h2>My Local Prayer Times</h2>
+    <p style="color: var(--gray);">Fill in your local times for quick reference:</p>
+    
+    <table>
+        <tr>
+            <th>Prayer</th>
+            <th>Time</th>
+            <th>Prayer</th>
+            <th>Time</th>
+        </tr>
+        <tr>
+            <td>Fajr</td>
+            <td style="border-bottom: 1px solid #ccc;"></td>
+            <td>Maghrib</td>
+            <td style="border-bottom: 1px solid #ccc;"></td>
+        </tr>
+        <tr>
+            <td>Sunrise</td>
+            <td style="border-bottom: 1px solid #ccc;"></td>
+            <td>Isha</td>
+            <td style="border-bottom: 1px solid #ccc;"></td>
+        </tr>
+        <tr>
+            <td>Dhuhr</td>
+            <td style="border-bottom: 1px solid #ccc;"></td>
+            <td>Taraweeh</td>
+            <td style="border-bottom: 1px solid #ccc;"></td>
+        </tr>
+        <tr>
+            <td>Asr</td>
+            <td style="border-bottom: 1px solid #ccc;"></td>
+            <td>Tahajjud</td>
+            <td style="border-bottom: 1px solid #ccc;"></td>
+        </tr>
+    </table>
+</div>
+
+<!-- PRE-RAMADAN CHECKLIST -->
+<div class="page">
+    <h1>✅ Pre-Ramadan Preparation</h1>
+    <p>Don't wait for Ramadan to start preparing. The Sahaba used to prepare months in advance.</p>
+    
+    <h2>🤲 Spiritual Preparation</h2>
+    <ul class="checkbox-list">
+        <li>Make tawbah (repentance) — enter Ramadan clean</li>
+        <li>Forgive everyone who wronged you</li>
+        <li>Ask forgiveness from anyone YOU wronged</li>
+        <li>Settle any debts you can</li>
+        <li>Make a list of bad habits to break</li>
+        <li>Make a list of good habits to build</li>
+        <li>Set your Quran goal</li>
+        <li>Identify your weak spots</li>
+    </ul>
+    
+    <h2>📦 Practical Preparation</h2>
+    <ul class="checkbox-list">
+        <li>Stock up on dates, water, healthy foods</li>
+        <li>Meal plan for the first week</li>
+        <li>Clear your schedule where possible</li>
+        <li>Set up a prayer space at home</li>
+        <li>Download Quran app / get physical Quran ready</li>
+        <li>Find your masjid's Taraweeh schedule</li>
+        <li>Calculate your Zakat</li>
+        <li>Prepare kids for Ramadan</li>
+    </ul>
+    
+    <h2>💰 Charity Planning</h2>
+    <table>
+        <tr>
+            <th>Type</th>
+            <th>Amount</th>
+            <th>When</th>
+            <th>Done</th>
+        </tr>
+        <tr>
+            <td>Zakat (2.5% of savings)</td>
+            <td>$________</td>
+            <td>__________</td>
+            <td>☐</td>
+        </tr>
+        <tr>
+            <td>Daily Sadaqah</td>
+            <td>$____/day</td>
+            <td>Daily</td>
+            <td>☐</td>
+        </tr>
+        <tr>
+            <td>Fidya (if applicable)</td>
+            <td>$________</td>
+            <td>__________</td>
+            <td>☐</td>
+        </tr>
+        <tr>
+            <td>Zakat al-Fitr</td>
+            <td>$________</td>
+            <td>Before Eid</td>
+            <td>☐</td>
+        </tr>
+    </table>
+</div>
+
+<!-- GOALS PAGE -->
+<div class="page">
+    <h1>🎯 My Ramadan Goals</h1>
+    
+    <h2>📖 Quran Goal</h2>
+    <ul class="checkbox-list">
+        <li>Complete entire Quran (1 juz/day = 20 pages)</li>
+        <li>Complete half Quran (10 pages/day)</li>
+        <li>Read with understanding (tafsir)</li>
+        <li>Memorize: ________________________________</li>
+        <li>Other: ________________________________</li>
+    </ul>
+    
+    <h2>🕌 Prayer Goal</h2>
+    <ul class="checkbox-list">
+        <li>All 5 prayers on time</li>
+        <li>All prayers in masjid</li>
+        <li>Taraweeh every night</li>
+        <li>Tahajjud in last 10 nights</li>
+        <li>Add Duha prayer daily</li>
+        <li>Other: ________________________________</li>
+    </ul>
+    
+    <h2>💪 Character Goal</h2>
+    <ul class="checkbox-list">
+        <li>Control my anger</li>
+        <li>Stop backbiting completely</li>
+        <li>Be more patient with family</li>
+        <li>Speak less, listen more</li>
+        <li>Other: ________________________________</li>
+    </ul>
+    
+    <h2>🔄 Habit to Break</h2>
+    <div class="write-box" style="min-height: 60px;"></div>
+    
+    <h2>✨ Habit to Build</h2>
+    <div class="write-box" style="min-height: 60px;"></div>
+    
+    <div class="highlight-box">
+        <h3>🤲 My #1 Dua This Ramadan</h3>
+        <p>What is the ONE thing you will ask Allah for every single day?</p>
+        <div class="write-box" style="min-height: 60px; background: white;"></div>
+    </div>
+</div>
+
+<!-- DAILY PAGE TEMPLATE - DAY 1 -->
+<div class="page">
+    <div class="daily-page">
+        <div class="daily-header">
+            <h3>Day 1 of Ramadan</h3>
+            <span>Date: _______________</span>
+        </div>
+        <div class="daily-content">
+            <div class="prayer-times">
+                <div class="prayer-time">
+                    <div class="name">Fajr</div>
+                    <div class="time">_____</div>
+                </div>
+                <div class="prayer-time">
+                    <div class="name">Dhuhr</div>
+                    <div class="time">_____</div>
+                </div>
+                <div class="prayer-time">
+                    <div class="name">Asr</div>
+                    <div class="time">_____</div>
+                </div>
+                <div class="prayer-time">
+                    <div class="name">Maghrib</div>
+                    <div class="time">_____</div>
+                </div>
+                <div class="prayer-time">
+                    <div class="name">Isha</div>
+                    <div class="time">_____</div>
+                </div>
+                <div class="prayer-time">
+                    <div class="name">Taraweeh</div>
+                    <div class="time">_____</div>
+                </div>
+            </div>
+            
+            <div class="two-column">
+                <div>
+                    <h3>🌅 Suhoor</h3>
+                    <p style="font-size: 12px; color: var(--gray);">Woke up: _______ AM</p>
+                    <ul class="checkbox-list" style="font-size: 14px;">
+                        <li>Tahajjud</li>
+                        <li>Fajr on time</li>
+                        <li>Morning adhkar</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>📖 Quran Today</h3>
+                    <p style="font-size: 12px;">Juz/Surah: ___________</p>
+                    <p style="font-size: 12px;">Pages read: ____</p>
+                    <p style="font-size: 12px;">Total pages: ____ / 604</p>
+                </div>
+            </div>
+            
+            <div class="section-divider"></div>
+            
+            <h3>✨ Today's Good Deeds</h3>
+            <ul class="checkbox-list" style="font-size: 14px;">
+                <li>_________________________________</li>
+                <li>_________________________________</li>
+                <li>_________________________________</li>
+            </ul>
+            
+            <div class="section-divider"></div>
+            
+            <h3>🌙 Iftar & Evening</h3>
+            <div class="two-column">
+                <div>
+                    <ul class="checkbox-list" style="font-size: 14px;">
+                        <li>Maghrib on time</li>
+                        <li>Isha on time</li>
+                        <li>Taraweeh (____ raka'at)</li>
+                    </ul>
+                </div>
+                <div>
+                    <p style="font-size: 12px; color: var(--gray);">Charity today: $______</p>
+                    <p style="font-size: 12px; color: var(--gray);">Mood: ☐😊 ☐😌 ☐😔 ☐🤲</p>
+                </div>
+            </div>
+            
+            <div class="section-divider"></div>
+            
+            <h3>📝 Reflection</h3>
+            <p style="font-size: 12px; color: var(--gray);">Grateful for:</p>
+            <div class="write-line"></div>
+            <p style="font-size: 12px; color: var(--gray);">Tomorrow I will improve:</p>
+            <div class="write-line"></div>
+        </div>
+    </div>
+</div>
+
+<!-- DAILY PAGES 2-5 -->
+<div class="page">
+    <div class="daily-page">
+        <div class="daily-header">
+            <h3>Day 2 of Ramadan</h3>
+            <span>Date: _______________</span>
+        </div>
+        <div class="daily-content">
+            <div class="prayer-times">
+                <div class="prayer-time"><div class="name">Fajr</div><div class="time">_____</div></div>
+                <div class="prayer-time"><div class="name">Dhuhr</div><div class="time">_____</div></div>
+                <div class="prayer-time"><div class="name">Asr</div><div class="time">_____</div></div>
+                <div class="prayer-time"><div class="name">Maghrib</div><div class="time">_____</div></div>
+                <div class="prayer-time"><div class="name">Isha</div><div class="time">_____</div></div>
+                <div class="prayer-time"><div class="name">Taraweeh</div><div class="time">_____</div></div>
+            </div>
+            <div class="two-column">
+                <div>
+                    <h3>🌅 Suhoor</h3>
+                    <p style="font-size: 12px; color: var(--gray);">Woke up: _______ AM</p>
+                    <ul class="checkbox-list" style="font-size: 14px;"><li>Tahajjud</li><li>Fajr on time</li><li>Morning adhkar</li></ul>
+                </div>
+                <div>
+                    <h3>📖 Quran Today</h3>
+                    <p style="font-size: 12px;">Juz/Surah: ___________</p>
+                    <p style="font-size: 12px;">Pages read: ____</p>
+                    <p style="font-size: 12px;">Total pages: ____ / 604</p>
+                </div>
+            </div>
+            <div class="section-divider"></div>
+            <h3>✨ Today's Good Deeds</h3>
+            <ul class="checkbox-list" style="font-size: 14px;"><li>_________________________________</li><li>_________________________________</li><li>_________________________________</li></ul>
+            <div class="section-divider"></div>
+            <h3>🌙 Iftar & Evening</h3>
+            <div class="two-column">
+                <div><ul class="checkbox-list" style="font-size: 14px;"><li>Maghrib on time</li><li>Isha on time</li><li>Taraweeh (____ raka'at)</li></ul></div>
+                <div><p style="font-size: 12px; color: var(--gray);">Charity today: $______</p><p style="font-size: 12px; color: var(--gray);">Mood: ☐😊 ☐😌 ☐😔 ☐🤲</p></div>
+            </div>
+            <div class="section-divider"></div>
+            <h3>📝 Reflection</h3>
+            <p style="font-size: 12px; color: var(--gray);">Grateful for:</p><div class="write-line"></div>
+            <p style="font-size: 12px; color: var(--gray);">Tomorrow I will improve:</p><div class="write-line"></div>
+        </div>
+    </div>
+</div>
+
+<div class="page">
+    <div class="daily-page">
+        <div class="daily-header">
+            <h3>Day 3 of Ramadan</h3>
+            <span>Date: _______________</span>
+        </div>
+        <div class="daily-content">
+            <div class="prayer-times">
+                <div class="prayer-time"><div class="name">Fajr</div><div class="time">_____</div></div>
+                <div class="prayer-time"><div class="name">Dhuhr</div><div class="time">_____</div></div>
+                <div class="prayer-time"><div class="name">Asr</div><div class="time">_____</div></div>
+                <div class="prayer-time"><div class="name">Maghrib</div><div class="time">_____</div></div>
+                <div class="prayer-time"><div class="name">Isha</div><div class="time">_____</div></div>
+                <div class="prayer-time"><div class="name">Taraweeh</div><div class="time">_____</div></div>
+            </div>
+            <div class="two-column">
+                <div>
+                    <h3>🌅 Suhoor</h3>
+                    <p style="font-size: 12px; color: var(--gray);">Woke up: _______ AM</p>
+                    <ul class="checkbox-list" style="font-size: 14px;"><li>Tahajjud</li><li>Fajr on time</li><li>Morning adhkar</li></ul>
+                </div>
+                <div>
+                    <h3>📖 Quran Today</h3>
+                    <p style="font-size: 12px;">Juz/Surah: ___________</p>
+                    <p style="font-size: 12px;">Pages read: ____</p>
+                    <p style="font-size: 12px;">Total pages: ____ / 604</p>
+                </div>
+            </div>
+            <div class="section-divider"></div>
+            <h3>✨ Today's Good Deeds</h3>
+            <ul class="checkbox-list" style="font-size: 14px;"><li>_________________________________</li><li>_________________________________</li><li>_________________________________</li></ul>
+            <div class="section-divider"></div>
+            <h3>🌙 Iftar & Evening</h3>
+            <div class="two-column">
+                <div><ul class="checkbox-list" style="font-size: 14px;"><li>Maghrib on time</li><li>Isha on time</li><li>Taraweeh (____ raka'at)</li></ul></div>
+                <div><p style="font-size: 12px; color: var(--gray);">Charity today: $______</p><p style="font-size: 12px; color: var(--gray);">Mood: ☐😊 ☐😌 ☐😔 ☐🤲</p></div>
+            </div>
+            <div class="section-divider"></div>
+            <h3>📝 Reflection</h3>
+            <p style="font-size: 12px; color: var(--gray);">Grateful for:</p><div class="write-line"></div>
+            <p style="font-size: 12px; color: var(--gray);">Tomorrow I will improve:</p><div class="write-line"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Day 4-10 abbreviated for space, full version would have all 30 -->
+<div class="page">
+    <div class="daily-page">
+        <div class="daily-header"><h3>Day 4 of Ramadan</h3><span>Date: _______________</span></div>
+        <div class="daily-content">
+            <div class="prayer-times">
+                <div class="prayer-time"><div class="name">Fajr</div><div class="time">_____</div></div>
+                <div class="prayer-time"><div class="name">Dhuhr</div><div class="time">_____</div></div>
+                <div class="prayer-time"><div class="name">Asr</div><div class="time">_____</div></div>
+                <div class="prayer-time"><div class="name">Maghrib</div><div class="time">_____</div></div>
+                <div class="prayer-time"><div class="name">Isha</div><div class="time">_____</div></div>
+                <div class="prayer-time"><div class="name">Taraweeh</div><div class="time">_____</div></div>
+            </div>
+            <div class="two-column"><div><h3>🌅 Suhoor</h3><p style="font-size: 12px;">Woke up: _______ AM</p><ul class="checkbox-list" style="font-size: 14px;"><li>Tahajjud</li><li>Fajr on time</li><li>Morning adhkar</li></ul></div><div><h3>📖 Quran Today</h3><p style="font-size: 12px;">Juz/Surah: ___________</p><p style="font-size: 12px;">Pages read: ____ | Total: ____ / 604</p></div></div>
+            <div class="section-divider"></div>
+            <h3>✨ Today's Good Deeds</h3><ul class="checkbox-list" style="font-size: 14px;"><li>_________________________________</li><li>_________________________________</li><li>_________________________________</li></ul>
+            <div class="section-divider"></div>
+            <h3>🌙 Evening</h3><ul class="checkbox-list" style="font-size: 14px;"><li>Maghrib ☐ Isha ☐ Taraweeh ☐</li></ul><p style="font-size: 12px;">Charity: $______ | Mood: ☐😊 ☐😌 ☐😔 ☐🤲</p>
+            <div class="section-divider"></div>
+            <h3>📝 Reflection</h3><p style="font-size: 12px;">Grateful for:</p><div class="write-line"></div><p style="font-size: 12px;">Improve tomorrow:</p><div class="write-line"></div>
+        </div>
+    </div>
+</div>
+
+<div class="page">
+    <div class="daily-page">
+        <div class="daily-header"><h3>Day 5 of Ramadan</h3><span>Date: _______________</span></div>
+        <div class="daily-content">
+            <div class="prayer-times">
+                <div class="prayer-time"><div class="name">Fajr</div><div class="time">_____</div></div>
+                <div class="prayer-time"><div class="name">Dhuhr</div><div class="time">_____</div></div>
+                <div class="prayer-time"><div class="name">Asr</div><div class="time">_____</div></div>
+                <div class="prayer-time"><div class="name">Maghrib</div><div class="time">_____</div></div>
+                <div class="prayer-time"><div class="name">Isha</div><div class="time">_____</div></div>
+                <div class="prayer-time"><div class="name">Taraweeh</div><div class="time">_____</div></div>
+            </div>
+            <div class="two-column"><div><h3>🌅 Suhoor</h3><p style="font-size: 12px;">Woke up: _______ AM</p><ul class="checkbox-list" style="font-size: 14px;"><li>Tahajjud</li><li>Fajr on time</li><li>Morning adhkar</li></ul></div><div><h3>📖 Quran Today</h3><p style="font-size: 12px;">Juz/Surah: ___________</p><p style="font-size: 12px;">Pages read: ____ | Total: ____ / 604</p></div></div>
+            <div class="section-divider"></div>
+            <h3>✨ Today's Good Deeds</h3><ul class="checkbox-list" style="font-size: 14px;"><li>_________________________________</li><li>_________________________________</li><li>_________________________________</li></ul>
+            <div class="section-divider"></div>
+            <h3>🌙 Evening</h3><ul class="checkbox-list" style="font-size: 14px;"><li>Maghrib ☐ Isha ☐ Taraweeh ☐</li></ul><p style="font-size: 12px;">Charity: $______ | Mood: ☐😊 ☐😌 ☐😔 ☐🤲</p>
+            <div class="section-divider"></div>
+            <h3>📝 Reflection</h3><p style="font-size: 12px;">Grateful for:</p><div class="write-line"></div><p style="font-size: 12px;">Improve tomorrow:</p><div class="write-line"></div>
+        </div>
+    </div>
+</div>
+
+<!-- BLANK DAILY TEMPLATE x10 for remaining days -->
+<div class="page">
+    <div class="daily-page"><div class="daily-header"><h3>Day ____ of Ramadan</h3><span>Date: _______________</span></div><div class="daily-content"><div class="prayer-times"><div class="prayer-time"><div class="name">Fajr</div><div class="time">_____</div></div><div class="prayer-time"><div class="name">Dhuhr</div><div class="time">_____</div></div><div class="prayer-time"><div class="name">Asr</div><div class="time">_____</div></div><div class="prayer-time"><div class="name">Maghrib</div><div class="time">_____</div></div><div class="prayer-time"><div class="name">Isha</div><div class="time">_____</div></div><div class="prayer-time"><div class="name">Taraweeh</div><div class="time">_____</div></div></div><div class="two-column"><div><h3>🌅 Suhoor</h3><p style="font-size: 12px;">Woke up: _______ AM</p><ul class="checkbox-list" style="font-size: 14px;"><li>Tahajjud</li><li>Fajr on time</li><li>Morning adhkar</li></ul></div><div><h3>📖 Quran Today</h3><p style="font-size: 12px;">Juz/Surah: ___________</p><p style="font-size: 12px;">Pages read: ____ | Total: ____ / 604</p></div></div><div class="section-divider"></div><h3>✨ Today's Good Deeds</h3><ul class="checkbox-list" style="font-size: 14px;"><li>_________________________________</li><li>_________________________________</li><li>_________________________________</li></ul><div class="section-divider"></div><h3>🌙 Evening</h3><ul class="checkbox-list" style="font-size: 14px;"><li>Maghrib ☐ Isha ☐ Taraweeh ☐</li></ul><p style="font-size: 12px;">Charity: $______ | Mood: ☐😊 ☐😌 ☐😔 ☐🤲</p><div class="section-divider"></div><h3>📝 Reflection</h3><p style="font-size: 12px;">Grateful for:</p><div class="write-line"></div><p style="font-size: 12px;">Improve tomorrow:</p><div class="write-line"></div></div></div>
+</div>
+
+<div class="page">
+    <div class="daily-page"><div class="daily-header"><h3>Day ____ of Ramadan</h3><span>Date: _______________</span></div><div class="daily-content"><div class="prayer-times"><div class="prayer-time"><div class="name">Fajr</div><div class="time">_____</div></div><div class="prayer-time"><div class="name">Dhuhr</div><div class="time">_____</div></div><div class="prayer-time"><div class="name">Asr</div><div class="time">_____</div></div><div class="prayer-time"><div class="name">Maghrib</div><div class="time">_____</div></div><div class="prayer-time"><div class="name">Isha</div><div class="time">_____</div></div><div class="prayer-time"><div class="name">Taraweeh</div><div class="time">_____</div></div></div><div class="two-column"><div><h3>🌅 Suhoor</h3><p style="font-size: 12px;">Woke up: _______ AM</p><ul class="checkbox-list" style="font-size: 14px;"><li>Tahajjud</li><li>Fajr on time</li><li>Morning adhkar</li></ul></div><div><h3>📖 Quran Today</h3><p style="font-size: 12px;">Juz/Surah: ___________</p><p style="font-size: 12px;">Pages read: ____ | Total: ____ / 604</p></div></div><div class="section-divider"></div><h3>✨ Today's Good Deeds</h3><ul class="checkbox-list" style="font-size: 14px;"><li>_________________________________</li><li>_________________________________</li><li>_________________________________</li></ul><div class="section-divider"></div><h3>🌙 Evening</h3><ul class="checkbox-list" style="font-size: 14px;"><li>Maghrib ☐ Isha ☐ Taraweeh ☐</li></ul><p style="font-size: 12px;">Charity: $______ | Mood: ☐😊 ☐😌 ☐😔 ☐🤲</p><div class="section-divider"></div><h3>📝 Reflection</h3><p style="font-size: 12px;">Grateful for:</p><div class="write-line"></div><p style="font-size: 12px;">Improve tomorrow:</p><div class="write-line"></div></div></div>
+</div>
+
+<div class="page">
+    <div class="daily-page"><div class="daily-header"><h3>Day ____ of Ramadan</h3><span>Date: _______________</span></div><div class="daily-content"><div class="prayer-times"><div class="prayer-time"><div class="name">Fajr</div><div class="time">_____</div></div><div class="prayer-time"><div class="name">Dhuhr</div><div class="time">_____</div></div><div class="prayer-time"><div class="name">Asr</div><div class="time">_____</div></div><div class="prayer-time"><div class="name">Maghrib</div><div class="time">_____</div></div><div class="prayer-time"><div class="name">Isha</div><div class="time">_____</div></div><div class="prayer-time"><div class="name">Taraweeh</div><div class="time">_____</div></div></div><div class="two-column"><div><h3>🌅 Suhoor</h3><p style="font-size: 12px;">Woke up: _______ AM</p><ul class="checkbox-list" style="font-size: 14px;"><li>Tahajjud</li><li>Fajr on time</li><li>Morning adhkar</li></ul></div><div><h3>📖 Quran Today</h3><p style="font-size: 12px;">Juz/Surah: ___________</p><p style="font-size: 12px;">Pages read: ____ | Total: ____ / 604</p></div></div><div class="section-divider"></div><h3>✨ Today's Good Deeds</h3><ul class="checkbox-list" style="font-size: 14px;"><li>_________________________________</li><li>_________________________________</li><li>_________________________________</li></ul><div class="section-divider"></div><h3>🌙 Evening</h3><ul class="checkbox-list" style="font-size: 14px;"><li>Maghrib ☐ Isha ☐ Taraweeh ☐</li></ul><p style="font-size: 12px;">Charity: $______ | Mood: ☐😊 ☐😌 ☐😔 ☐🤲</p><div class="section-divider"></div><h3>📝 Reflection</h3><p style="font-size: 12px;">Grateful for:</p><div class="write-line"></div><p style="font-size: 12px;">Improve tomorrow:</p><div class="write-line"></div></div></div>
+</div>
+
+<div class="page">
+    <div class="daily-page"><div class="daily-header"><h3>Day ____ of Ramadan</h3><span>Date: _______________</span></div><div class="daily-content"><div class="prayer-times"><div class="prayer-time"><div class="name">Fajr</div><div class="time">_____</div></div><div class="prayer-time"><div class="name">Dhuhr</div><div class="time">_____</div></div><div class="prayer-time"><div class="name">Asr</div><div class="time">_____</div></div><div class="prayer-time"><div class="name">Maghrib</div><div class="time">_____</div></div><div class="prayer-time"><div class="name">Isha</div><div class="time">_____</div></div><div class="prayer-time"><div class="name">Taraweeh</div><div class="time">_____</div></div></div><div class="two-column"><div><h3>🌅 Suhoor</h3><p style="font-size: 12px;">Woke up: _______ AM</p><ul class="checkbox-list" style="font-size: 14px;"><li>Tahajjud</li><li>Fajr on time</li><li>Morning adhkar</li></ul></div><div><h3>📖 Quran Today</h3><p style="font-size: 12px;">Juz/Surah: ___________</p><p style="font-size: 12px;">Pages read: ____ | Total: ____ / 604</p></div></div><div class="section-divider"></div><h3>✨ Today's Good Deeds</h3><ul class="checkbox-list" style="font-size: 14px;"><li>_________________________________</li><li>_________________________________</li><li>_________________________________</li></ul><div class="section-divider"></div><h3>🌙 Evening</h3><ul class="checkbox-list" style="font-size: 14px;"><li>Maghrib ☐ Isha ☐ Taraweeh ☐</li></ul><p style="font-size: 12px;">Charity: $______ | Mood: ☐😊 ☐😌 ☐😔 ☐🤲</p><div class="section-divider"></div><h3>📝 Reflection</h3><p style="font-size: 12px;">Grateful for:</p><div class="write-line"></div><p style="font-size: 12px;">Improve tomorrow:</p><div class="write-line"></div></div></div>
+</div>
+
+<div class="page">
+    <div class="daily-page"><div class="daily-header"><h3>Day ____ of Ramadan</h3><span>Date: _______________</span></div><div class="daily-content"><div class="prayer-times"><div class="prayer-time"><div class="name">Fajr</div><div class="time">_____</div></div><div class="prayer-time"><div class="name">Dhuhr</div><div class="time">_____</div></div><div class="prayer-time"><div class="name">Asr</div><div class="time">_____</div></div><div class="prayer-time"><div class="name">Maghrib</div><div class="time">_____</div></div><div class="prayer-time"><div class="name">Isha</div><div class="time">_____</div></div><div class="prayer-time"><div class="name">Taraweeh</div><div class="time">_____</div></div></div><div class="two-column"><div><h3>🌅 Suhoor</h3><p style="font-size: 12px;">Woke up: _______ AM</p><ul class="checkbox-list" style="font-size: 14px;"><li>Tahajjud</li><li>Fajr on time</li><li>Morning adhkar</li></ul></div><div><h3>📖 Quran Today</h3><p style="font-size: 12px;">Juz/Surah: ___________</p><p style="font-size: 12px;">Pages read: ____ | Total: ____ / 604</p></div></div><div class="section-divider"></div><h3>✨ Today's Good Deeds</h3><ul class="checkbox-list" style="font-size: 14px;"><li>_________________________________</li><li>_________________________________</li><li>_________________________________</li></ul><div class="section-divider"></div><h3>🌙 Evening</h3><ul class="checkbox-list" style="font-size: 14px;"><li>Maghrib ☐ Isha ☐ Taraweeh ☐</li></ul><p style="font-size: 12px;">Charity: $______ | Mood: ☐😊 ☐😌 ☐😔 ☐🤲</p><div class="section-divider"></div><h3>📝 Reflection</h3><p style="font-size: 12px;">Grateful for:</p><div class="write-line"></div><p style="font-size: 12px;">Improve tomorrow:</p><div class="write-line"></div></div></div>
+</div>
+
+<!-- QURAN TRACKER -->
+<div class="page">
+    <h1>📖 Quran Completion Tracker</h1>
+    
+    <div class="tip-box">
+        <p><strong>The Math:</strong> Quran = 604 pages = 30 juz. To finish in 30 days, read <strong>20 pages/day (1 juz)</strong>.</p>
+    </div>
+    
+    <h2>Track Your Progress</h2>
+    <p>Color in or check each juz as you complete it:</p>
+    
+    <div class="quran-tracker">
+        <div class="juz-box"><div class="num">1</div>☐</div>
+        <div class="juz-box"><div class="num">2</div>☐</div>
+        <div class="juz-box"><div class="num">3</div>☐</div>
+        <div class="juz-box"><div class="num">4</div>☐</div>
+        <div class="juz-box"><div class="num">5</div>☐</div>
+        <div class="juz-box"><div class="num">6</div>☐</div>
+        <div class="juz-box"><div class="num">7</div>☐</div>
+        <div class="juz-box"><div class="num">8</div>☐</div>
+        <div class="juz-box"><div class="num">9</div>☐</div>
+        <div class="juz-box"><div class="num">10</div>☐</div>
+        <div class="juz-box"><div class="num">11</div>☐</div>
+        <div class="juz-box"><div class="num">12</div>☐</div>
+        <div class="juz-box"><div class="num">13</div>☐</div>
+        <div class="juz-box"><div class="num">14</div>☐</div>
+        <div class="juz-box"><div class="num">15</div>☐</div>
+        <div class="juz-box"><div class="num">16</div>☐</div>
+        <div class="juz-box"><div class="num">17</div>☐</div>
+        <div class="juz-box"><div class="num">18</div>☐</div>
+        <div class="juz-box"><div class="num">19</div>☐</div>
+        <div class="juz-box"><div class="num">20</div>☐</div>
+        <div class="juz-box"><div class="num">21</div>☐</div>
+        <div class="juz-box"><div class="num">22</div>☐</div>
+        <div class="juz-box"><div class="num">23</div>☐</div>
+        <div class="juz-box"><div class="num">24</div>☐</div>
+        <div class="juz-box"><div class="num">25</div>☐</div>
+        <div class="juz-box"><div class="num">26</div>☐</div>
+        <div class="juz-box"><div class="num">27</div>☐</div>
+        <div class="juz-box"><div class="num">28</div>☐</div>
+        <div class="juz-box"><div class="num">29</div>☐</div>
+        <div class="juz-box"><div class="num">30</div>☐</div>
+    </div>
+    
+    <h2 style="margin-top: 30px;">Weekly Progress Log</h2>
+    <table>
+        <tr><th>Week</th><th>Target</th><th>Actual</th><th>Behind/Ahead</th></tr>
+        <tr><td>Week 1 (Days 1-7)</td><td>Juz 1-7</td><td></td><td></td></tr>
+        <tr><td>Week 2 (Days 8-14)</td><td>Juz 8-14</td><td></td><td></td></tr>
+        <tr><td>Week 3 (Days 15-21)</td><td>Juz 15-21</td><td></td><td></td></tr>
+        <tr><td>Week 4 (Days 22-30)</td><td>Juz 22-30</td><td></td><td></td></tr>
+    </table>
+    
+    <div class="highlight-box">
+        <h3>🆘 Catch-Up Strategies</h3>
+        <ul>
+            <li><strong>Behind 1 juz:</strong> Add 3 extra pages per day</li>
+            <li><strong>Behind 2+ juz:</strong> Listen to audio Quran during commute/chores</li>
+            <li><strong>Way behind:</strong> Focus on quality over quantity — read less but understand more</li>
+        </ul>
+    </div>
+</div>
+
+<!-- 30 DUAS PAGE 1 -->
+<div class="page">
+    <h1>🤲 30 Daily Duas</h1>
+    <p>One powerful dua for each day of Ramadan. Memorize it. Understand it. Live it.</p>
+    
+    <div class="dua-box">
+        <h3 style="color: var(--primary);">Day 1</h3>
+        <span class="arabic">اللَّهُمَّ إِنِّي أَسْأَلُكَ الْهُدَى وَالتُّقَى وَالْعَفَافَ وَالْغِنَى</span>
+        <p class="transliteration">Allahumma inni as'aluka al-huda wa al-tuqa wa al-'afafa wa al-ghina</p>
+        <p class="meaning">"O Allah, I ask You for guidance, piety, chastity, and self-sufficiency."</p>
+    </div>
+    
+    <div class="dua-box">
+        <h3 style="color: var(--primary);">Day 2</h3>
+        <span class="arabic">رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ</span>
+        <p class="transliteration">Rabbana atina fi al-dunya hasanatan wa fi al-akhirati hasanatan wa qina 'adhab al-nar</p>
+        <p class="meaning">"Our Lord, give us good in this world and the Hereafter, and protect us from the Fire."</p>
+    </div>
+    
+    <div class="dua-box">
+        <h3 style="color: var(--primary);">Day 3</h3>
+        <span class="arabic">اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ</span>
+        <p class="transliteration">Allahumma inni a'udhu bika min al-hammi wa al-hazan</p>
+        <p class="meaning">"O Allah, I seek refuge in You from worry and grief."</p>
+    </div>
+    
+    <div class="dua-box">
+        <h3 style="color: var(--primary);">Day 4</h3>
+        <span class="arabic">رَبِّ اشْرَحْ لِي صَدْرِي وَيَسِّرْ لِي أَمْرِي</span>
+        <p class="transliteration">Rabbi ishrah li sadri wa yassir li amri</p>
+        <p class="meaning">"My Lord, expand my chest and ease my affairs."</p>
+    </div>
+    
+    <div class="dua-box">
+        <h3 style="color: var(--primary);">Day 5</h3>
+        <span class="arabic">اللَّهُمَّ أَعِنِّي عَلَى ذِكْرِكَ وَشُكْرِكَ وَحُسْنِ عِبَادَتِكَ</span>
+        <p class="transliteration">Allahumma a'inni 'ala dhikrika wa shukrika wa husni 'ibadatik</p>
+        <p class="meaning">"O Allah, help me remember You, be grateful to You, and worship You well."</p>
+    </div>
+</div>
+
+<!-- 30 DUAS PAGE 2 -->
+<div class="page">
+    <h1 style="border: none; padding-bottom: 0;">🤲 30 Daily Duas <span style="font-weight: normal; font-size: 18px;">(continued)</span></h1>
+    
+    <div class="dua-box">
+        <h3 style="color: var(--primary);">Day 6</h3>
+        <span class="arabic">اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْمًا نَافِعًا وَرِزْقًا طَيِّبًا وَعَمَلًا مُتَقَبَّلًا</span>
+        <p class="transliteration">Allahumma inni as'aluka 'ilman nafi'an wa rizqan tayyiban wa 'amalan mutaqabbala</p>
+        <p class="meaning">"O Allah, I ask You for beneficial knowledge, good provision, and accepted deeds."</p>
+    </div>
+    
+    <div class="dua-box">
+        <h3 style="color: var(--primary);">Day 7</h3>
+        <span class="arabic">رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا</span>
+        <p class="transliteration">Rabbana la tuzigh qulubana ba'da idh hadaytana</p>
+        <p class="meaning">"Our Lord, do not let our hearts deviate after You have guided us."</p>
+    </div>
+    
+    <div class="dua-box">
+        <h3 style="color: var(--primary);">Day 8</h3>
+        <span class="arabic">اللَّهُمَّ اغْفِرْ لِي ذَنْبِي كُلَّهُ</span>
+        <p class="transliteration">Allahumma ighfir li dhanbi kullahu</p>
+        <p class="meaning">"O Allah, forgive all my sins."</p>
+    </div>
+    
+    <div class="dua-box">
+        <h3 style="color: var(--primary);">Day 9</h3>
+        <span class="arabic">اللَّهُمَّ إِنِّي أَسْأَلُكَ الْجَنَّةَ وَأَعُوذُ بِكَ مِنَ النَّارِ</span>
+        <p class="transliteration">Allahumma inni as'aluka al-jannah wa a'udhu bika min al-nar</p>
+        <p class="meaning">"O Allah, I ask You for Paradise and seek refuge from the Fire."</p>
+    </div>
+    
+    <div class="dua-box">
+        <h3 style="color: var(--primary);">Day 10</h3>
+        <span class="arabic">اللَّهُمَّ أَصْلِحْ لِي دِينِي</span>
+        <p class="transliteration">Allahumma aslih li dini</p>
+        <p class="meaning">"O Allah, set right my religion."</p>
+    </div>
+    
+    <div class="dua-box">
+        <h3 style="color: var(--primary);">Days 11-20</h3>
+        <p style="color: var(--gray);">Continue with duas from the full Dua Guide in your planner materials.</p>
+    </div>
+</div>
+
+<!-- LAST 10 NIGHTS SECTION -->
+<div class="page last-ten">
+    <h1>⭐ The Last 10 Nights</h1>
+    <p style="font-size: 18px; margin-bottom: 30px;">These nights are worth more than a lifetime. Treat them that way.</p>
+    
+    <div class="dua-box">
+        <h3 style="color: var(--gold);">THE Dua for Laylatul Qadr</h3>
+        <span class="arabic" style="font-size: 1.8em;">اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي</span>
+        <p class="transliteration" style="color: #ccc;">Allahumma innaka 'afuwwun tuhibbul 'afwa fa'fu 'anni</p>
+        <p class="meaning">"O Allah, You are Forgiving and love forgiveness, so forgive me."</p>
+        <p style="font-size: 12px; margin-top: 15px; color: #999;">The Prophet ﷺ taught this to Aisha (RA) specifically for these nights. Repeat it constantly.</p>
+    </div>
+    
+    <h2>The Odd Nights</h2>
+    <table style="background: rgba(255,255,255,0.1);">
+        <tr style="background: var(--gold); color: var(--dark);"><th>Night</th><th>Date</th><th>Focus Level</th><th>Done</th></tr>
+        <tr><td>21st ⭐</td><td>__________</td><td>🔥🔥🔥</td><td>☐</td></tr>
+        <tr><td>22nd</td><td>__________</td><td>🔥🔥</td><td>☐</td></tr>
+        <tr><td>23rd ⭐</td><td>__________</td><td>🔥🔥🔥</td><td>☐</td></tr>
+        <tr><td>24th</td><td>__________</td><td>🔥🔥</td><td>☐</td></tr>
+        <tr><td>25th ⭐</td><td>__________</td><td>🔥🔥🔥</td><td>☐</td></tr>
+        <tr><td>26th</td><td>__________</td><td>🔥🔥</td><td>☐</td></tr>
+        <tr><td>27th ⭐⭐</td><td>__________</td><td>🔥🔥🔥🔥</td><td>☐</td></tr>
+        <tr><td>28th</td><td>__________</td><td>🔥🔥</td><td>☐</td></tr>
+        <tr><td>29th ⭐</td><td>__________</td><td>🔥🔥🔥</td><td>☐</td></tr>
+        <tr><td>30th</td><td>__________</td><td>🔥🔥</td><td>☐</td></tr>
+    </table>
+    
+    <h2>My Top 10 Duas for These Nights</h2>
+    <p style="font-size: 14px; color: #ccc;">What will you ask Allah for? Be specific.</p>
+    <ol style="color: var(--white);">
+        <li style="border-bottom: 1px solid rgba(255,255,255,0.2); padding: 8px 0;"></li>
+        <li style="border-bottom: 1px solid rgba(255,255,255,0.2); padding: 8px 0;"></li>
+        <li style="border-bottom: 1px solid rgba(255,255,255,0.2); padding: 8px 0;"></li>
+        <li style="border-bottom: 1px solid rgba(255,255,255,0.2); padding: 8px 0;"></li>
+        <li style="border-bottom: 1px solid rgba(255,255,255,0.2); padding: 8px 0;"></li>
+        <li style="border-bottom: 1px solid rgba(255,255,255,0.2); padding: 8px 0;"></li>
+        <li style="border-bottom: 1px solid rgba(255,255,255,0.2); padding: 8px 0;"></li>
+        <li style="border-bottom: 1px solid rgba(255,255,255,0.2); padding: 8px 0;"></li>
+        <li style="border-bottom: 1px solid rgba(255,255,255,0.2); padding: 8px 0;"></li>
+        <li style="border-bottom: 1px solid rgba(255,255,255,0.2); padding: 8px 0;"></li>
+    </ol>
+</div>
+
+<!-- LAST 10 NIGHTS - CHARITY -->
+<div class="page last-ten">
+    <h1>💰 Last 10 Nights Charity Tracker</h1>
+    <p>Give charity EVERY night. If it lands on Laylatul Qadr, it's multiplied by 1,000 months.</p>
+    <p style="font-size: 14px; color: var(--gold);">Even $1/night = 83+ years of charity if it hits Laylatul Qadr!</p>
+    
+    <table style="background: rgba(255,255,255,0.1); margin-top: 30px;">
+        <tr style="background: var(--gold); color: var(--dark);"><th>Night</th><th>Amount</th><th>Where</th><th>Done</th></tr>
+        <tr><td>21st ⭐</td><td>$_______</td><td>____________________</td><td>☐</td></tr>
+        <tr><td>22nd</td><td>$_______</td><td>____________________</td><td>☐</td></tr>
+        <tr><td>23rd ⭐</td><td>$_______</td><td>____________________</td><td>☐</td></tr>
+        <tr><td>24th</td><td>$_______</td><td>____________________</td><td>☐</td></tr>
+        <tr><td>25th ⭐</td><td>$_______</td><td>____________________</td><td>☐</td></tr>
+        <tr><td>26th</td><td>$_______</td><td>____________________</td><td>☐</td></tr>
+        <tr><td>27th ⭐</td><td>$_______</td><td>____________________</td><td>☐</td></tr>
+        <tr><td>28th</td><td>$_______</td><td>____________________</td><td>☐</td></tr>
+        <tr><td>29th ⭐</td><td>$_______</td><td>____________________</td><td>☐</td></tr>
+        <tr><td>30th</td><td>$_______</td><td>____________________</td><td>☐</td></tr>
+        <tr style="background: var(--gold); color: var(--dark);"><td><strong>TOTAL</strong></td><td><strong>$_______</strong></td><td></td><td></td></tr>
+    </table>
+    
+    <h2 style="margin-top: 40px;">Nightly Schedule Template</h2>
+    <table style="background: rgba(255,255,255,0.1);">
+        <tr style="background: var(--gold); color: var(--dark);"><th>Time</th><th>Activity</th></tr>
+        <tr><td>Iftar</td><td>Break fast, light meal, Maghrib</td></tr>
+        <tr><td>After Maghrib</td><td>Rest briefly</td></tr>
+        <tr><td>Isha + Taraweeh</td><td>Pray at masjid</td></tr>
+        <tr><td>11 PM - 1 AM</td><td>Quran recitation</td></tr>
+        <tr><td>1 AM - 2 AM</td><td>Personal duas, crying to Allah</td></tr>
+        <tr><td>2 AM - 3:30 AM</td><td>Tahajjud prayer</td></tr>
+        <tr><td>3:30 AM - Fajr</td><td>Suhoor + Fajr</td></tr>
+        <tr><td>After Fajr</td><td>Adhkar until sunrise, then rest</td></tr>
+    </table>
+</div>
+
+<!-- MEAL PLANNING -->
+<div class="page">
+    <h1>🍽️ Meal Planning</h1>
+    
+    <h2>Suhoor Tips (Energy That Lasts)</h2>
+    <div class="two-column">
+        <div>
+            <h3 style="color: var(--primary);">✅ Best Foods</h3>
+            <ul>
+                <li>Oatmeal with dates & honey</li>
+                <li>Eggs + whole grain toast</li>
+                <li>Greek yogurt with nuts</li>
+                <li>Banana smoothie with oats</li>
+                <li>Avocado toast</li>
+            </ul>
+        </div>
+        <div>
+            <h3 style="color: #c0392b;">❌ Avoid</h3>
+            <ul>
+                <li>Sugary cereals (crash by noon)</li>
+                <li>Heavy fried foods (sluggish)</li>
+                <li>Too much salt (thirsty)</li>
+                <li>Caffeine (dehydrates)</li>
+            </ul>
+        </div>
+    </div>
+    
+    <h2>Iftar Tips</h2>
+    <ul>
+        <li><strong>Start with:</strong> Dates + water (Sunnah)</li>
+        <li><strong>Then:</strong> Light soup or salad</li>
+        <li><strong>Main:</strong> Balanced meal — don't overeat!</li>
+        <li><strong>Hydrate:</strong> Water between Iftar and Suhoor</li>
+    </ul>
+    
+    <h2>Week 1 Meal Plan</h2>
+    <table>
+        <tr><th>Day</th><th>Suhoor</th><th>Iftar</th></tr>
+        <tr><td>Sat</td><td></td><td></td></tr>
+        <tr><td>Sun</td><td></td><td></td></tr>
+        <tr><td>Mon</td><td></td><td></td></tr>
+        <tr><td>Tue</td><td></td><td></td></tr>
+        <tr><td>Wed</td><td></td><td></td></tr>
+        <tr><td>Thu</td><td></td><td></td></tr>
+        <tr><td>Fri</td><td></td><td></td></tr>
+    </table>
+    
+    <h2>Week 2 Meal Plan</h2>
+    <table>
+        <tr><th>Day</th><th>Suhoor</th><th>Iftar</th></tr>
+        <tr><td>Sat</td><td></td><td></td></tr>
+        <tr><td>Sun</td><td></td><td></td></tr>
+        <tr><td>Mon</td><td></td><td></td></tr>
+        <tr><td>Tue</td><td></td><td></td></tr>
+        <tr><td>Wed</td><td></td><td></td></tr>
+        <tr><td>Thu</td><td></td><td></td></tr>
+        <tr><td>Fri</td><td></td><td></td></tr>
+    </table>
+</div>
+
+<!-- KIDS SECTION -->
+<div class="page">
+    <h1>👨‍👩‍👧‍👦 Kids Ramadan Section</h1>
+    
+    <h2>Getting Kids Excited About Ramadan</h2>
+    <ul class="checkbox-list">
+        <li>Make a Ramadan countdown chain</li>
+        <li>Decorate with moons and stars</li>
+        <li>Get special Ramadan plates/cups</li>
+        <li>Read Ramadan stories each night</li>
+        <li>Let them help prepare iftar</li>
+        <li>Practice "mini-fasts" (skip one meal)</li>
+        <li>Give them their own prayer mat</li>
+    </ul>
+    
+    <h2>Kids Good Deed Chart</h2>
+    <p>Name: ________________________</p>
+    
+    <div class="kids-chart">
+        <div class="day"><div class="num">1</div>☐</div>
+        <div class="day"><div class="num">2</div>☐</div>
+        <div class="day"><div class="num">3</div>☐</div>
+        <div class="day"><div class="num">4</div>☐</div>
+        <div class="day"><div class="num">5</div>☐</div>
+        <div class="day"><div class="num">6</div>☐</div>
+        <div class="day"><div class="num">7</div>☐</div>
+        <div class="day"><div class="num">8</div>☐</div>
+        <div class="day"><div class="num">9</div>☐</div>
+        <div class="day"><div class="num">10</div>☐</div>
+        <div class="day"><div class="num">11</div>☐</div>
+        <div class="day"><div class="num">12</div>☐</div>
+        <div class="day"><div class="num">13</div>☐</div>
+        <div class="day"><div class="num">14</div>☐</div>
+        <div class="day"><div class="num">15</div>☐</div>
+        <div class="day"><div class="num">16</div>☐</div>
+        <div class="day"><div class="num">17</div>☐</div>
+        <div class="day"><div class="num">18</div>☐</div>
+        <div class="day"><div class="num">19</div>☐</div>
+        <div class="day"><div class="num">20</div>☐</div>
+        <div class="day"><div class="num">21</div>☐</div>
+        <div class="day"><div class="num">22</div>☐</div>
+        <div class="day"><div class="num">23</div>☐</div>
+        <div class="day"><div class="num">24</div>☐</div>
+        <div class="day"><div class="num">25</div>☐</div>
+        <div class="day"><div class="num">26</div>☐</div>
+        <div class="day"><div class="num">27</div>☐</div>
+        <div class="day"><div class="num">28</div>☐</div>
+        <div class="day"><div class="num">29</div>☐</div>
+        <div class="day"><div class="num">30</div>☐</div>
+    </div>
+    
+    <h2 style="margin-top: 30px;">Good Deed Ideas for Kids</h2>
+    <div class="two-column">
+        <ul>
+            <li>Helped with chores</li>
+            <li>Shared with sibling</li>
+            <li>Said kind words</li>
+            <li>Memorized a dua</li>
+            <li>Read Quran</li>
+        </ul>
+        <ul>
+            <li>Gave charity (coins!)</li>
+            <li>Made someone smile</li>
+            <li>Helped set iftar table</li>
+            <li>Prayed on time</li>
+            <li>Listened to parents</li>
+        </ul>
+    </div>
+</div>
+
+<!-- EID PREPARATION -->
+<div class="page">
+    <h1>🎉 Eid Preparation</h1>
+    
+    <h2>Week Before Eid Checklist</h2>
+    <ul class="checkbox-list">
+        <li>Confirm Eid prayer location and time</li>
+        <li>Buy/prepare Eid outfits for family</li>
+        <li>Calculate Zakat al-Fitr (see below)</li>
+        <li>Plan Eid breakfast menu</li>
+        <li>Prepare Eid gifts for kids/family</li>
+        <li>Invite family/friends for Eid gathering</li>
+        <li>Clean and decorate the house</li>
+        <li>Plan Eid day activities</li>
+    </ul>
+    
+    <h2>Zakat al-Fitr</h2>
+    <div class="highlight-box">
+        <p><strong>Amount:</strong> ~$12-15 per person (check local rate)</p>
+        <p><strong>Who pays:</strong> Head of household for each family member</p>
+        <p><strong>Deadline:</strong> BEFORE Eid prayer</p>
+    </div>
+    
+    <table>
+        <tr><th>Family Member</th><th>Amount</th><th>Paid?</th></tr>
+        <tr><td></td><td>$_______</td><td>☐</td></tr>
+        <tr><td></td><td>$_______</td><td>☐</td></tr>
+        <tr><td></td><td>$_______</td><td>☐</td></tr>
+        <tr><td></td><td>$_______</td><td>☐</td></tr>
+        <tr><td></td><td>$_______</td><td>☐</td></tr>
+        <tr><td><strong>TOTAL</strong></td><td><strong>$_______</strong></td><td></td></tr>
+    </table>
+    
+    <h2>Eid Day Sunnah</h2>
+    <ol>
+        <li>Wake up early</li>
+        <li>Take a bath (ghusl)</li>
+        <li>Wear your best clothes</li>
+        <li>Eat dates before prayer (odd number)</li>
+        <li>Say takbeer on the way to prayer</li>
+        <li>Go one route, return another</li>
+        <li>Pray Eid salah</li>
+        <li>Give Eid greetings: <em>"Taqabbal Allahu minna wa minkum"</em></li>
+    </ol>
+    
+    <div class="dua-box">
+        <h3 style="color: var(--primary);">Eid Takbeer</h3>
+        <span class="arabic">اللهُ أَكْبَرُ اللهُ أَكْبَرُ لَا إِلَهَ إِلَّا اللهُ وَاللهُ أَكْبَرُ اللهُ أَكْبَرُ وَلِلَّهِ الْحَمْدُ</span>
+        <p class="transliteration">Allahu Akbar, Allahu Akbar, La ilaha illa Allah. Wa Allahu Akbar, Allahu Akbar, wa lillahi al-hamd.</p>
+    </div>
+</div>
+
+<!-- POST RAMADAN -->
+<div class="page">
+    <h1>🔄 After Ramadan: Keep the Momentum</h1>
+    <p>The real test isn't Ramadan — it's Shawwal and beyond.</p>
+    
+    <h2>Don't Lose Your Gains</h2>
+    <ul class="checkbox-list">
+        <li>Continue waking for Fajr on time</li>
+        <li>Keep daily Quran reading (even 1 page)</li>
+        <li>Fast Mondays & Thursdays (or 3 days/month)</li>
+        <li>Stay connected to the masjid</li>
+        <li>Keep giving regular charity</li>
+        <li>Maintain the dua habit</li>
+    </ul>
+    
+    <h2>6 Fasts of Shawwal</h2>
+    <div class="tip-box">
+        <p>The Prophet ﷺ said: <em>"Whoever fasts Ramadan and follows it with six days of Shawwal, it's as if they fasted the entire year."</em></p>
+    </div>
+    
+    <table>
+        <tr><th>Fast #</th><th>Date</th><th>Done</th></tr>
+        <tr><td>1</td><td></td><td>☐</td></tr>
+        <tr><td>2</td><td></td><td>☐</td></tr>
+        <tr><td>3</td><td></td><td>☐</td></tr>
+        <tr><td>4</td><td></td><td>☐</td></tr>
+        <tr><td>5</td><td></td><td>☐</td></tr>
+        <tr><td>6</td><td></td><td>☐</td></tr>
+    </table>
+    
+    <h2>My Post-Ramadan Commitments</h2>
+    <p>What habits will you carry forward?</p>
+    <div class="write-box"></div>
+    <div class="write-box"></div>
+    <div class="write-box"></div>
+</div>
+
+<!-- FINAL REFLECTION -->
+<div class="page">
+    <h1>📝 My Ramadan Reflections</h1>
+    
+    <h2>Weekly Check-ins</h2>
+    
+    <h3>Week 1 Reflection</h3>
+    <p style="font-size: 14px; color: var(--gray);">How did the first week go? What worked? What didn't?</p>
+    <div class="write-box"></div>
+    
+    <h3>Week 2 Reflection</h3>
+    <p style="font-size: 14px; color: var(--gray);">Are you on track with your goals? Any adjustments needed?</p>
+    <div class="write-box"></div>
+    
+    <h3>Week 3 Reflection</h3>
+    <p style="font-size: 14px; color: var(--gray);">How are you feeling spiritually? Physically?</p>
+    <div class="write-box"></div>
+    
+    <h3>Week 4 Reflection</h3>
+    <p style="font-size: 14px; color: var(--gray);">How did the last 10 nights go? What was your best moment?</p>
+    <div class="write-box"></div>
+</div>
+
+<!-- FINAL PAGE -->
+<div class="page">
+    <h1>🌙 End of Ramadan Reflection</h1>
+    
+    <h3>My biggest accomplishment this Ramadan:</h3>
+    <div class="write-box"></div>
+    
+    <h3>What I learned about myself:</h3>
+    <div class="write-box"></div>
+    
+    <h3>What I learned about my relationship with Allah:</h3>
+    <div class="write-box"></div>
+    
+    <h3>What I want to remember for next Ramadan:</h3>
+    <div class="write-box"></div>
+    
+    <h3>One word to describe this Ramadan:</h3>
+    <div class="write-box" style="min-height: 50px;"></div>
+    
+    <div class="dua-box" style="margin-top: 40px;">
+        <h3 style="color: var(--primary);">Final Dua</h3>
+        <span class="arabic">اللَّهُمَّ تَقَبَّلْ مِنَّا صِيَامَنَا وَقِيَامَنَا وَرُكُوعَنَا وَسُجُودَنَا</span>
+        <p class="transliteration">Allahumma taqabbal minna siyamana wa qiyamana wa ruku'ana wa sujudana</p>
+        <p class="meaning">"O Allah, accept from us our fasting, our standing in prayer, our bowing, and our prostration."</p>
+    </div>
+    
+    <div class="footer" style="margin-top: 60px; text-align: center;">
+        <p style="font-size: 16px; color: var(--primary);"><strong>Made with love by Madina Islamic Center (MIC Utah)</strong></p>
+        <p>Serving Muslims locally and globally 🌍</p>
+        <p style="margin-top: 10px;"><strong>micutah.org</strong></p>
+        <p style="margin-top: 20px; font-size: 14px;">Share this planner with anyone who could benefit.<br>The reward continues for you.</p>
+    </div>
+</div>
+
+</body>
+</html>
