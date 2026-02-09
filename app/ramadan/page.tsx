@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Moon, Heart, Calendar, Clock, Utensils, BookOpen, Download, Sparkles } from "lucide-react";
+import { Moon, Heart, Calendar, Clock, Utensils, BookOpen, Download, Sparkles, Library } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -89,6 +89,54 @@ export default function RamadanPage() {
                 Get Free Planner
               </Button>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Ramadan Books Section */}
+      <section className="py-12 bg-gradient-to-br from-purple-900 via-indigo-900 to-black text-white">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="flex-1">
+              <div className="flex items-center gap-3 mb-4">
+                <Library className="h-10 w-10 text-purple-300" />
+                <h2 className="text-3xl font-heading font-bold">Ramadan Reading</h2>
+              </div>
+              <p className="text-purple-200 mb-6 max-w-xl">
+                Short, powerful books to transform your Ramadan. Read online for free or download PDFs.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <Link href="/ramadan/books">
+                  <Button size="lg" className="bg-white text-purple-900 hover:bg-purple-100 gap-2">
+                    <BookOpen className="h-5 w-5" />
+                    Browse All Books
+                  </Button>
+                </Link>
+                <Link href="/ramadan/books/last-10-nights">
+                  <Button size="lg" variant="outline" className="border-purple-300 text-purple-200 hover:bg-purple-800 gap-2">
+                    🌙 The Last 10 Nights
+                  </Button>
+                </Link>
+              </div>
+            </div>
+            <div className="flex gap-4">
+              {/* Mini book covers */}
+              <Link href="/ramadan/books/last-10-nights" className="group">
+                <div className="w-28 h-40 rounded-xl bg-gradient-to-br from-purple-600 to-indigo-700 p-3 transform transition-transform group-hover:scale-105 shadow-xl">
+                  <span className="text-2xl">🌙</span>
+                  <p className="text-xs font-semibold mt-2 leading-tight">The Last 10 Nights</p>
+                </div>
+              </Link>
+              <a href="/downloads/virtues-of-ramadan.pdf" target="_blank" className="group">
+                <div className="w-28 h-40 rounded-xl bg-gradient-to-br from-amber-600 to-orange-700 p-3 transform transition-transform group-hover:scale-105 shadow-xl">
+                  <div className="flex justify-between items-start">
+                    <span className="text-2xl">✨</span>
+                    <span className="text-[10px] bg-red-500 px-1.5 py-0.5 rounded font-bold">PDF</span>
+                  </div>
+                  <p className="text-xs font-semibold mt-2 leading-tight">Virtues of Ramadan</p>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
       </section>
