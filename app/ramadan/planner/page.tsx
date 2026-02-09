@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Moon, BookOpen, Calendar, CheckCircle2, Heart, Download, Clock, Users, Star, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -427,6 +428,39 @@ export default function RamadanPlannerPage() {
           <p className="text-primary font-semibold">
             🌍 Serving Muslims everywhere
           </p>
+        </div>
+      </section>
+
+      {/* Support Our Work */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <Heart className="h-12 w-12 text-red-500 mx-auto mb-4" />
+            <h2 className="text-3xl font-heading font-bold text-primary mb-4">
+              Support Our Work
+            </h2>
+            <p className="text-gray-600 mb-8">
+              This planner is 100% free, but creating Islamic resources takes time and effort. 
+              If you found value in this planner, consider supporting MIC Utah so we can continue 
+              serving the ummah.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link href="/donate">
+                <Button size="lg" className="bg-primary hover:bg-primary/90 gap-2">
+                  <Heart className="h-5 w-5" />
+                  Donate to MIC Utah
+                </Button>
+              </Link>
+              <Link href="/ramadan/iftar-sponsor">
+                <Button size="lg" variant="outline" className="gap-2">
+                  🍽️ Sponsor an Iftar ($150)
+                </Button>
+              </Link>
+            </div>
+            <p className="text-sm text-gray-500 mt-6">
+              All donations are tax-deductible. MIC Utah is a 501(c)(3) nonprofit.
+            </p>
+          </div>
         </div>
       </section>
 
