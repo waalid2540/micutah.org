@@ -301,7 +301,7 @@ export default function DonatePage() {
                       onChange={(e) =>
                         setFormData({ ...formData, phone: e.target.value })
                       }
-                      placeholder="(801) 555-1234"
+                      placeholder="(000) 000-0000"
                     />
                   </div>
                 </div>

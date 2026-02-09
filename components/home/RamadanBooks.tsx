@@ -12,7 +12,6 @@ const books = [
     icon: '🌙',
     gradient: 'from-purple-600 to-indigo-700',
     href: '/ramadan/books/last-10-nights',
-    reads: '2.4k',
   },
   {
     slug: 'virtues-of-ramadan',
@@ -22,7 +21,6 @@ const books = [
     gradient: 'from-amber-500 to-orange-600',
     href: '/downloads/virtues-of-ramadan.pdf',
     isPdf: true,
-    reads: '1.8k',
   },
 ];
 
@@ -79,10 +77,8 @@ export default function RamadanBooks() {
                     <div className="flex items-center gap-3 text-sm">
                       <span className="flex items-center gap-1 text-amber-400">
                         <Sparkles className="h-3 w-3" />
-                        {book.reads} reads
+                        Free to read
                       </span>
-                      <span className="text-gray-500">•</span>
-                      <span className="text-gray-400">Free</span>
                     </div>
                   </div>
                 </div>

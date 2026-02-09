@@ -3,13 +3,6 @@ import { Moon, Heart, Calendar, Clock, Utensils, BookOpen, Download, Sparkles, L
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Progress } from "@/components/ui/progress";
-
-// Sample Ramadan schedule data
-const taraweehSchedule = [
-  { day: "Every Night", time: "9:00 PM", rakaat: "20 Rakaat" },
-];
-
 const specialPrograms = [
   {
     title: "Daily Iftar",
@@ -38,10 +31,7 @@ const specialPrograms = [
 ];
 
 export default function RamadanPage() {
-  // Fundraising goal tracking (would come from database in production)
-  const fundraisingGoal = 50000;
-  const currentRaised = 32500;
-  const percentageRaised = Math.round((currentRaised / fundraisingGoal) * 100);
+  // Fundraising tracking removed - will add back when we have real numbers
 
   return (
     <div className="min-h-screen bg-cream">
@@ -147,29 +137,31 @@ export default function RamadanPage() {
         </div>
       </section>
 
-      {/* Ramadan Fundraising Progress */}
+      {/* Ramadan Donation CTA */}
       <section className="py-12 bg-white">
         <div className="container mx-auto px-4">
           <Card className="max-w-3xl mx-auto">
             <CardHeader>
               <CardTitle className="text-center text-2xl">
-                Ramadan Fundraising Goal
+                Support Our Ramadan Programs
               </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="flex justify-between text-sm text-gray-600">
-                <span>Raised: ${currentRaised.toLocaleString()}</span>
-                <span>Goal: ${fundraisingGoal.toLocaleString()}</span>
-              </div>
-              <Progress value={percentageRaised} className="h-4" />
-              <p className="text-center text-primary font-semibold">
-                {percentageRaised}% of our goal reached!
+            <CardContent className="space-y-4 text-center">
+              <p className="text-gray-600">
+                Your generous donations help us provide daily iftars, maintain our 24/7 facilities, 
+                and serve the community throughout this blessed month.
               </p>
-              <div className="text-center">
+              <div className="flex flex-wrap justify-center gap-4 pt-4">
                 <Link href="/ramadan/donations">
                   <Button size="lg" className="gap-2">
                     <Heart className="h-5 w-5" />
-                    Contribute Now
+                    Donate Now
+                  </Button>
+                </Link>
+                <Link href="/ramadan/iftar-sponsor">
+                  <Button size="lg" variant="outline" className="gap-2">
+                    <Utensils className="h-5 w-5" />
+                    Sponsor Iftar - $150
                   </Button>
                 </Link>
               </div>

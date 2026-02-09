@@ -128,10 +128,10 @@ export default function LocationMap() {
                   <div>
                     <h3 className="font-semibold text-lg mb-1">Contact</h3>
                     <a
-                      href="tel:+18015551234"
+                      href="tel:+14087919652"
                       className="text-primary hover:text-primary-light transition-colors font-medium"
                     >
-                      (801) 555-1234
+                      (408) 791-9652
                     </a>
                   </div>
                 </div>

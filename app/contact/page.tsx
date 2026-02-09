@@ -115,10 +115,10 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-lg mb-1">Phone</h3>
                     <a
-                      href="tel:+18015551234"
+                      href="tel:+14087919652"
                       className="text-gray-600 hover:text-primary"
                     >
-                      (801) 555-1234
+                      (408) 791-9652
                     </a>
                     <p className="text-sm text-gray-500 mt-1">
                       Office hours: 9am - 5pm
@@ -220,7 +220,7 @@ export default function ContactPage() {
                         onChange={(e) =>
                           setFormData({ ...formData, phone: e.target.value })
                         }
-                        placeholder="(801) 555-1234"
+                        placeholder="(408) 791-9652"
                       />
                     </div>
                     <div>

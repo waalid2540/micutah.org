@@ -8,7 +8,6 @@ const quickLinks = [
   { name: "Events", href: "/events" },
   { name: "Directory", href: "/directory" },
   { name: "Donate", href: "/donate" },
-  { name: "Halal Directory", href: "/directory" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -103,8 +102,8 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2 text-sm text-primary-foreground/80">
                 <Phone className="h-5 w-5 shrink-0" />
-                <a href="tel:+18015551234" className="hover:text-accent transition-colors">
-                  (801) 555-1234
+                <a href="tel:+14087919652" className="hover:text-accent transition-colors">
+                  (408) 791-9652
                 </a>
               </li>
               <li className="flex items-center gap-2 text-sm text-primary-foreground/80">

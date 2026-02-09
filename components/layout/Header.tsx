@@ -13,7 +13,6 @@ const navigation = [
   { name: "Ramadan", href: "/ramadan" },
   { name: "Events", href: "/events" },
   { name: "Directory", href: "/directory" },
-  { name: "Halal Directory", href: "/directory" },
   { name: "Blog", href: "/blog" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
@@ -25,7 +24,7 @@ const tickerItems = [
   "Free Truck Parking",
   "Near SLC Airport",
   "1773 W North Temple, SLC",
-  "(801) 555-1234",
+  "(408) 791-9652",
 ];
 
 export default function Header() {
@@ -100,7 +99,7 @@ export default function Header() {
               ))}
               <div className="flex items-center gap-2 ml-3 pl-3 border-l border-gray-200">
                 <a
-                  href="tel:+18015551234"
+                  href="tel:+14087919652"
                   className="flex items-center gap-1.5 text-sm text-gray-600 hover:text-primary transition-colors"
                 >
                   <Phone className="h-4 w-4" />
@@ -165,7 +164,7 @@ export default function Header() {
                     className="pt-2 mt-2 border-t border-gray-100 flex gap-2"
                   >
                     <a
-                      href="tel:+18015551234"
+                      href="tel:+14087919652"
                       className="flex-1"
                     >
                       <Button

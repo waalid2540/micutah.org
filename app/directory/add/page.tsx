@@ -243,7 +243,7 @@ export default function AddBusinessPage() {
                     value={formData.phone}
                     onChange={(e) => handleChange("phone", e.target.value)}
                     required
-                    placeholder="(801) 555-0123"
+                    placeholder="(000) 000-0000"
                   />
                 </div>
 
