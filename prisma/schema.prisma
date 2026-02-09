@@ -341,3 +341,31 @@ model RamadanPlannerLead {
   @@index([country])
   @@index([interestedInUmrah])
 }
+
+// ============== HALAL DIRECTORY SUBMISSIONS ==============
+
+model DirectorySubmission {
+  id            String   @id @default(cuid())
+  businessName  String
+  ownerName     String
+  email         String
+  phone         String
+  category      String
+  address       String
+  website       String?
+  hours         String?
+  description   String
+  halalInfo     String
+  
+  // Review status
+  status        String   @default("pending") // pending, approved, rejected
+  reviewedBy    String?
+  reviewedAt    DateTime?
+  reviewNotes   String?
+  
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  @@index([status])
+  @@index([category])
+}

@@ -33,9 +33,9 @@ const largeActions = [
 const smallActions = [
   {
     icon: ShoppingBag,
-    title: "Marketplace",
+    title: "Halal Directory",
     description: "Browse halal products and services",
-    href: "/marketplace",
+    href: "/directory",
     color: "bg-green-50 text-green-600",
     borderColor: "hover:border-green-200",
   },

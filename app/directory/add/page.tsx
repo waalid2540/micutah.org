@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Store, CheckCircle, ArrowLeft } from "lucide-react";
+import { Store, CheckCircle, ArrowLeft, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -18,20 +18,20 @@ import {
 
 const categories = [
   "Restaurants",
-  "Grocery",
+  "Grocery & Meat",
   "Services",
-  "Automotive",
-  "Real Estate",
+  "Professionals",
   "Education",
   "Health",
   "Clothing",
   "Beauty & Salon",
-  "Professional Services",
   "Other",
 ];
 
 export default function AddBusinessPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState("");
   const [formData, setFormData] = useState({
     businessName: "",
     ownerName: "",
@@ -43,42 +43,80 @@ export default function AddBusinessPage() {
     website: "",
     hours: "",
     description: "",
+    isHalal: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In production, this would submit to an API/database
-    console.log("Business submission:", formData);
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setError("");
+
+    try {
+      const response = await fetch("/api/directory/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        setError("Something went wrong. Please try again.");
+      }
+    } catch (err) {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleChange = (field: string, value: string) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
   if (submitted) {
     return (
       <div className="min-h-screen bg-cream py-12">
-        <div className="container mx-auto px-4">
-          <Card className="max-w-lg mx-auto text-center">
-            <CardContent className="p-8">
-              <div className="bg-green-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
-                <CheckCircle className="h-10 w-10 text-green-600" />
+        <div className="container mx-auto px-4 max-w-2xl">
+          <Card className="border-2 border-green-500">
+            <CardContent className="pt-8 text-center">
+              <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Clock className="h-10 w-10 text-green-600" />
               </div>
-              <h1 className="text-2xl font-heading font-bold text-primary mb-4">
-                Thank You!
-              </h1>
+              <h2 className="text-2xl font-heading font-bold text-green-700 mb-4">
+                Submission Received!
+              </h2>
               <p className="text-gray-600 mb-6">
-                Your business has been submitted for review. We&apos;ll add it to our
-                directory within 24-48 hours after verification.
+                Thank you for submitting <strong>{formData.businessName}</strong> to our directory.
+                Our team at MIC Utah will review your submission and verify the business
+                before it goes live.
               </p>
-              <p className="text-sm text-gray-500 mb-6">
-                We may contact you at {formData.email} if we need any additional information.
-              </p>
-              <div className="flex gap-3 justify-center">
-                <Link href="/directory">
-                  <Button variant="outline">View Directory</Button>
-                </Link>
-                <Link href="/">
-                  <Button>Back to Home</Button>
-                </Link>
+              <div className="bg-gray-50 rounded-lg p-4 mb-6 text-left">
+                <p className="font-semibold mb-2">What happens next:</p>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-green-500 mt-0.5" />
+                    We will verify the business information
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-green-500 mt-0.5" />
+                    We might contact you for additional details
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-green-500 mt-0.5" />
+                    When approved, it will appear in the directory
+                  </li>
+                </ul>
               </div>
+              <p className="text-sm text-gray-500 mb-6">
+                Review typically takes 1-3 business days.
+              </p>
+              <Link href="/directory">
+                <Button>
+                  <ArrowLeft className="mr-2 h-4 w-4" />
+                  Back to Directory
+                </Button>
+              </Link>
             </CardContent>
           </Card>
         </div>
@@ -88,107 +126,49 @@ export default function AddBusinessPage() {
 
   return (
     <div className="min-h-screen bg-cream py-12">
-      <div className="container mx-auto px-4">
-        {/* Back link */}
-        <Link
-          href="/directory"
-          className="inline-flex items-center gap-2 text-primary hover:text-primary-light mb-6"
+      <div className="container mx-auto px-4 max-w-2xl">
+        <Link 
+          href="/directory" 
+          className="inline-flex items-center text-primary hover:underline mb-6"
         >
-          <ArrowLeft className="h-4 w-4" />
+          <ArrowLeft className="mr-2 h-4 w-4" />
           Back to Directory
         </Link>
 
-        <div className="max-w-2xl mx-auto">
-          {/* Header */}
-          <div className="text-center mb-8">
-            <div className="bg-primary rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-              <Store className="h-8 w-8 text-white" />
+        <Card>
+          <CardHeader className="text-center">
+            <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Store className="h-8 w-8 text-primary" />
             </div>
-            <h1 className="text-3xl font-heading font-bold text-primary mb-2">
-              Add Your Business
-            </h1>
-            <p className="text-gray-600">
-              List your halal business in our directory for free. Reach the Utah Muslim community.
-            </p>
-          </div>
-
-          {/* Form */}
-          <Card>
-            <CardHeader>
-              <CardTitle>Business Information</CardTitle>
-              <CardDescription>
-                Fill out the form below. All fields marked with * are required.
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Business Name */}
-                <div className="space-y-2">
+            <CardTitle className="text-2xl">Add Your Business</CardTitle>
+            <CardDescription>
+              Submit your halal business to the Utah Halal Directory. 
+              All submissions are reviewed and verified by MIC Utah before being published.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Business Info */}
+              <div className="space-y-4">
+                <h3 className="font-semibold text-lg border-b pb-2">Business Information</h3>
+                
+                <div>
                   <Label htmlFor="businessName">Business Name *</Label>
                   <Input
                     id="businessName"
+                    value={formData.businessName}
+                    onChange={(e) => handleChange("businessName", e.target.value)}
                     required
                     placeholder="e.g., Halal Bites Restaurant"
-                    value={formData.businessName}
-                    onChange={(e) =>
-                      setFormData({ ...formData, businessName: e.target.value })
-                    }
                   />
                 </div>
 
-                {/* Owner Name */}
-                <div className="space-y-2">
-                  <Label htmlFor="ownerName">Owner/Contact Name *</Label>
-                  <Input
-                    id="ownerName"
-                    required
-                    placeholder="Your name"
-                    value={formData.ownerName}
-                    onChange={(e) =>
-                      setFormData({ ...formData, ownerName: e.target.value })
-                    }
-                  />
-                </div>
-
-                {/* Email & Phone */}
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email *</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      required
-                      placeholder="you@email.com"
-                      value={formData.email}
-                      onChange={(e) =>
-                        setFormData({ ...formData, email: e.target.value })
-                      }
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="phone">Business Phone *</Label>
-                    <Input
-                      id="phone"
-                      type="tel"
-                      required
-                      placeholder="(801) 555-0000"
-                      value={formData.phone}
-                      onChange={(e) =>
-                        setFormData({ ...formData, phone: e.target.value })
-                      }
-                    />
-                  </div>
-                </div>
-
-                {/* Category */}
-                <div className="space-y-2">
+                <div>
                   <Label htmlFor="category">Category *</Label>
                   <Select
-                    required
                     value={formData.category}
-                    onValueChange={(value) =>
-                      setFormData({ ...formData, category: value })
-                    }
+                    onValueChange={(value) => handleChange("category", value)}
+                    required
                   >
                     <SelectTrigger>
                       <SelectValue placeholder="Select a category" />
@@ -203,108 +183,136 @@ export default function AddBusinessPage() {
                   </Select>
                 </div>
 
-                {/* Address & City */}
-                <div className="space-y-2">
-                  <Label htmlFor="address">Street Address *</Label>
-                  <Input
-                    id="address"
-                    required
-                    placeholder="1234 Main St"
-                    value={formData.address}
-                    onChange={(e) =>
-                      setFormData({ ...formData, address: e.target.value })
-                    }
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="city">City *</Label>
-                  <Input
-                    id="city"
-                    required
-                    placeholder="Salt Lake City, UT"
-                    value={formData.city}
-                    onChange={(e) =>
-                      setFormData({ ...formData, city: e.target.value })
-                    }
-                  />
-                </div>
-
-                {/* Website */}
-                <div className="space-y-2">
-                  <Label htmlFor="website">Website (optional)</Label>
-                  <Input
-                    id="website"
-                    type="url"
-                    placeholder="https://yourbusiness.com"
-                    value={formData.website}
-                    onChange={(e) =>
-                      setFormData({ ...formData, website: e.target.value })
-                    }
-                  />
-                </div>
-
-                {/* Hours */}
-                <div className="space-y-2">
-                  <Label htmlFor="hours">Business Hours *</Label>
-                  <Input
-                    id="hours"
-                    required
-                    placeholder="e.g., Mon-Sat 9AM-9PM, Sun Closed"
-                    value={formData.hours}
-                    onChange={(e) =>
-                      setFormData({ ...formData, hours: e.target.value })
-                    }
-                  />
-                </div>
-
-                {/* Description */}
-                <div className="space-y-2">
+                <div>
                   <Label htmlFor="description">Business Description *</Label>
                   <Textarea
                     id="description"
-                    required
-                    rows={4}
-                    placeholder="Tell us about your business, products/services, what makes you unique..."
                     value={formData.description}
-                    onChange={(e) =>
-                      setFormData({ ...formData, description: e.target.value })
-                    }
+                    onChange={(e) => handleChange("description", e.target.value)}
+                    required
+                    placeholder="Briefly describe your business, what you offer, and what makes it special..."
+                    rows={3}
                   />
-                  <p className="text-xs text-gray-500">
-                    Maximum 300 characters. Be clear and concise.
-                  </p>
                 </div>
 
-                {/* Terms */}
-                <div className="bg-cream p-4 rounded-lg text-sm text-gray-600">
-                  <p>
-                    By submitting, you confirm that:
-                  </p>
-                  <ul className="list-disc list-inside mt-2 space-y-1">
-                    <li>Your business serves halal products/services or is Muslim-owned</li>
-                    <li>All information provided is accurate</li>
-                    <li>You have authority to list this business</li>
-                  </ul>
+                <div>
+                  <Label htmlFor="isHalal">Halal Information *</Label>
+                  <Textarea
+                    id="isHalal"
+                    value={formData.isHalal}
+                    onChange={(e) => handleChange("isHalal", e.target.value)}
+                    required
+                    placeholder="Explain what makes your business halal (e.g., all meat is halal certified, we use halal suppliers, etc.)"
+                    rows={2}
+                  />
+                </div>
+              </div>
+
+              {/* Contact Info */}
+              <div className="space-y-4">
+                <h3 className="font-semibold text-lg border-b pb-2">Contact Information</h3>
+                
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="ownerName">Owner/Manager Name *</Label>
+                    <Input
+                      id="ownerName"
+                      value={formData.ownerName}
+                      onChange={(e) => handleChange("ownerName", e.target.value)}
+                      required
+                      placeholder="Your name"
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="email">Email *</Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={(e) => handleChange("email", e.target.value)}
+                      required
+                      placeholder="your@email.com"
+                    />
+                  </div>
                 </div>
 
-                {/* Submit */}
-                <Button type="submit" size="lg" className="w-full">
-                  Submit Business for Review
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
+                <div>
+                  <Label htmlFor="phone">Business Phone *</Label>
+                  <Input
+                    id="phone"
+                    value={formData.phone}
+                    onChange={(e) => handleChange("phone", e.target.value)}
+                    required
+                    placeholder="(801) 555-0123"
+                  />
+                </div>
 
-          {/* Info */}
-          <div className="mt-8 text-center text-sm text-gray-600">
-            <p>
-              Questions? Contact us at{" "}
-              <a href="mailto:info@micutah.org" className="text-primary hover:underline">
-                info@micutah.org
-              </a>
-            </p>
-          </div>
-        </div>
+                <div>
+                  <Label htmlFor="website">Website (optional)</Label>
+                  <Input
+                    id="website"
+                    value={formData.website}
+                    onChange={(e) => handleChange("website", e.target.value)}
+                    placeholder="https://yourbusiness.com"
+                  />
+                </div>
+              </div>
+
+              {/* Location */}
+              <div className="space-y-4">
+                <h3 className="font-semibold text-lg border-b pb-2">Location & Hours</h3>
+                
+                <div>
+                  <Label htmlFor="address">Street Address *</Label>
+                  <Input
+                    id="address"
+                    value={formData.address}
+                    onChange={(e) => handleChange("address", e.target.value)}
+                    required
+                    placeholder="123 Main Street"
+                  />
+                </div>
+
+                <div>
+                  <Label htmlFor="city">City *</Label>
+                  <Input
+                    id="city"
+                    value={formData.city}
+                    onChange={(e) => handleChange("city", e.target.value)}
+                    required
+                    placeholder="Salt Lake City, UT"
+                  />
+                </div>
+
+                <div>
+                  <Label htmlFor="hours">Business Hours</Label>
+                  <Input
+                    id="hours"
+                    value={formData.hours}
+                    onChange={(e) => handleChange("hours", e.target.value)}
+                    placeholder="e.g., Mon-Sat 11AM-9PM, Closed Sunday"
+                  />
+                </div>
+              </div>
+
+              {error && (
+                <p className="text-red-500 text-sm">{error}</p>
+              )}
+
+              <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+                <p className="text-sm text-amber-800">
+                  <strong>Note:</strong> All submissions are reviewed by MIC Utah staff before 
+                  being published. We might contact you to verify information. Listing is free 
+                  for all halal businesses in Utah.
+                </p>
+              </div>
+
+              <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
+                {isSubmitting ? "Submitting..." : "Submit for Review"}
+              </Button>
+            </form>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );
