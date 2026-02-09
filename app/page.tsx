@@ -1,5 +1,6 @@
 import Hero from "@/components/home/Hero";
 import RamadanBanner from "@/components/home/RamadanBanner";
+import RamadanBooks from "@/components/home/RamadanBooks";
 import TravelerSection from "@/components/home/TravelerSection";
 import FacilitiesSection from "@/components/home/FacilitiesSection";
 import QuickActions from "@/components/home/QuickActions";
@@ -11,6 +12,7 @@ export default function Home() {
     <>
       <Hero />
       <RamadanBanner />
+      <RamadanBooks />
       <TravelerSection />
       <FacilitiesSection />
       <QuickActions />
