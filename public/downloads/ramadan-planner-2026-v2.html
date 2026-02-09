@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ramadan Planner 2026 | MIC Utah</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+        
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            font-size: 11pt;
+            line-height: 1.4;
+            color: #000;
+        }
+        
+        .page {
+            width: 8.5in;
+            min-height: 11in;
+            padding: 0.5in;
+            margin: 0 auto;
+            background: white;
+            page-break-after: always;
+        }
+        
+        @media print {
+            .page { margin: 0; padding: 0.4in; }
+            .no-print { display: none !important; }
+        }
+        
+        h1 { font-size: 24pt; color: #0d4a36; margin-bottom: 15px; border-bottom: 3px solid #c9a227; padding-bottom: 10px; }
+        h2 { font-size: 16pt; color: #0d4a36; margin: 20px 0 10px 0; }
+        h3 { font-size: 13pt; color: #0d4a36; margin: 15px 0 8px 0; }
+        
+        .arabic { font-family: 'Amiri', serif; font-size: 18pt; direction: rtl; color: #0d4a36; font-weight: 700; line-height: 1.8; }
+        
+        .cover {
+            background: linear-gradient(135deg, #0d4a36 0%, #1a1a2e 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .cover h1 { color: white; border: none; font-size: 42pt; }
+        .cover .subtitle { color: #c9a227; font-size: 20pt; margin: 10px 0 30px 0; }
+        .cover .moon { font-size: 80pt; margin-bottom: 20px; }
+        
+        .dua-box {
+            border: 2px solid #0d4a36;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 12px 0;
+            background: #f8faf9;
+            page-break-inside: avoid;
+        }
+        .dua-box .day { background: #0d4a36; color: white; padding: 5px 15px; border-radius: 5px; display: inline-block; font-weight: 600; margin-bottom: 10px; }
+        .dua-box .arabic { display: block; text-align: center; margin: 10px 0; }
+        .dua-box .trans { font-style: italic; color: #555; text-align: center; font-size: 10pt; }
+        .dua-box .meaning { font-weight: 600; text-align: center; margin: 8px 0; font-size: 11pt; }
+        
+        .checkbox { display: inline-block; width: 14px; height: 14px; border: 2px solid #0d4a36; margin-right: 8px; vertical-align: middle; }
+        .line { border-bottom: 1px solid #ccc; height: 25px; margin: 5px 0; }
+        
+        table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+        th { background: #0d4a36; color: white; padding: 8px; text-align: left; font-size: 10pt; }
+        td { padding: 8px; border-bottom: 1px solid #ddd; font-size: 10pt; }
+        tr:nth-child(even) { background: #f5f5f5; }
+        
+        .daily-box { border: 2px solid #0d4a36; border-radius: 10px; overflow: hidden; margin: 10px 0; }
+        .daily-header { background: #0d4a36; color: white; padding: 10px 15px; }
+        .daily-content { padding: 15px; }
+        
+        .two-col { display: flex; gap: 20px; }
+        .two-col > div { flex: 1; }
+        
+        .highlight { background: #fff8e7; border-left: 4px solid #c9a227; padding: 15px; margin: 15px 0; }
+        
+        .footer { text-align: center; margin-top: 30px; padding-top: 15px; border-top: 2px solid #c9a227; font-size: 10pt; color: #666; }
+        
+        ul { margin: 10px 0 10px 20px; }
+        li { margin: 5px 0; }
+        
+        .print-btn { position: fixed; top: 20px; right: 20px; background: #0d4a36; color: white; border: none; padding: 15px 25px; font-size: 14pt; border-radius: 8px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+<button class="print-btn no-print" onclick="window.print()">📄 Save as PDF</button>
+
+<!-- COVER -->
+<div class="page cover">
+    <div class="moon">🌙</div>
+    <h1>Ramadan Planner 2026</h1>
+    <div class="subtitle">Your Complete Guide to the Blessed Month</div>
+    <p style="font-size: 14pt; opacity: 0.9; max-width: 400px;">Daily trackers, 30 duas, Quran goals, meal planning, and everything you need for your best Ramadan.</p>
+    <div style="position: absolute; bottom: 60px;">
+        <p style="color: #c9a227; font-weight: 600;">Madina Islamic Center (MIC Utah)</p>
+        <p style="opacity: 0.8;">micutah.org</p>
+    </div>
+</div>
+
+<!-- KEY DATES -->
+<div class="page">
+    <h1>📅 Ramadan 2026 Key Dates</h1>
+    
+    <table>
+        <tr><th>Event</th><th>Date</th><th>Day</th></tr>
+        <tr><td>🌙 First Day of Ramadan</td><td>February 28, 2026*</td><td>Saturday</td></tr>
+        <tr><td>📖 Halfway Point (Day 15)</td><td>March 14, 2026</td><td>Saturday</td></tr>
+        <tr><td>⭐ Last 10 Nights Begin</td><td>March 19, 2026</td><td>Thursday</td></tr>
+        <tr><td>✨ 21st Night (Odd)</td><td>March 20, 2026</td><td>Friday</td></tr>
+        <tr><td>✨ 23rd Night (Odd)</td><td>March 22, 2026</td><td>Sunday</td></tr>
+        <tr><td>✨ 25th Night (Odd)</td><td>March 24, 2026</td><td>Tuesday</td></tr>
+        <tr><td>✨ 27th Night (Most Likely)</td><td>March 26, 2026</td><td>Thursday</td></tr>
+        <tr><td>✨ 29th Night (Odd)</td><td>March 28, 2026</td><td>Saturday</td></tr>
+        <tr><td>🎉 Eid al-Fitr</td><td>March 29-30, 2026*</td><td>Sun-Mon</td></tr>
+    </table>
+    <p style="font-size: 9pt; color: #666;">*Dates subject to moon sighting. Confirm with your local masjid.</p>
+    
+    <h2>🕌 My Local Prayer Times</h2>
+    <table>
+        <tr><th>Prayer</th><th>Time</th><th>Prayer</th><th>Time</th></tr>
+        <tr><td>Fajr</td><td style="border-bottom: 1px solid #999;"></td><td>Maghrib (Iftar)</td><td style="border-bottom: 1px solid #999;"></td></tr>
+        <tr><td>Sunrise</td><td style="border-bottom: 1px solid #999;"></td><td>Isha</td><td style="border-bottom: 1px solid #999;"></td></tr>
+        <tr><td>Dhuhr</td><td style="border-bottom: 1px solid #999;"></td><td>Taraweeh</td><td style="border-bottom: 1px solid #999;"></td></tr>
+        <tr><td>Asr</td><td style="border-bottom: 1px solid #999;"></td><td>Tahajjud</td><td style="border-bottom: 1px solid #999;"></td></tr>
+    </table>
+</div>
+
+<!-- GOALS -->
+<div class="page">
+    <h1>🎯 My Ramadan Goals</h1>
+    
+    <h2>📖 Quran Goal</h2>
+    <p><span class="checkbox"></span> Complete entire Quran (20 pages/day)</p>
+    <p><span class="checkbox"></span> Complete half Quran (10 pages/day)</p>
+    <p><span class="checkbox"></span> Read with understanding (tafsir)</p>
+    <p><span class="checkbox"></span> Memorize: <span style="border-bottom: 1px solid #999; display: inline-block; width: 200px;"></span></p>
+    
+    <h2>🕌 Prayer Goal</h2>
+    <p><span class="checkbox"></span> All 5 prayers on time</p>
+    <p><span class="checkbox"></span> Taraweeh every night</p>
+    <p><span class="checkbox"></span> Tahajjud in last 10 nights</p>
+    <p><span class="checkbox"></span> Other: <span style="border-bottom: 1px solid #999; display: inline-block; width: 200px;"></span></p>
+    
+    <h2>💪 Character Goal</h2>
+    <p><span class="checkbox"></span> Control my anger</p>
+    <p><span class="checkbox"></span> Stop backbiting</p>
+    <p><span class="checkbox"></span> Be patient with family</p>
+    <p><span class="checkbox"></span> Other: <span style="border-bottom: 1px solid #999; display: inline-block; width: 200px;"></span></p>
+    
+    <div class="highlight">
+        <h3>🤲 My #1 Dua This Ramadan</h3>
+        <p>What is the ONE thing you will ask Allah for every day?</p>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+    
+    <h2>💰 Charity Plan</h2>
+    <table>
+        <tr><th>Type</th><th>Amount</th><th>When</th><th>Done</th></tr>
+        <tr><td>Zakat</td><td>$_______</td><td>_______</td><td><span class="checkbox"></span></td></tr>
+        <tr><td>Daily Sadaqah</td><td>$_______/day</td><td>Daily</td><td><span class="checkbox"></span></td></tr>
+        <tr><td>Zakat al-Fitr</td><td>$_______</td><td>Before Eid</td><td><span class="checkbox"></span></td></tr>
+    </table>
+</div>
+
+<!-- 30 DUAS - PAGE 1 (Days 1-6) -->
+<div class="page">
+    <h1>🤲 30 Daily Duas - Days 1-6</h1>
+    
+    <div class="dua-box">
+        <span class="day">Day 1</span>
+        <div class="arabic">اللَّهُمَّ إِنِّي أَسْأَلُكَ الْهُدَى وَالتُّقَى وَالْعَفَافَ وَالْغِنَى</div>
+        <div class="trans">Allahumma inni as'aluka al-huda wa al-tuqa wa al-'afafa wa al-ghina</div>
+        <div class="meaning">"O Allah, I ask You for guidance, piety, chastity, and self-sufficiency."</div>
+    </div>
+    
+    <div class="dua-box">
+        <span class="day">Day 2</span>
+        <div class="arabic">رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ</div>
+        <div class="trans">Rabbana atina fid-dunya hasanatan wa fil-akhirati hasanatan wa qina 'adhab an-nar</div>
+        <div class="meaning">"Our Lord, give us good in this world and in the Hereafter, and protect us from the Fire."</div>
+    </div>
+    
+    <div class="dua-box">
+        <span class="day">Day 3</span>
+        <div class="arabic">اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ</div>
+        <div class="trans">Allahumma inni a'udhu bika min al-hammi wal-hazan</div>
+        <div class="meaning">"O Allah, I seek refuge in You from worry and grief."</div>
+    </div>
+    
+    <div class="dua-box">
+        <span class="day">Day 4</span>
+        <div class="arabic">رَبِّ اشْرَحْ لِي صَدْرِي وَيَسِّرْ لِي أَمْرِي</div>
+        <div class="trans">Rabbi-shrah li sadri wa yassir li amri</div>
+        <div class="meaning">"My Lord, expand my chest and ease my affairs."</div>
+    </div>
+    
+    <div class="dua-box">
+        <span class="day">Day 5</span>
+        <div class="arabic">اللَّهُمَّ أَعِنِّي عَلَى ذِكْرِكَ وَشُكْرِكَ وَحُسْنِ عِبَادَتِكَ</div>
+        <div class="trans">Allahumma a'inni 'ala dhikrika wa shukrika wa husni 'ibadatik</div>
+        <div class="meaning">"O Allah, help me remember You, thank You, and worship You properly."</div>
+    </div>
+    
+    <div class="dua-box">
+        <span class="day">Day 6</span>
+        <div class="arabic">اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْمًا نَافِعًا وَرِزْقًا طَيِّبًا وَعَمَلًا مُتَقَبَّلًا</div>
+        <div class="trans">Allahumma inni as'aluka 'ilman nafi'an wa rizqan tayyiban wa 'amalan mutaqabbala</div>
+        <div class="meaning">"O Allah, I ask You for beneficial knowledge, good provision, and accepted deeds."</div>
+    </div>
+</div>
+
+<!-- 30 DUAS - PAGE 2 (Days 7-12) -->
+<div class="page">
+    <h1>🤲 30 Daily Duas - Days 7-12</h1>
+    
+    <div class="dua-box">
+        <span class="day">Day 7</span>
+        <div class="arabic">رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا</div>
+        <div class="trans">Rabbana la tuzigh qulubana ba'da idh hadaytana</div>
+        <div class="meaning">"Our Lord, do not let our hearts deviate after You have guided us."</div>
+    </div>
+    
+    <div class="dua-box">
+        <span class="day">Day 8</span>
+        <div class="arabic">اللَّهُمَّ اغْفِرْ لِي ذَنْبِي كُلَّهُ دِقَّهُ وَجِلَّهُ</div>
+        <div class="trans">Allahumma-ghfir li dhanbi kullahu diqqahu wa jillahu</div>
+        <div class="meaning">"O Allah, forgive all my sins, small and great."</div>
+    </div>
+    
+    <div class="dua-box">
+        <span class="day">Day 9</span>
+        <div class="arabic">اللَّهُمَّ إِنِّي أَسْأَلُكَ الْجَنَّةَ وَأَعُوذُ بِكَ مِنَ النَّارِ</div>
+        <div class="trans">Allahumma inni as'aluka al-jannata wa a'udhu bika min an-nar</div>
+        <div class="meaning">"O Allah, I ask You for Paradise and seek refuge from the Fire."</div>
+    </div>
+    
+    <div class="dua-box">
+        <span class="day">Day 10</span>
+        <div class="arabic">اللَّهُمَّ أَصْلِحْ لِي دِينِي الَّذِي هُوَ عِصْمَةُ أَمْرِي</div>
+        <div class="trans">Allahumma aslih li dini alladhi huwa 'ismatu amri</div>
+        <div class="meaning">"O Allah, set right my religion which is the safeguard of my affairs."</div>
+    </div>
+    
+    <div class="dua-box">
+        <span class="day">Day 11</span>
+        <div class="arabic">رَبِّ أَوْزِعْنِي أَنْ أَشْكُرَ نِعْمَتَكَ</div>
+        <div class="trans">Rabbi awzi'ni an ashkura ni'mataka</div>
+        <div class="meaning">"My Lord, enable me to be grateful for Your blessings."</div>
+    </div>
+    
+    <div class="dua-box">
+        <span class="day">Day 12</span>
+        <div class="arabic">اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ شَرِّ مَا عَمِلْتُ</div>
+        <div class="trans">Allahumma inni a'udhu bika min sharri ma 'amiltu</div>
+        <div class="meaning">"O Allah, I seek refuge in You from the evil of what I have done."</div>
+    </div>
+</div>
+
+<!-- 30 DUAS - PAGE 3 (Days 13-18) -->
+<div class="page">
+    <h1>🤲 30 Daily Duas - Days 13-18</h1>
+    
+    <div class="dua-box">
+        <span class="day">Day 13</span>
+        <div class="arabic">اللَّهُمَّ إِنِّي أَسْأَلُكَ مِنَ الْخَيْرِ كُلِّهِ</div>
+        <div class="trans">Allahumma inni as'aluka min al-khayri kullihi</div>
+        <div class="meaning">"O Allah, I ask You for all that is good."</div>
+    </div>
+    
+    <div class="dua-box">
+        <span class="day">Day 14</span>
+        <div class="arabic">رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ</div>
+        <div class="trans">Rabbana hab lana min azwajina wa dhurriyyatina qurrata a'yun</div>
+        <div class="meaning">"Our Lord, grant us spouses and children who are the comfort of our eyes."</div>
+    </div>
+    
+    <div class="dua-box" style="background: #fff8e7; border-color: #c9a227;">
+        <span class="day" style="background: #c9a227;">Day 15 - HALFWAY!</span>
+        <div class="arabic">اللَّهُمَّ أَحْسِنْ عَاقِبَتَنَا فِي الْأُمُورِ كُلِّهَا</div>
+        <div class="trans">Allahumma ahsin 'aqibatana fil-umuri kulliha</div>
+        <div class="meaning">"O Allah, make the outcome of all our affairs good."</div>
+    </div>
+    
+    <div class="dua-box">
+        <span class="day">Day 16</span>
+        <div class="arabic">اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْعَجْزِ وَالْكَسَلِ</div>
+        <div class="trans">Allahumma inni a'udhu bika min al-'ajzi wal-kasal</div>
+        <div class="meaning">"O Allah, I seek refuge in You from inability and laziness."</div>
+    </div>
+    
+    <div class="dua-box">
+        <span class="day">Day 17</span>
+        <div class="arabic">اللَّهُمَّ اهْدِنِي وَسَدِّدْنِي</div>
+        <div class="trans">Allahumma-hdini wa saddidni</div>
+        <div class="meaning">"O Allah, guide me and keep me on the right path."</div>
+    </div>
+    
+    <div class="dua-box">
+        <span class="day">Day 18</span>
+        <div class="arabic">رَبِّ زِدْنِي عِلْمًا</div>
+        <div class="trans">Rabbi zidni 'ilma</div>
+        <div class="meaning">"My Lord, increase me in knowledge."</div>
+    </div>
+</div>
+
+<!-- 30 DUAS - PAGE 4 (Days 19-24) -->
+<div class="page">
+    <h1>🤲 30 Daily Duas - Days 19-24</h1>
+    
+    <div class="dua-box">
+        <span class="day">Day 19</span>
+        <div class="arabic">اللَّهُمَّ إِنِّي أَسْأَلُكَ حُبَّكَ وَحُبَّ مَنْ يُحِبُّكَ</div>
+        <div class="trans">Allahumma inni as'aluka hubbaka wa hubba man yuhibbuk</div>
+        <div class="meaning">"O Allah, I ask You for Your love and the love of those who love You."</div>
+    </div>
+    
+    <div class="dua-box" style="background: #fff8e7; border-color: #c9a227;">
+        <span class="day" style="background: #c9a227;">Day 20 - Last 10 Begin!</span>
+        <div class="arabic">اللَّهُمَّ بَلِّغْنَا لَيْلَةَ الْقَدْرِ</div>
+        <div class="trans">Allahumma ballighna laylat al-qadr</div>
+        <div class="meaning">"O Allah, let us reach Laylatul Qadr."</div>
+    </div>
+    
+    <div class="dua-box" style="background: #1a1a2e; border-color: #c9a227;">
+        <span class="day" style="background: #c9a227; color: #1a1a2e;">Day 21 ⭐ ODD NIGHT</span>
+        <div class="arabic" style="color: #c9a227;">اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي</div>
+        <div class="trans" style="color: #ccc;">Allahumma innaka 'afuwwun tuhibbul-'afwa fa'fu 'anni</div>
+        <div class="meaning" style="color: white;">"O Allah, You are Forgiving and love forgiveness, so forgive me."</div>
+    </div>
+    
+    <div class="dua-box">
+        <span class="day">Day 22</span>
+        <div class="arabic">اللَّهُمَّ إِنِّي أَسْأَلُكَ الثَّبَاتَ فِي الْأَمْرِ</div>
+        <div class="trans">Allahumma inni as'aluka ath-thabata fil-amr</div>
+        <div class="meaning">"O Allah, I ask You for steadfastness in my affairs."</div>
+    </div>
+    
+    <div class="dua-box" style="background: #1a1a2e; border-color: #c9a227;">
+        <span class="day" style="background: #c9a227; color: #1a1a2e;">Day 23 ⭐ ODD NIGHT</span>
+        <div class="arabic" style="color: #c9a227;">اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي</div>
+        <div class="trans" style="color: #ccc;">Allahumma innaka 'afuwwun tuhibbul-'afwa fa'fu 'anni</div>
+        <div class="meaning" style="color: white;">"O Allah, You are Forgiving and love forgiveness, so forgive me."</div>
+    </div>
+    
+    <div class="dua-box">
+        <span class="day">Day 24</span>
+        <div class="arabic">اللَّهُمَّ اجْعَلْ خَيْرَ عُمُرِي آخِرَهُ</div>
+        <div class="trans">Allahumma-j'al khayra 'umuri akhirahu</div>
+        <div class="meaning">"O Allah, make the best of my life its end."</div>
+    </div>
+</div>
+
+<!-- 30 DUAS - PAGE 5 (Days 25-30) -->
+<div class="page">
+    <h1>🤲 30 Daily Duas - Days 25-30</h1>
+    
+    <div class="dua-box" style="background: #1a1a2e; border-color: #c9a227;">
+        <span class="day" style="background: #c9a227; color: #1a1a2e;">Day 25 ⭐ ODD NIGHT</span>
+        <div class="arabic" style="color: #c9a227;">اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي</div>
+        <div class="trans" style="color: #ccc;">Allahumma innaka 'afuwwun tuhibbul-'afwa fa'fu 'anni</div>
+        <div class="meaning" style="color: white;">"O Allah, You are Forgiving and love forgiveness, so forgive me."</div>
+    </div>
+    
+    <div class="dua-box">
+        <span class="day">Day 26</span>
+        <div class="arabic">اللَّهُمَّ أَعْتِقْ رَقَبَتِي مِنَ النَّارِ</div>
+        <div class="trans">Allahumma a'tiq raqabati min an-nar</div>
+        <div class="meaning">"O Allah, free my neck from the Fire."</div>
+    </div>
+    
+    <div class="dua-box" style="background: #1a1a2e; border-color: #c9a227; border-width: 4px;">
+        <span class="day" style="background: #c9a227; color: #1a1a2e; font-size: 12pt;">Day 27 ⭐⭐ MOST LIKELY LAYLATUL QADR!</span>
+        <div class="arabic" style="color: #c9a227; font-size: 20pt;">اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي</div>
+        <div class="trans" style="color: #ccc;">Allahumma innaka 'afuwwun tuhibbul-'afwa fa'fu 'anni</div>
+        <div class="meaning" style="color: white; font-size: 12pt;">"O Allah, You are Forgiving and love forgiveness, so forgive me."</div>
+        <p style="color: #c9a227; text-align: center; margin-top: 10px; font-size: 10pt;">GO ALL IN TONIGHT! Make every dua you've ever wanted.</p>
+    </div>
+    
+    <div class="dua-box">
+        <span class="day">Day 28</span>
+        <div class="arabic">اللَّهُمَّ تَقَبَّلْ مِنَّا إِنَّكَ أَنْتَ السَّمِيعُ الْعَلِيمُ</div>
+        <div class="trans">Allahumma taqabbal minna innaka antas-sami'ul-'alim</div>
+        <div class="meaning">"O Allah, accept from us. You are the All-Hearing, All-Knowing."</div>
+    </div>
+    
+    <div class="dua-box" style="background: #1a1a2e; border-color: #c9a227;">
+        <span class="day" style="background: #c9a227; color: #1a1a2e;">Day 29 ⭐ LAST ODD NIGHT</span>
+        <div class="arabic" style="color: #c9a227;">اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي</div>
+        <div class="trans" style="color: #ccc;">Allahumma innaka 'afuwwun tuhibbul-'afwa fa'fu 'anni</div>
+        <div class="meaning" style="color: white;">"O Allah, You are Forgiving and love forgiveness, so forgive me."</div>
+    </div>
+    
+    <div class="dua-box" style="background: #fff8e7; border-color: #c9a227;">
+        <span class="day" style="background: #c9a227;">Day 30 - End of Ramadan</span>
+        <div class="arabic">اللَّهُمَّ اجْعَلْنَا مِنْ عُتَقَائِكَ مِنَ النَّارِ</div>
+        <div class="trans">Allahumma-j'alna min 'utaqa'ika min an-nar</div>
+        <div class="meaning">"O Allah, make us among those You have freed from the Fire."</div>
+    </div>
+</div>
+
+<!-- QURAN TRACKER -->
+<div class="page">
+    <h1>📖 Quran Completion Tracker</h1>
+    
+    <div class="highlight">
+        <strong>The Math:</strong> Quran = 604 pages = 30 juz. Read <strong>20 pages/day</strong> to finish in 30 days.
+    </div>
+    
+    <h2>Juz-by-Juz Tracker</h2>
+    <table>
+        <tr><th>Juz</th><th>Pages</th><th>Done</th><th>Juz</th><th>Pages</th><th>Done</th></tr>
+        <tr><td>1</td><td>1-20</td><td><span class="checkbox"></span></td><td>16</td><td>301-320</td><td><span class="checkbox"></span></td></tr>
+        <tr><td>2</td><td>21-40</td><td><span class="checkbox"></span></td><td>17</td><td>321-340</td><td><span class="checkbox"></span></td></tr>
+        <tr><td>3</td><td>41-60</td><td><span class="checkbox"></span></td><td>18</td><td>341-360</td><td><span class="checkbox"></span></td></tr>
+        <tr><td>4</td><td>61-80</td><td><span class="checkbox"></span></td><td>19</td><td>361-380</td><td><span class="checkbox"></span></td></tr>
+        <tr><td>5</td><td>81-100</td><td><span class="checkbox"></span></td><td>20</td><td>381-400</td><td><span class="checkbox"></span></td></tr>
+        <tr><td>6</td><td>101-120</td><td><span class="checkbox"></span></td><td>21</td><td>401-420</td><td><span class="checkbox"></span></td></tr>
+        <tr><td>7</td><td>121-140</td><td><span class="checkbox"></span></td><td>22</td><td>421-440</td><td><span class="checkbox"></span></td></tr>
+        <tr><td>8</td><td>141-160</td><td><span class="checkbox"></span></td><td>23</td><td>441-460</td><td><span class="checkbox"></span></td></tr>
+        <tr><td>9</td><td>161-180</td><td><span class="checkbox"></span></td><td>24</td><td>461-480</td><td><span class="checkbox"></span></td></tr>
+        <tr><td>10</td><td>181-200</td><td><span class="checkbox"></span></td><td>25</td><td>481-500</td><td><span class="checkbox"></span></td></tr>
+        <tr><td>11</td><td>201-220</td><td><span class="checkbox"></span></td><td>26</td><td>501-520</td><td><span class="checkbox"></span></td></tr>
+        <tr><td>12</td><td>221-240</td><td><span class="checkbox"></span></td><td>27</td><td>521-540</td><td><span class="checkbox"></span></td></tr>
+        <tr><td>13</td><td>241-260</td><td><span class="checkbox"></span></td><td>28</td><td>541-560</td><td><span class="checkbox"></span></td></tr>
+        <tr><td>14</td><td>261-280</td><td><span class="checkbox"></span></td><td>29</td><td>561-580</td><td><span class="checkbox"></span></td></tr>
+        <tr><td>15</td><td>281-300</td><td><span class="checkbox"></span></td><td>30</td><td>581-604</td><td><span class="checkbox"></span></td></tr>
+    </table>
+</div>
+
+<!-- DAILY PAGE TEMPLATE -->
+<div class="page">
+    <h1>📅 Daily Planner Template</h1>
+    <p style="color: #666; margin-bottom: 15px;">Print multiple copies of this page for each day of Ramadan.</p>
+    
+    <div class="daily-box">
+        <div class="daily-header">
+            <strong>Day _____ of Ramadan</strong> &nbsp;|&nbsp; Date: _______________
+        </div>
+        <div class="daily-content">
+            <div class="two-col">
+                <div>
+                    <h3>🕌 Prayer Times</h3>
+                    <p>Fajr: _______ &nbsp; Dhuhr: _______</p>
+                    <p>Asr: _______ &nbsp; Maghrib: _______</p>
+                    <p>Isha: _______ &nbsp; Taraweeh: _______</p>
+                </div>
+                <div>
+                    <h3>📖 Quran Today</h3>
+                    <p>Juz/Surah: ________________</p>
+                    <p>Pages read: _____ / Total: _____</p>
+                </div>
+            </div>
+            
+            <h3>☀️ Morning</h3>
+            <p><span class="checkbox"></span> Woke for Suhoor &nbsp; <span class="checkbox"></span> Tahajjud &nbsp; <span class="checkbox"></span> Fajr on time &nbsp; <span class="checkbox"></span> Morning adhkar</p>
+            
+            <h3>✨ Good Deeds Today</h3>
+            <div class="line"></div>
+            <div class="line"></div>
+            
+            <h3>🌙 Evening</h3>
+            <p><span class="checkbox"></span> Maghrib &nbsp; <span class="checkbox"></span> Isha &nbsp; <span class="checkbox"></span> Taraweeh ( ___ raka'at) &nbsp; Charity: $______</p>
+            
+            <h3>📝 Reflection</h3>
+            <p>Grateful for: <span style="border-bottom: 1px solid #ccc; display: inline-block; width: 80%;"></span></p>
+            <p>Improve tomorrow: <span style="border-bottom: 1px solid #ccc; display: inline-block; width: 75%;"></span></p>
+        </div>
+    </div>
+</div>
+
+<!-- LAST 10 NIGHTS -->
+<div class="page" style="background: linear-gradient(135deg, #1a1a2e 0%, #2d1f4e 100%); color: white;">
+    <h1 style="color: #c9a227; border-color: #c9a227;">⭐ Last 10 Nights Battle Plan</h1>
+    
+    <div class="dua-box" style="background: rgba(255,255,255,0.1); border-color: #c9a227;">
+        <p style="color: #c9a227; font-weight: 600; text-align: center;">THE Dua for Laylatul Qadr:</p>
+        <div class="arabic" style="color: #c9a227; font-size: 22pt;">اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي</div>
+        <div class="trans" style="color: #ccc;">Allahumma innaka 'afuwwun tuhibbul-'afwa fa'fu 'anni</div>
+        <div class="meaning" style="color: white;">"O Allah, You are Forgiving and love forgiveness, so forgive me."</div>
+    </div>
+    
+    <h2 style="color: #c9a227;">Odd Nights Tracker</h2>
+    <table style="background: rgba(255,255,255,0.1);">
+        <tr style="background: #c9a227; color: #1a1a2e;"><th>Night</th><th>Date</th><th>Prayed</th><th>Charity</th></tr>
+        <tr><td>21st ⭐</td><td>__________</td><td><span class="checkbox" style="border-color: white;"></span></td><td>$______</td></tr>
+        <tr><td>23rd ⭐</td><td>__________</td><td><span class="checkbox" style="border-color: white;"></span></td><td>$______</td></tr>
+        <tr><td>25th ⭐</td><td>__________</td><td><span class="checkbox" style="border-color: white;"></span></td><td>$______</td></tr>
+        <tr><td>27th ⭐⭐</td><td>__________</td><td><span class="checkbox" style="border-color: white;"></span></td><td>$______</td></tr>
+        <tr><td>29th ⭐</td><td>__________</td><td><span class="checkbox" style="border-color: white;"></span></td><td>$______</td></tr>
+    </table>
+    
+    <h2 style="color: #c9a227;">My Top 10 Duas for Laylatul Qadr</h2>
+    <div style="color: #ccc;">
+        <p>1. _______________________________________________</p>
+        <p>2. _______________________________________________</p>
+        <p>3. _______________________________________________</p>
+        <p>4. _______________________________________________</p>
+        <p>5. _______________________________________________</p>
+        <p>6. _______________________________________________</p>
+        <p>7. _______________________________________________</p>
+        <p>8. _______________________________________________</p>
+        <p>9. _______________________________________________</p>
+        <p>10. ______________________________________________</p>
+    </div>
+</div>
+
+<!-- EID & REFLECTION -->
+<div class="page">
+    <h1>🎉 Eid Preparation</h1>
+    
+    <h2>Week Before Eid</h2>
+    <p><span class="checkbox"></span> Confirm Eid prayer location & time</p>
+    <p><span class="checkbox"></span> Buy/prepare Eid outfits</p>
+    <p><span class="checkbox"></span> Pay Zakat al-Fitr (before Eid prayer)</p>
+    <p><span class="checkbox"></span> Plan Eid breakfast</p>
+    <p><span class="checkbox"></span> Prepare gifts for kids/family</p>
+    <p><span class="checkbox"></span> Clean & decorate house</p>
+    
+    <h2>Zakat al-Fitr</h2>
+    <table>
+        <tr><th>Family Member</th><th>Amount</th><th>Paid</th></tr>
+        <tr><td></td><td>$_______</td><td><span class="checkbox"></span></td></tr>
+        <tr><td></td><td>$_______</td><td><span class="checkbox"></span></td></tr>
+        <tr><td></td><td>$_______</td><td><span class="checkbox"></span></td></tr>
+        <tr><td></td><td>$_______</td><td><span class="checkbox"></span></td></tr>
+        <tr><td><strong>Total</strong></td><td><strong>$_______</strong></td><td></td></tr>
+    </table>
+    
+    <h2>📝 End of Ramadan Reflection</h2>
+    <p><strong>My biggest accomplishment:</strong></p>
+    <div class="line"></div>
+    <p><strong>What I learned about myself:</strong></p>
+    <div class="line"></div>
+    <p><strong>What I want to remember for next Ramadan:</strong></p>
+    <div class="line"></div>
+    
+    <div class="footer">
+        <p><strong>Made with ❤️ by Madina Islamic Center (MIC Utah)</strong></p>
+        <p>micutah.org | Serving Muslims locally and globally</p>
+    </div>
+</div>
+
+</body>
+</html>
