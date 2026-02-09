@@ -17,6 +17,20 @@ const books = [
     featured: true,
   },
   {
+    slug: 'virtues-of-ramadan',
+    title: 'The Virtues of Ramadan',
+    subtitle: 'Why This Month Changes Everything',
+    description: 'Discover the blessings, rewards, and transformative power of the holy month.',
+    pages: 32,
+    readTime: '25 min',
+    gradient: 'from-amber-900 via-orange-900 to-black',
+    accent: 'amber',
+    icon: '✨',
+    isPdf: true,
+    pdfUrl: '/downloads/virtues-of-ramadan.pdf',
+    featured: true,
+  },
+  {
     slug: 'first-ramadan',
     title: 'Your First Ramadan',
     subtitle: 'A Complete Guide for New Muslims',
@@ -91,6 +105,10 @@ export default function RamadanBooksPage() {
                       </span>
                     </div>
                   </div>
+                ) : book.isPdf ? (
+                  <a href={book.pdfUrl} target="_blank" rel="noopener noreferrer" className="group block h-full">
+                    <BookCover book={book} interactive isPdf />
+                  </a>
                 ) : (
                   <Link href={`/ramadan/books/${book.slug}`} className="group block h-full">
                     <BookCover book={book} interactive />
@@ -127,7 +145,7 @@ export default function RamadanBooksPage() {
   );
 }
 
-function BookCover({ book, interactive = false }: { book: typeof books[0]; interactive?: boolean }) {
+function BookCover({ book, interactive = false, isPdf = false }: { book: typeof books[0]; interactive?: boolean; isPdf?: boolean }) {
   return (
     <div 
       className={`relative aspect-[3/4] rounded-2xl overflow-hidden bg-gradient-to-br ${book.gradient} ${
@@ -142,25 +160,46 @@ function BookCover({ book, interactive = false }: { book: typeof books[0]; inter
             <pattern id={`pattern-${book.slug}`} x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
               <circle cx="10" cy="10" r="8" fill="none" stroke="white" strokeWidth="0.5" />
               <circle cx="10" cy="10" r="4" fill="none" stroke="white" strokeWidth="0.5" />
+              {isPdf && (
+                <>
+                  <path d="M5,5 L15,15 M15,5 L5,15" stroke="white" strokeWidth="0.3" opacity="0.5" />
+                </>
+              )}
             </pattern>
             <rect x="0" y="0" width="100" height="100" fill={`url(#pattern-${book.slug})`} />
           </svg>
         </div>
         
         {/* Glow effect */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-32 h-32 bg-white/20 rounded-full blur-3xl" />
+        <div className={`absolute top-1/4 left-1/2 -translate-x-1/2 w-32 h-32 ${isPdf ? 'bg-amber-500/30' : 'bg-white/20'} rounded-full blur-3xl`} />
+        
+        {/* Extra decorative stars for Virtues book */}
+        {isPdf && (
+          <>
+            <div className="absolute top-10 right-8 text-2xl animate-pulse">✦</div>
+            <div className="absolute top-20 left-8 text-lg animate-pulse delay-300">✦</div>
+            <div className="absolute bottom-32 right-12 text-xl animate-pulse delay-700">✦</div>
+          </>
+        )}
       </div>
 
       {/* Content */}
       <div className="relative h-full flex flex-col justify-between p-6">
         {/* Top */}
-        <div>
-          {book.featured && (
-            <span className="inline-block bg-white/20 backdrop-blur-sm text-xs font-medium px-3 py-1 rounded-full mb-4">
-              ⭐ Featured
+        <div className="flex justify-between items-start">
+          <div>
+            {book.featured && (
+              <span className="inline-block bg-white/20 backdrop-blur-sm text-xs font-medium px-3 py-1 rounded-full mb-4">
+                ⭐ Featured
+              </span>
+            )}
+            <span className="text-5xl block mb-2">{book.icon}</span>
+          </div>
+          {isPdf && (
+            <span className="bg-red-500/90 backdrop-blur-sm text-xs font-bold px-3 py-1 rounded-full">
+              PDF
             </span>
           )}
-          <span className="text-5xl block mb-2">{book.icon}</span>
         </div>
 
         {/* Center - Title */}
@@ -179,11 +218,11 @@ function BookCover({ book, interactive = false }: { book: typeof books[0]; inter
           <span>{book.readTime} read</span>
         </div>
 
-        {/* Read button on hover */}
+        {/* Read/Download button on hover */}
         {interactive && (
           <div className="absolute inset-x-6 bottom-6 opacity-0 group-hover:opacity-100 transition-opacity">
-            <div className="bg-white text-black font-semibold py-3 rounded-xl text-center">
-              Read Now →
+            <div className={`${isPdf ? 'bg-gradient-to-r from-amber-500 to-orange-500' : 'bg-white'} ${isPdf ? 'text-white' : 'text-black'} font-semibold py-3 rounded-xl text-center`}>
+              {isPdf ? '📥 Download PDF' : 'Read Now →'}
             </div>
           </div>
         )}
