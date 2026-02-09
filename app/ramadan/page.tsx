@@ -94,26 +94,32 @@ export default function RamadanPage() {
       </section>
 
       {/* Ramadan Books Section */}
-      <section className="py-12 bg-gradient-to-br from-purple-900 via-indigo-900 to-black text-white">
-        <div className="container mx-auto px-4">
+      <section className="py-12 bg-gradient-to-br from-amber-800 via-yellow-900 to-amber-950 text-white relative overflow-hidden">
+        {/* Decorative gold pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 left-10 w-32 h-32 border-2 border-amber-300 rounded-full"></div>
+          <div className="absolute bottom-10 right-10 w-48 h-48 border-2 border-amber-300 rounded-full"></div>
+          <div className="absolute top-1/2 left-1/4 w-24 h-24 border border-amber-300 rotate-45"></div>
+        </div>
+        <div className="container mx-auto px-4 relative">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-4">
-                <Library className="h-10 w-10 text-purple-300" />
+                <Library className="h-10 w-10 text-amber-300" />
                 <h2 className="text-3xl font-heading font-bold">Ramadan Reading</h2>
               </div>
-              <p className="text-purple-200 mb-6 max-w-xl">
+              <p className="text-amber-100 mb-6 max-w-xl">
                 Short, powerful books to transform your Ramadan. Read online for free or download PDFs.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link href="/ramadan/books">
-                  <Button size="lg" className="bg-white text-purple-900 hover:bg-purple-100 gap-2">
+                  <Button size="lg" className="bg-white text-amber-900 hover:bg-amber-100 gap-2">
                     <BookOpen className="h-5 w-5" />
                     Browse All Books
                   </Button>
                 </Link>
                 <Link href="/ramadan/books/last-10-nights">
-                  <Button size="lg" variant="outline" className="border-purple-300 text-purple-200 hover:bg-purple-800 gap-2">
+                  <Button size="lg" variant="outline" className="border-amber-300 text-amber-100 hover:bg-amber-800 gap-2">
                     🌙 The Last 10 Nights
                   </Button>
                 </Link>
@@ -122,13 +128,13 @@ export default function RamadanPage() {
             <div className="flex gap-4">
               {/* Mini book covers */}
               <Link href="/ramadan/books/last-10-nights" className="group">
-                <div className="w-28 h-40 rounded-xl bg-gradient-to-br from-purple-600 to-indigo-700 p-3 transform transition-transform group-hover:scale-105 shadow-xl">
+                <div className="w-28 h-40 rounded-xl bg-gradient-to-br from-purple-600 to-indigo-700 p-3 transform transition-transform group-hover:scale-105 shadow-xl shadow-black/30">
                   <span className="text-2xl">🌙</span>
                   <p className="text-xs font-semibold mt-2 leading-tight">The Last 10 Nights</p>
                 </div>
               </Link>
               <a href="/downloads/virtues-of-ramadan.pdf" target="_blank" className="group">
-                <div className="w-28 h-40 rounded-xl bg-gradient-to-br from-amber-600 to-orange-700 p-3 transform transition-transform group-hover:scale-105 shadow-xl">
+                <div className="w-28 h-40 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 p-3 transform transition-transform group-hover:scale-105 shadow-xl shadow-black/30 border border-amber-400/30">
                   <div className="flex justify-between items-start">
                     <span className="text-2xl">✨</span>
                     <span className="text-[10px] bg-red-500 px-1.5 py-0.5 rounded font-bold">PDF</span>
