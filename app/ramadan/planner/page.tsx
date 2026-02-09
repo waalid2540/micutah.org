@@ -295,17 +295,31 @@ export default function RamadanPlannerPage() {
                       <li>✓ Share this with friends and family</li>
                     </ul>
                   </div>
-                  <div className="mt-6">
-                    <Button
-                      variant="outline"
-                      onClick={() => {
-                        // Direct download as backup
-                        window.open("/downloads/ramadan-planner-2026.pdf", "_blank");
-                      }}
-                    >
-                      <Download className="mr-2 h-4 w-4" />
-                      Download Directly
-                    </Button>
+                  <div className="mt-6 space-y-3">
+                    <p className="font-semibold text-gray-700">Download Options:</p>
+                    <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                      <Button
+                        onClick={() => {
+                          window.open("/downloads/ramadan-planner-2026.pdf", "_blank");
+                        }}
+                        className="gap-2"
+                      >
+                        <Download className="h-4 w-4" />
+                        PDF (Print Version)
+                      </Button>
+                      <Button
+                        variant="outline"
+                        onClick={() => {
+                          window.open("/downloads/ramadan-planner-notion.zip", "_blank");
+                        }}
+                        className="gap-2"
+                      >
+                        📱 Notion Template (Digital)
+                      </Button>
+                    </div>
+                    <p className="text-xs text-gray-500">
+                      PDF is best for printing. Notion template works on phone, tablet, or computer.
+                    </p>
                   </div>
                 </CardContent>
               </Card>

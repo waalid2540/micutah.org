@@ -37,11 +37,18 @@ export function getRamadanPlannerWelcomeEmail(firstName: string): { subject: str
         Your <strong>Ultimate Ramadan Planner 2026</strong> is ready. Click below to download:
       </p>
       
-      <!-- Download Button -->
+      <!-- Download Buttons -->
       <div style="text-align: center; margin: 30px 0;">
         <a href="https://micutah.org/downloads/ramadan-planner-2026.pdf" 
            style="display: inline-block; background-color: #1a5f4a; color: #ffffff; text-decoration: none; padding: 16px 40px; border-radius: 8px; font-size: 18px; font-weight: bold;">
-          📄 Download Your Planner
+          📄 Download PDF (Print Version)
+        </a>
+      </div>
+      
+      <div style="text-align: center; margin: 20px 0;">
+        <a href="https://micutah.org/downloads/ramadan-planner-notion.zip" 
+           style="display: inline-block; background-color: #6366f1; color: #ffffff; text-decoration: none; padding: 12px 30px; border-radius: 8px; font-size: 16px; font-weight: bold;">
+          📱 Download Notion Template (Digital)
         </a>
       </div>
       
@@ -51,6 +58,10 @@ export function getRamadanPlannerWelcomeEmail(firstName: string): { subject: str
           🤲 Download 30 Daily Duas
         </a>
       </div>
+      
+      <p style="text-align: center; font-size: 14px; color: #6b7280;">
+        <strong>PDF</strong> = Best for printing &nbsp;|&nbsp; <strong>Notion</strong> = Best for phone/tablet/computer
+      </p>
       
       <!-- What's Inside -->
       <div style="background-color: #f8f9fa; border-radius: 12px; padding: 25px; margin: 30px 0;">
