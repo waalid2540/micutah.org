@@ -51,6 +51,10 @@ export default function MadinaGPTPage() {
     setInput("");
     setIsLoading(true);
 
+    // Create placeholder for streaming response
+    const assistantId = (Date.now() + 1).toString();
+    setMessages((prev) => [...prev, { id: assistantId, role: "assistant", content: "" }]);
+
     try {
       const response = await fetch("/api/chat", {
         method: "POST",
@@ -62,22 +66,33 @@ export default function MadinaGPTPage() {
 
       if (!response.ok) throw new Error("Failed to get response");
 
-      const data = await response.json();
+      // Handle streaming response
+      const reader = response.body?.getReader();
+      const decoder = new TextDecoder();
 
-      const assistantMessage: Message = {
-        id: (Date.now() + 1).toString(),
-        role: "assistant",
-        content: data.content || data.error || "I apologize, but I couldn't process that request.",
-      };
+      if (reader) {
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
 
-      setMessages((prev) => [...prev, assistantMessage]);
+          const text = decoder.decode(value, { stream: true });
+          setMessages((prev) =>
+            prev.map((msg) =>
+              msg.id === assistantId
+                ? { ...msg, content: msg.content + text }
+                : msg
+            )
+          );
+        }
+      }
     } catch (error) {
-      const errorMessage: Message = {
-        id: (Date.now() + 1).toString(),
-        role: "assistant",
-        content: "I apologize, but I'm having trouble connecting right now. Please try again.",
-      };
-      setMessages((prev) => [...prev, errorMessage]);
+      setMessages((prev) =>
+        prev.map((msg) =>
+          msg.id === assistantId
+            ? { ...msg, content: "Assalamu alaikum, I'm having a moment of difficulty. Please try again 🤲" }
+            : msg
+        )
+      );
     } finally {
       setIsLoading(false);
     }
@@ -125,9 +140,9 @@ export default function MadinaGPTPage() {
                 Assalamu Alaikum! 🌙
               </h2>
               <p className="text-emerald-200/80 max-w-xl mx-auto text-lg">
-                I&apos;m MadinaGPT, your Islamic knowledge assistant. I provide authentic 
-                answers from the <strong>Quran</strong> and <strong>Sahih Hadith</strong>, 
-                following the understanding of Ahl as-Sunnah wal-Jama&apos;ah.
+                Welcome! I&apos;m here to share the beauty of Islam with you 💚 Ask me anything 
+                about the <strong>Quran</strong>, <strong>Hadith</strong>, prayer times, 
+                or life at MIC Utah. Let&apos;s learn together!
               </p>
             </div>
 
@@ -172,7 +187,7 @@ export default function MadinaGPTPage() {
         {/* Messages */}
         {messages.length > 0 && (
           <div className="space-y-6 pb-32">
-            {messages.map((message) => (
+            {messages.filter(m => m.content || m.role === "user").map((message) => (
               <div
                 key={message.id}
                 className={`flex gap-4 ${
@@ -203,7 +218,7 @@ export default function MadinaGPTPage() {
               </div>
             ))}
 
-            {isLoading && (
+            {isLoading && messages[messages.length - 1]?.content === "" && (
               <div className="flex gap-4">
                 <div className="w-10 h-10 rounded-full bg-emerald-600 flex items-center justify-center shrink-0">
                   <span className="text-lg">🕌</span>
@@ -211,7 +226,7 @@ export default function MadinaGPTPage() {
                 <div className="bg-emerald-900/50 rounded-2xl rounded-bl-sm px-5 py-4 border border-emerald-700/30">
                   <div className="flex items-center gap-2">
                     <Loader2 className="h-5 w-5 animate-spin text-emerald-400" />
-                    <span className="text-emerald-300">Searching authentic sources...</span>
+                    <span className="text-emerald-300">Bismillah... ✨</span>
                   </div>
                 </div>
               </div>

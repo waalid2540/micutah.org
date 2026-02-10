@@ -1,4 +1,3 @@
-import { NextResponse } from "next/server";
 import OpenAI from "openai";
 import { CHATBOT_SYSTEM_PROMPT } from "@/lib/masjid-knowledge";
 import { calculatePrayerTimes, DEFAULT_IQAMAH_TIMES } from "@/lib/prayer-times";
@@ -10,19 +9,13 @@ const openai = new OpenAI({
 
 async function getContextData() {
   const now = new Date();
-  
-  // Get today's prayer times
   const prayerTimes = calculatePrayerTimes(now);
   
-  // Initialize empty arrays for database queries
   let upcomingEvents: any[] = [];
-  let featuredListings: any[] = [];
   let directoryListings: any[] = [];
 
-  // Only query database if prisma is available
   if (prisma) {
     try {
-      // Get upcoming events (next 14 days)
       upcomingEvents = await prisma.event.findMany({
         where: {
           date: {
@@ -36,22 +29,8 @@ async function getContextData() {
     } catch {}
 
     try {
-      // Get featured marketplace listings
-      featuredListings = await prisma.listing.findMany({
-        where: {
-          approved: true,
-          featured: true,
-        },
-        take: 5,
-      });
-    } catch {}
-
-    try {
-      // Get recent directory businesses
       directoryListings = await prisma.listing.findMany({
-        where: {
-          approved: true,
-        },
+        where: { approved: true },
         take: 10,
         orderBy: { createdAt: "desc" },
       });
@@ -78,7 +57,6 @@ async function getContextData() {
       iqamah: DEFAULT_IQAMAH_TIMES,
     },
     upcomingEvents,
-    featuredListings,
     directoryListings,
   };
 }
@@ -86,39 +64,25 @@ async function getContextData() {
 export async function POST(req: Request) {
   try {
     const { messages } = await req.json();
-
-    // Get real-time context
     const context = await getContextData();
 
     const contextMessage = `
-CURRENT CONTEXT (${context.currentTime}):
+CURRENT TIME: ${context.currentTime}
 
 TODAY'S PRAYER TIMES:
 - Fajr: ${context.prayerTimes.fajr} (Iqamah: ${context.prayerTimes.iqamah.fajr})
-- Sunrise: ${context.prayerTimes.sunrise}
 - Dhuhr: ${context.prayerTimes.dhuhr} (Iqamah: ${context.prayerTimes.iqamah.dhuhr})
 - Asr: ${context.prayerTimes.asr} (Iqamah: ${context.prayerTimes.iqamah.asr})
 - Maghrib: ${context.prayerTimes.maghrib} (Iqamah: ${context.prayerTimes.iqamah.maghrib})
 - Isha: ${context.prayerTimes.isha} (Iqamah: ${context.prayerTimes.iqamah.isha})
 
-${context.upcomingEvents.length > 0 ? `
-UPCOMING EVENTS:
-${context.upcomingEvents.map((e: any) => `- ${e.title} on ${new Date(e.date).toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" })}${e.location ? ` at ${e.location}` : ""}`).join("\n")}
-` : ""}
-
-${context.featuredListings.length > 0 ? `
-FEATURED MARKETPLACE LISTINGS:
-${context.featuredListings.map((l: any) => `- ${l.title} (${l.category})${l.price ? ` - $${l.price}` : ""}`).join("\n")}
-` : ""}
-
-${context.directoryListings.length > 0 ? `
-DIRECTORY BUSINESSES:
-${context.directoryListings.map((l: any) => `- ${l.title} (${l.category})`).join("\n")}
-` : ""}
+${context.upcomingEvents.length > 0 ? `UPCOMING EVENTS:\n${context.upcomingEvents.map((e: any) => `- ${e.title} on ${new Date(e.date).toLocaleDateString()}`).join("\n")}` : ""}
 `;
 
-    const response = await openai.chat.completions.create({
+    // Stream the response
+    const stream = await openai.chat.completions.create({
       model: "gpt-4o-mini",
+      stream: true,
       messages: [
         {
           role: "system",
@@ -132,17 +96,30 @@ ${context.directoryListings.map((l: any) => `- ${l.title} (${l.category})`).join
       max_tokens: 1000,
     });
 
-    const content = response.choices[0]?.message?.content || "I apologize, but I couldn't generate a response. Please try again.";
+    // Create a readable stream
+    const encoder = new TextEncoder();
+    const readable = new ReadableStream({
+      async start(controller) {
+        for await (const chunk of stream) {
+          const text = chunk.choices[0]?.delta?.content || "";
+          if (text) {
+            controller.enqueue(encoder.encode(text));
+          }
+        }
+        controller.close();
+      },
+    });
 
-    return NextResponse.json({
-      role: "assistant",
-      content,
+    return new Response(readable, {
+      headers: {
+        "Content-Type": "text/plain; charset=utf-8",
+        "Cache-Control": "no-cache",
+      },
     });
   } catch (error) {
     console.error("Chat API error:", error);
-    return NextResponse.json(
-      { error: "Failed to process chat request" },
-      { status: 500 }
-    );
+    return new Response("Assalamu alaikum, I'm having a moment of difficulty. Please try again.", {
+      status: 500,
+    });
   }
 }
