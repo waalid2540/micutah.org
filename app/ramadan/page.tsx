@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Moon, Heart, Calendar, Clock, Utensils, BookOpen, Download, Sparkles, Library } from "lucide-react";
+import { Moon, Heart, Calendar, Clock, Utensils, BookOpen, Download, Sparkles, Library, Salad } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -132,6 +132,40 @@ export default function RamadanPage() {
                   <p className="text-xs font-semibold mt-2 leading-tight">Virtues of Ramadan</p>
                 </div>
               </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Healthy Iftar Recipes Section */}
+      <section className="py-12 bg-gradient-to-br from-green-800 via-emerald-900 to-green-950 text-white">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="flex-1">
+              <div className="flex items-center gap-3 mb-4">
+                <Salad className="h-10 w-10 text-green-300" />
+                <h2 className="text-3xl font-heading font-bold">Healthy Iftar Recipes</h2>
+              </div>
+              <p className="text-green-100 mb-6 max-w-xl">
+                Light, nutritious meals so you feel energized for Taraweeh — not sleepy on the couch!
+              </p>
+              <Link href="/ramadan/recipes">
+                <Button size="lg" className="bg-white text-green-900 hover:bg-green-100 gap-2">
+                  <Download className="h-5 w-5" />
+                  Get Free Recipe Book
+                </Button>
+              </Link>
+            </div>
+            <div className="grid grid-cols-3 gap-3">
+              <div className="w-24 h-24 rounded-xl overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?w=200&h=200&fit=crop" alt="Lentil Soup" className="w-full h-full object-cover" />
+              </div>
+              <div className="w-24 h-24 rounded-xl overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=200&h=200&fit=crop" alt="Salad" className="w-full h-full object-cover" />
+              </div>
+              <div className="w-24 h-24 rounded-xl overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?w=200&h=200&fit=crop" alt="Dates" className="w-full h-full object-cover" />
+              </div>
             </div>
           </div>
         </div>
