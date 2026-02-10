@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import AIChatbot from "@/components/chat/AIChatbot";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://micutah.org"),
@@ -90,7 +89,6 @@ export default function RootLayout({
         <Header />
         <main className="flex-grow pt-[calc(2rem+64px)]">{children}</main>
         <Footer />
-        <AIChatbot />
       </body>
     </html>
   );

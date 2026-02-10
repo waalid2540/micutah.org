@@ -13,7 +13,7 @@ const navigation = [
   { name: "Ramadan", href: "/ramadan" },
   { name: "Events", href: "/events" },
   { name: "Directory", href: "/directory" },
-  { name: "Blog", href: "/blog" },
+  { name: "MadinaGPT", href: "/madinagpt" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
 ];
