@@ -101,7 +101,7 @@ export default function RecipesPage() {
     // In production, save to database/send to API
     setSubmitted(true);
     // Trigger download
-    window.open("/downloads/healthy-iftar-recipes.pdf", "_blank");
+    window.open("/downloads/healthy-iftar-recipes.html", "_blank");
   };
 
   return (
