@@ -1,18 +1,19 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
-import { Calendar, Heart, Utensils, Check } from "lucide-react";
+import { Calendar, Heart, Utensils, Check, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 
-// Generate Ramadan dates (sample - would be calculated properly in production)
+const STRIPE_DONATE_LINK = "https://donate.stripe.com/7sIg20dTDevt22YbII";
+
+// Ramadan 2026 dates (Feb 28 - March 29)
 const ramadanDates = Array.from({ length: 30 }, (_, i) => {
-  const date = new Date(2026, 2, 1 + i); // March 2026
+  const date = new Date(2026, 1, 28 + i); // Feb 28, 2026
+  if (date.getMonth() > 2) return null; // Stop after March
   return {
     day: i + 1,
     date: date.toISOString().split("T")[0],
@@ -21,43 +22,21 @@ const ramadanDates = Array.from({ length: 30 }, (_, i) => {
       month: "short",
       day: "numeric",
     }),
-    available: Math.random() > 0.3, // Simulating availability
+    available: true,
   };
-});
+}).filter(Boolean);
 
 export default function IftarSponsorPage() {
-  const router = useRouter();
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
-  const [isAnonymous, setIsAnonymous] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
     phone: "",
-    message: "",
-    amount: 150,
   });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!selectedDate) return;
-
-    setIsSubmitting(true);
-
-    // In production, this would create a Stripe checkout session
-    // For now, we'll simulate the submission
-    try {
-      // Simulating API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-
-      // Would redirect to Stripe checkout in production
-      alert("In production, this would redirect to Stripe checkout. Thank you for your sponsorship!");
-      router.push("/ramadan");
-    } catch (error) {
-      console.error("Error:", error);
-    } finally {
-      setIsSubmitting(false);
-    }
+    // Open Stripe with the selected date info
+    window.open(STRIPE_DONATE_LINK, "_blank");
   };
 
   return (
@@ -90,32 +69,19 @@ export default function IftarSponsorPage() {
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
-                  {ramadanDates.map((day) => (
+                  {ramadanDates.map((day: any) => (
                     <button
                       key={day.day}
-                      onClick={() =>
-                        day.available && setSelectedDate(day.date)
-                      }
-                      disabled={!day.available}
+                      onClick={() => setSelectedDate(day.date)}
                       className={`p-3 rounded-lg text-center transition-all ${
                         selectedDate === day.date
                           ? "bg-primary text-white ring-2 ring-primary ring-offset-2"
-                          : day.available
-                          ? "bg-white hover:bg-primary/10 border"
-                          : "bg-gray-100 text-gray-400 cursor-not-allowed"
+                          : "bg-white hover:bg-primary/10 border"
                       }`}
                     >
-                      <p className="text-xs text-opacity-70">Ramadan</p>
+                      <p className="text-xs opacity-70">Ramadan</p>
                       <p className="text-2xl font-bold">{day.day}</p>
-                      <p className="text-xs mt-1">
-                        {day.available ? (
-                          day.displayDate.split(",")[0]
-                        ) : (
-                          <Badge variant="outline" className="text-xs">
-                            Taken
-                          </Badge>
-                        )}
-                      </p>
+                      <p className="text-xs mt-1">{day.displayDate.split(",")[0]}</p>
                     </button>
                   ))}
                 </div>
@@ -125,12 +91,9 @@ export default function IftarSponsorPage() {
                     <p className="text-primary font-semibold flex items-center gap-2">
                       <Check className="h-5 w-5" />
                       You selected: Ramadan{" "}
-                      {ramadanDates.find((d) => d.date === selectedDate)?.day}
+                      {ramadanDates.find((d: any) => d.date === selectedDate)?.day}
                       {" - "}
-                      {
-                        ramadanDates.find((d) => d.date === selectedDate)
-                          ?.displayDate
-                      }
+                      {ramadanDates.find((d: any) => d.date === selectedDate)?.displayDate}
                     </p>
                   </div>
                 )}
@@ -163,21 +126,7 @@ export default function IftarSponsorPage() {
                   </div>
 
                   <div>
-                    <Label htmlFor="email">Email *</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) =>
-                        setFormData({ ...formData, email: e.target.value })
-                      }
-                      placeholder="your@email.com"
-                      required
-                    />
-                  </div>
-
-                  <div>
-                    <Label htmlFor="phone">Phone (optional)</Label>
+                    <Label htmlFor="phone">Phone *</Label>
                     <Input
                       id="phone"
                       type="tel"
@@ -185,34 +134,9 @@ export default function IftarSponsorPage() {
                       onChange={(e) =>
                         setFormData({ ...formData, phone: e.target.value })
                       }
-                      placeholder="(000) 000-0000"
+                      placeholder="(801) 555-1234"
+                      required
                     />
-                  </div>
-
-                  <div>
-                    <Label htmlFor="message">Message (optional)</Label>
-                    <Textarea
-                      id="message"
-                      value={formData.message}
-                      onChange={(e) =>
-                        setFormData({ ...formData, message: e.target.value })
-                      }
-                      placeholder="In memory of... / On behalf of..."
-                      rows={3}
-                    />
-                  </div>
-
-                  <div className="flex items-center gap-2">
-                    <input
-                      type="checkbox"
-                      id="anonymous"
-                      checked={isAnonymous}
-                      onChange={(e) => setIsAnonymous(e.target.checked)}
-                      className="rounded border-gray-300"
-                    />
-                    <Label htmlFor="anonymous" className="text-sm">
-                      Keep my sponsorship anonymous
-                    </Label>
                   </div>
 
                   <div className="border-t pt-4">
@@ -227,17 +151,18 @@ export default function IftarSponsorPage() {
                       type="submit"
                       size="lg"
                       className="w-full gap-2"
-                      disabled={!selectedDate || isSubmitting}
+                      disabled={!selectedDate}
                     >
-                      {isSubmitting ? (
-                        "Processing..."
-                      ) : (
-                        <>
-                          <Heart className="h-5 w-5" />
-                          Sponsor This Iftar
-                        </>
-                      )}
+                      <Heart className="h-5 w-5" />
+                      Sponsor This Iftar
+                      <ExternalLink className="h-4 w-4" />
                     </Button>
+
+                    {!selectedDate && (
+                      <p className="text-sm text-amber-600 text-center mt-2">
+                        Please select a date above
+                      </p>
+                    )}
                   </div>
                 </form>
               </CardContent>
