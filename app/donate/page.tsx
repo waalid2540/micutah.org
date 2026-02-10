@@ -66,37 +66,10 @@ export default function DonatePage() {
     }
   };
 
-  const [isLoading, setIsLoading] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsLoading(true);
-
-    try {
-      const response = await fetch("/api/donations", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          amount,
-          category: selectedCategory,
-          isRecurring,
-          name: formData.name,
-          phone: formData.phone,
-        }),
-      });
-
-      const data = await response.json();
-
-      if (data.url) {
-        window.location.href = data.url;
-      } else {
-        alert("Error: " + (data.error || "Failed to process donation"));
-        setIsLoading(false);
-      }
-    } catch (error) {
-      alert("Error processing donation. Please try again.");
-      setIsLoading(false);
-    }
+    // Open Stripe donation link directly
+    window.open("https://donate.stripe.com/7sIg20dTDevt22YbII", "_blank");
   };
 
   return (
@@ -319,9 +292,9 @@ export default function DonatePage() {
                     </div>
                   </div>
 
-                  <Button type="submit" size="xl" className="w-full gap-2" disabled={isLoading}>
+                  <Button type="submit" size="xl" className="w-full gap-2">
                     <Heart className="h-5 w-5" />
-                    {isLoading ? "Processing..." : "Complete Donation"}
+                    Donate Now
                   </Button>
 
                   <div className="flex items-center justify-center gap-6 mt-6 text-sm text-gray-600">
