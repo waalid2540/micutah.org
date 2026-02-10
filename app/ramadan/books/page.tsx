@@ -41,7 +41,7 @@ const books = [
     accent: 'teal',
     icon: '🕊️',
     isPdf: true,
-    pdfUrl: 'https://muslim-library.com/books/2018/02/en_Tips_for_Guilt_Free_Ramadan.pdf',
+    pdfUrl: '/downloads/guilt-free-ramadan.pdf',
     featured: true,
   },
   {
