@@ -18,8 +18,10 @@ Madina Islamic Center (commonly called Masjid Madina or MIC Utah) is a welcoming
 - **Accessibility:** Wheelchair accessible, separate prayer areas for men and women
 
 ## Leadership
-- The masjid is led by community leadership and volunteers
-- For Islamic guidance, speak with the Imam during office hours or after prayers
+- **Imam:** Imam Yussuf Abdi
+- **Imam's Phone:** (408) 791-9652
+- For Islamic guidance, speak with Imam Yussuf during office hours or after prayers
+- The masjid is led by community leadership and dedicated volunteers
 
 ## Regular Programs
 
@@ -126,6 +128,7 @@ Find halal and Muslim-owned businesses in Utah:
 - Visit during office hours
 
 ### For Islamic Guidance
+- Contact Imam Yussuf Abdi: (408) 791-9652
 - Meet the Imam after prayers
 - Schedule appointment through office
 - Attend Q&A sessions
