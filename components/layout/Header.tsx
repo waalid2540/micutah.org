@@ -13,7 +13,9 @@ const navigation = [
   { name: "Ramadan", href: "/ramadan" },
   { name: "Events", href: "/events" },
   { name: "Directory", href: "/directory" },
+  { name: "MadinaGPT", href: "/madinagpt" },
   { name: "About", href: "/about" },
+  { name: "Contact", href: "/contact" },
 ];
 
 const tickerItems = [
