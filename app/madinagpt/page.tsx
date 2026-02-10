@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Send, Loader2, BookOpen, Moon, Heart, Sparkles } from "lucide-react";
+import { Send, Loader2, BookOpen, Moon, Heart, Sparkles, ArrowLeft } from "lucide-react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
@@ -87,11 +88,16 @@ export default function MadinaGPTPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-emerald-950 via-emerald-900 to-black">
+    <div className="fixed inset-0 z-50 bg-gradient-to-b from-emerald-950 via-emerald-900 to-black overflow-auto">
       {/* Header */}
       <div className="border-b border-emerald-800/50 bg-emerald-950/80 backdrop-blur-sm sticky top-0 z-10">
-        <div className="container mx-auto px-4 py-6">
-          <div className="flex items-center justify-center gap-3">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            <Link href="/" className="flex items-center gap-2 text-emerald-300 hover:text-white transition-colors">
+              <ArrowLeft className="h-5 w-5" />
+              <span className="text-sm">Back</span>
+            </Link>
+            <div className="flex items-center gap-3">
             <span className="text-4xl">🕌</span>
             <div className="text-center">
               <h1 className="text-3xl md:text-4xl font-bold text-white">
@@ -101,6 +107,8 @@ export default function MadinaGPTPage() {
                 Authentic Islamic Knowledge • Quran & Sahih Hadith
               </p>
             </div>
+            </div>
+            <div className="w-16"></div>
           </div>
         </div>
       </div>
@@ -215,7 +223,7 @@ export default function MadinaGPTPage() {
       </div>
 
       {/* Input - Fixed at bottom */}
-      <div className="fixed bottom-0 left-0 right-0 bg-gradient-to-t from-emerald-950 via-emerald-950 to-transparent pt-8 pb-6">
+      <div className="fixed bottom-0 left-0 right-0 z-[60] bg-gradient-to-t from-emerald-950 via-emerald-950 to-transparent pt-8 pb-6 pb-safe">
         <div className="container mx-auto px-4 max-w-4xl">
           <form onSubmit={handleSubmit} className="flex gap-3">
             <Input
