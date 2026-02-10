@@ -14,11 +14,11 @@ interface Message {
 
 const suggestedQuestions = [
   "What are today's prayer times?",
-  "When is Jummah prayer?",
-  "How can I donate?",
-  "Tell me about Ramadan programs",
-  "Where is the masjid located?",
-  "What halal businesses are nearby?",
+  "How do I perform Wudu?",
+  "What is the reward of fasting?",
+  "Tell me about Laylatul Qadr",
+  "How can I donate Zakat?",
+  "Dua for breaking fast",
 ];
 
 export default function AIChatbot() {
@@ -28,7 +28,7 @@ export default function AIChatbot() {
       id: "welcome",
       role: "assistant",
       content:
-        "Assalamu Alaikum! 🌙 I'm the MIC Utah assistant. I can help you with prayer times, events, directions, donations, and information about our community. What would you like to know?",
+        "Assalamu Alaikum! 🌙 I'm MIC AI - your Islamic Knowledge Assistant. I provide authentic answers from the Quran and Sahih Hadith, following the understanding of Ahl as-Sunnah. I can also help with prayer times, events, and masjid info. How can I help you today?",
     },
   ]);
   const [input, setInput] = useState("");
@@ -101,7 +101,7 @@ export default function AIChatbot() {
         className={`fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full shadow-lg flex items-center justify-center transition-all duration-200 ${
           isOpen
             ? "bg-gray-500 hover:bg-gray-600 rotate-90"
-            : "bg-primary hover:bg-primary-light"
+            : "bg-emerald-600 hover:bg-emerald-700"
         }`}
         aria-label={isOpen ? "Close chat" : "Open chat"}
       >
@@ -115,15 +115,15 @@ export default function AIChatbot() {
       {/* Chat Window */}
       {isOpen && (
         <Card className="fixed bottom-24 right-6 z-50 w-[400px] max-w-[calc(100vw-48px)] shadow-2xl border-0">
-          <CardHeader className="bg-gradient-to-r from-primary to-primary-dark text-white rounded-t-xl py-4">
+          <CardHeader className="bg-gradient-to-r from-emerald-600 to-emerald-800 text-white rounded-t-xl py-4">
             <CardTitle className="flex items-center gap-2 text-lg">
               <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
-                <Bot className="h-5 w-5" />
+                <span className="text-lg">🕌</span>
               </div>
-              MIC Utah Assistant
+              MIC AI
             </CardTitle>
             <p className="text-sm text-white/80 ml-10">
-              Ask about prayers, events, and community
+              Authentic Quran & Sunnah Knowledge
             </p>
           </CardHeader>
 
@@ -212,7 +212,7 @@ export default function AIChatbot() {
                 </Button>
               </div>
               <p className="text-xs text-gray-400 mt-2 text-center">
-                For Islamic rulings, please consult our Imam directly
+                📖 Authentic Sunni sources only • Consult Imam for fatawa
               </p>
             </form>
           </CardContent>
