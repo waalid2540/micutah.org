@@ -8,7 +8,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { amount, category, isRecurring, name, email, phone } = body;
+    const { amount, category, isRecurring, name, phone } = body;
 
     if (!amount || amount < 1) {
       return NextResponse.json(
@@ -17,11 +17,10 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Create metadata for the donation
+    // Create metadata for the donation (phone for SMS marketing)
     const metadata = {
       category: category || "sadaqah",
       donorName: name || "Anonymous",
-      donorEmail: email || "",
       donorPhone: phone || "",
       source: "micutah.org",
     };
@@ -47,7 +46,6 @@ export async function POST(request: NextRequest) {
             quantity: 1,
           },
         ],
-        customer_email: email || undefined,
         metadata,
         success_url: `${process.env.NEXT_PUBLIC_APP_URL || 'https://micutah.org'}/donate/success?session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: `${process.env.NEXT_PUBLIC_APP_URL || 'https://micutah.org'}/donate?canceled=true`,
@@ -72,7 +70,6 @@ export async function POST(request: NextRequest) {
             quantity: 1,
           },
         ],
-        customer_email: email || undefined,
         metadata,
         success_url: `${process.env.NEXT_PUBLIC_APP_URL || 'https://micutah.org'}/donate/success?session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: `${process.env.NEXT_PUBLIC_APP_URL || 'https://micutah.org'}/donate?canceled=true`,

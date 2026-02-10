@@ -50,7 +50,6 @@ export default function DonatePage() {
   const [isRecurring, setIsRecurring] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
     phone: "",
   });
 
@@ -82,7 +81,6 @@ export default function DonatePage() {
           category: selectedCategory,
           isRecurring,
           name: formData.name,
-          email: formData.email,
           phone: formData.phone,
         }),
       });
@@ -260,49 +258,37 @@ export default function DonatePage() {
                   </div>
                 </div>
 
-                {/* Contact Information */}
+                {/* Contact Information - Simple */}
                 <div>
                   <Label className="text-base font-semibold">
                     Your Information
                   </Label>
                   <div className="grid sm:grid-cols-2 gap-4 mt-3">
                     <div>
-                      <Label htmlFor="name">Full Name *</Label>
+                      <Label htmlFor="name">Name *</Label>
                       <Input
                         id="name"
                         value={formData.name}
                         onChange={(e) =>
                           setFormData({ ...formData, name: e.target.value })
                         }
-                        placeholder="Enter your name"
+                        placeholder="Your name"
                         required
                       />
                     </div>
                     <div>
-                      <Label htmlFor="email">Email *</Label>
+                      <Label htmlFor="phone">Phone *</Label>
                       <Input
-                        id="email"
-                        type="email"
-                        value={formData.email}
+                        id="phone"
+                        type="tel"
+                        value={formData.phone}
                         onChange={(e) =>
-                          setFormData({ ...formData, email: e.target.value })
+                          setFormData({ ...formData, phone: e.target.value })
                         }
-                        placeholder="your@email.com"
+                        placeholder="(801) 555-1234"
                         required
                       />
                     </div>
-                  </div>
-                  <div className="mt-4 max-w-xs">
-                    <Label htmlFor="phone">Phone (optional)</Label>
-                    <Input
-                      id="phone"
-                      type="tel"
-                      value={formData.phone}
-                      onChange={(e) =>
-                        setFormData({ ...formData, phone: e.target.value })
-                      }
-                      placeholder="(000) 000-0000"
-                    />
                   </div>
                 </div>
 
