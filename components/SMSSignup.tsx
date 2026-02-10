@@ -35,8 +35,8 @@ export default function SMSSignup() {
     return (
       <div className="bg-green-50 border border-green-200 rounded-xl p-6 text-center">
         <Check className="h-12 w-12 text-green-500 mx-auto mb-3" />
-        <h3 className="font-semibold text-green-800">You're subscribed!</h3>
-        <p className="text-green-600 text-sm">You'll receive updates from MIC Utah</p>
+        <h3 className="font-semibold text-green-800">You&apos;re subscribed!</h3>
+        <p className="text-green-600 text-sm">You&apos;ll receive updates from MIC Utah</p>
       </div>
     );
   }
