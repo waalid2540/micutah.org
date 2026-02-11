@@ -269,9 +269,9 @@ export default function PrayerTimesPage() {
                   Calculation Method
                 </h3>
                 <p className="text-sm text-gray-600">
-                  Prayer times are calculated using the ISNA (Islamic Society of
-                  North America) method with Hanafi jurisprudence for Asr.
-                  Coordinates: 40.7718°N, 111.9298°W
+                  Prayer times are calculated using the Islamic Finder / ISNA method 
+                  (15° for Fajr and Isha) with Hanafi jurisprudence for Asr.
+                  Coordinates: 40.7718°N, 111.9298°W (Salt Lake City, UT)
                 </p>
               </div>
             </div>

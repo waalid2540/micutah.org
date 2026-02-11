@@ -28,9 +28,9 @@ export function calculatePrayerTimes(date: Date = new Date()): PrayerTimeData {
     MASJID_COORDINATES.longitude
   );
 
-  // Using Islamic Finder / Muslim World League calculation method with Shafi'i madhab
-  const params = CalculationMethod.MuslimWorldLeague();
-  params.madhab = Madhab.Shafi; // Shafi'i school for Asr timing
+  // Using Islamic Finder calculation method (ISNA - 15° for Fajr and Isha)
+  const params = CalculationMethod.NorthAmerica();
+  params.madhab = Madhab.Hanafi; // Hanafi school for Asr timing (later Asr)
 
   const prayerTimes = new PrayerTimes(coordinates, date, params);
 
