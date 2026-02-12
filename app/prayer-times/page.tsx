@@ -167,12 +167,12 @@ export default function PrayerTimesPage() {
               <CardContent>
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <p className="text-sm text-gray-600">First Khutbah</p>
+                    <p className="text-sm text-gray-600">Khutbah</p>
                     <p className="text-xl font-bold">1:00 PM</p>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-600">Second Khutbah</p>
-                    <p className="text-xl font-bold">2:00 PM</p>
+                    <p className="text-sm text-gray-600">Salah</p>
+                    <p className="text-xl font-bold">1:30 PM</p>
                   </div>
                 </div>
               </CardContent>
