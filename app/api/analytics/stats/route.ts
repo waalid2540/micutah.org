@@ -31,15 +31,15 @@ export async function GET(request: NextRequest) {
         startDate = new Date(0);
     }
     
-    // Try to get stats - if tables don't exist, return empty data
+    // Initialize default values
     let pageViews = 0;
-    let uniqueVisitors: { visitorId: string }[] = [];
-    let sessions: { sessionId: string }[] = [];
+    let uniqueVisitorsCount = 0;
+    let sessionsCount = 0;
     let topPages: { path: string; views: number }[] = [];
     let topReferrers: { referrer: string | null; count: number }[] = [];
     let devices: Record<string, number> = {};
     let browsers: Record<string, number> = {};
-    let recentEvents: { name: string; category: string; label?: string; createdAt: Date }[] = [];
+    let recentEvents: unknown[] = [];
     let eventsByCategory: { category: string; count: number }[] = [];
     let dailyViews: { date: string; views: number; visitors: number }[] = [];
     let avgDuration = 0;
@@ -51,15 +51,17 @@ export async function GET(request: NextRequest) {
         where: { createdAt: { gte: startDate } },
       });
       
-      uniqueVisitors = await prisma.pageView.groupBy({
+      const uniqueVisitorsResult = await prisma.pageView.groupBy({
         by: ["visitorId"],
         where: { createdAt: { gte: startDate } },
       });
+      uniqueVisitorsCount = uniqueVisitorsResult.length;
       
-      sessions = await prisma.pageView.groupBy({
+      const sessionsResult = await prisma.pageView.groupBy({
         by: ["sessionId"],
         where: { createdAt: { gte: startDate } },
       });
+      sessionsCount = sessionsResult.length;
       
       const topPagesRaw = await prisma.pageView.groupBy({
         by: ["path"],
@@ -142,11 +144,10 @@ export async function GET(request: NextRequest) {
       avgDuration = Math.round(avgDurationResult._avg.duration || 0);
       
     } catch (dbError) {
-      // Tables might not exist yet - return empty data
       console.log("Analytics tables not ready:", dbError);
     }
     
-    // Get donations (this table should exist)
+    // Get donations
     try {
       const donations = await prisma.donation.aggregate({
         where: { 
@@ -166,11 +167,11 @@ export async function GET(request: NextRequest) {
       period,
       summary: {
         pageViews,
-        uniqueVisitors: uniqueVisitors.length,
-        sessions: sessions.length,
+        uniqueVisitors: uniqueVisitorsCount,
+        sessions: sessionsCount,
         avgDuration,
-        bounceRate: sessions.length > 0 
-          ? Math.round((1 - pageViews / sessions.length) * 100) 
+        bounceRate: sessionsCount > 0 
+          ? Math.round((1 - pageViews / sessionsCount) * 100) 
           : 0,
       },
       topPages,
@@ -189,7 +190,6 @@ export async function GET(request: NextRequest) {
     });
   } catch (error) {
     console.error("Analytics stats error:", error);
-    // Return empty stats instead of error
     return NextResponse.json({
       period: "7d",
       summary: {
