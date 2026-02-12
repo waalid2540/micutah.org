@@ -75,7 +75,7 @@ export default function AnalyticsDashboard() {
   useEffect(() => {
     if (isAuthenticated) {
       fetchStats();
-      const interval = setInterval(fetchStats, 5 * 60 * 1000);
+      const interval = setInterval(fetchStats, 30 * 1000); // Refresh every 30 seconds
       return () => clearInterval(interval);
     }
   }, [period, isAuthenticated]);
