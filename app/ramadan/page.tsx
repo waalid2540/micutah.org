@@ -62,6 +62,27 @@ export default function RamadanPage() {
         </div>
       </section>
 
+      {/* Prayer Times Calendar Banner */}
+      <section className="py-6 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <Calendar className="h-8 w-8" />
+              <div>
+                <p className="font-bold text-lg">Ramadan 2026 Prayer Calendar</p>
+                <p className="text-white/90 text-sm">All 30 days with Fajr, Maghrib times & more — download for WhatsApp!</p>
+              </div>
+            </div>
+            <Link href="/ramadan/calendar">
+              <Button className="bg-white text-emerald-700 hover:bg-white/90 gap-2">
+                <Calendar className="h-4 w-4" />
+                View Calendar
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* FREE Ramadan Planner Banner */}
       <section className="py-6 bg-gradient-to-r from-amber-500 to-amber-600 text-white">
         <div className="container mx-auto px-4">
