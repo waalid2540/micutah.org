@@ -342,6 +342,63 @@ model RamadanPlannerLead {
   @@index([interestedInUmrah])
 }
 
+// ============== CUSTOM ANALYTICS ==============
+
+model PageView {
+  id          String   @id @default(cuid())
+  path        String
+  referrer    String?
+  userAgent   String?
+  country     String?
+  city        String?
+  device      String?  // mobile, tablet, desktop
+  browser     String?
+  os          String?
+  sessionId   String
+  visitorId   String
+  duration    Int?     // seconds on page
+  createdAt   DateTime @default(now())
+  
+  @@index([path])
+  @@index([createdAt])
+  @@index([visitorId])
+  @@index([sessionId])
+}
+
+model AnalyticsEvent {
+  id          String   @id @default(cuid())
+  name        String   // click, download, donate, submit, etc.
+  category    String   // donations, ramadan, contact, etc.
+  label       String?  // specific item
+  value       Float?   // amount or count
+  path        String
+  sessionId   String
+  visitorId   String
+  metadata    String?  // JSON for extra data
+  createdAt   DateTime @default(now())
+  
+  @@index([name])
+  @@index([category])
+  @@index([createdAt])
+}
+
+model DailyStats {
+  id            String   @id @default(cuid())
+  date          DateTime @unique
+  pageViews     Int      @default(0)
+  uniqueVisitors Int     @default(0)
+  sessions      Int      @default(0)
+  avgDuration   Float    @default(0)
+  bounceRate    Float    @default(0)
+  topPages      String?  // JSON
+  topReferrers  String?  // JSON
+  topCountries  String?  // JSON
+  donations     Float    @default(0)
+  events        Int      @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
 // ============== HALAL DIRECTORY SUBMISSIONS ==============
 
 model DirectorySubmission {

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import AnalyticsTracker from "@/components/analytics/Tracker";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://micutah.org"),
@@ -86,6 +87,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="min-h-screen flex flex-col">
+        <AnalyticsTracker />
         <Header />
         <main className="flex-grow pt-[calc(2rem+64px)]">{children}</main>
         <Footer />
