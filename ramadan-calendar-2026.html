@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ramadan 2026 - MIC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; }
+    body { font-family: 'Poppins', sans-serif; background: #0d4a2d; }
+    .page { 
+      width: 800px; 
+      height: 100vh;
+      margin: 0 auto; 
+      background: white;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .header {
+      background: linear-gradient(135deg, #0d4a2d 0%, #1a6b42 100%);
+      color: white;
+      padding: 15px 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .header-left { display: flex; align-items: center; gap: 15px; }
+    .logo { width: 60px; height: 60px; border-radius: 10px; background: white; padding: 3px; }
+    .logo img { width: 100%; height: 100%; object-fit: contain; }
+    .header-title h1 { font-size: 30px; font-weight: 800; letter-spacing: 2px; }
+    .header-title span { font-size: 12px; opacity: 0.9; }
+    .header-right { text-align: right; font-size: 11px; }
+    .header-right .masjid { font-size: 14px; font-weight: 700; }
+    
+    .table-container { flex: 1; }
+    table { width: 100%; border-collapse: collapse; font-size: 11px; }
+    thead { background: #1a1a2e; color: white; }
+    th { padding: 8px 4px; font-weight: 600; text-transform: uppercase; font-size: 9px; letter-spacing: 0.5px; }
+    td { padding: 7px 4px; text-align: center; border-bottom: 1px solid #eee; }
+    tbody tr:nth-child(odd) { background: #fafafa; }
+    tbody tr:nth-child(even) { background: white; }
+    
+    .day-name { font-weight: 600; color: #333; }
+    .ramadan-day { font-weight: 700; color: #0d4a2d; font-size: 12px; }
+    .fajr { color: #5e35b1; font-weight: 600; }
+    .maghrib { color: #e65100; font-weight: 700; }
+    
+    .last-ten { background: #fff8e1 !important; }
+    .odd-night .ramadan-day::after { content: '★'; color: #ffc107; font-size: 10px; margin-left: 2px; }
+    .dst-row { background: #fff3cd !important; }
+    
+    .footer {
+      background: linear-gradient(135deg, #0d4a2d 0%, #1a6b42 100%);
+      color: white;
+      padding: 15px 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-left { font-size: 10px; }
+    .footer-center { text-align: center; flex: 1; }
+    .footer-center .legend { display: flex; gap: 15px; justify-content: center; margin-bottom: 5px; font-size: 10px; }
+    .legend-item { display: flex; align-items: center; gap: 4px; }
+    .legend-box { width: 12px; height: 12px; border-radius: 2px; background: #fff8e1; border: 1px solid #ffc107; }
+    .eid-banner { font-size: 14px; font-weight: 700; margin-top: 5px; }
+    .footer-right { text-align: right; }
+    .donate { font-size: 13px; font-weight: 700; margin-bottom: 3px; }
+    .donate-link { font-size: 16px; font-weight: 800; color: #ffc107; }
+    
+    @media print { 
+      body { background: white; }
+      .page { height: auto; width: 100%; } 
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="header">
+      <div class="header-left">
+        <div class="logo">
+          <img src="public/images/logo.png" alt="MIC Logo">
+        </div>
+        <div class="header-title">
+          <h1>RAMADAN 2026</h1>
+          <span>1447 AH • February 18 – March 19</span>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="masjid">MADINA ISLAMIC CENTER</div>
+        <div>1773 W North Temple, Salt Lake City, UT 84116</div>
+        <div>Near Love's & Flying J • Open 24/7</div>
+      </div>
+    </div>
+    
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>#</th>
+            <th>Date</th>
+            <th>Fajr</th>
+            <th>Sunrise</th>
+            <th>Dhuhr</th>
+            <th>Asr</th>
+            <th>Maghrib</th>
+            <th>Isha</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="day-name">Wed</td><td class="ramadan-day">1</td><td>Feb 18</td><td class="fajr">6:02</td><td>7:17</td><td>12:41</td><td>3:39</td><td class="maghrib">6:06</td><td>7:22</td></tr>
+          <tr><td class="day-name">Thu</td><td class="ramadan-day">2</td><td>Feb 19</td><td class="fajr">6:00</td><td>7:16</td><td>12:41</td><td>3:40</td><td class="maghrib">6:07</td><td>7:23</td></tr>
+          <tr><td class="day-name">Fri</td><td class="ramadan-day">3</td><td>Feb 20</td><td class="fajr">5:59</td><td>7:15</td><td>12:41</td><td>3:41</td><td class="maghrib">6:09</td><td>7:24</td></tr>
+          <tr><td class="day-name">Sat</td><td class="ramadan-day">4</td><td>Feb 21</td><td class="fajr">5:58</td><td>7:13</td><td>12:41</td><td>3:42</td><td class="maghrib">6:10</td><td>7:25</td></tr>
+          <tr><td class="day-name">Sun</td><td class="ramadan-day">5</td><td>Feb 22</td><td class="fajr">5:56</td><td>7:12</td><td>12:41</td><td>3:43</td><td class="maghrib">6:11</td><td>7:26</td></tr>
+          <tr><td class="day-name">Mon</td><td class="ramadan-day">6</td><td>Feb 23</td><td class="fajr">5:55</td><td>7:10</td><td>12:41</td><td>3:43</td><td class="maghrib">6:12</td><td>7:27</td></tr>
+          <tr><td class="day-name">Tue</td><td class="ramadan-day">7</td><td>Feb 24</td><td class="fajr">5:54</td><td>7:09</td><td>12:41</td><td>3:44</td><td class="maghrib">6:13</td><td>7:29</td></tr>
+          <tr><td class="day-name">Wed</td><td class="ramadan-day">8</td><td>Feb 25</td><td class="fajr">5:52</td><td>7:07</td><td>12:41</td><td>3:45</td><td class="maghrib">6:14</td><td>7:30</td></tr>
+          <tr><td class="day-name">Thu</td><td class="ramadan-day">9</td><td>Feb 26</td><td class="fajr">5:51</td><td>7:06</td><td>12:40</td><td>3:46</td><td class="maghrib">6:16</td><td>7:31</td></tr>
+          <tr><td class="day-name">Fri</td><td class="ramadan-day">10</td><td>Feb 27</td><td class="fajr">5:49</td><td>7:04</td><td>12:40</td><td>3:47</td><td class="maghrib">6:17</td><td>7:32</td></tr>
+          <tr><td class="day-name">Sat</td><td class="ramadan-day">11</td><td>Feb 28</td><td class="fajr">5:48</td><td>7:03</td><td>12:40</td><td>3:47</td><td class="maghrib">6:18</td><td>7:33</td></tr>
+          <tr><td class="day-name">Sun</td><td class="ramadan-day">12</td><td>Mar 1</td><td class="fajr">5:46</td><td>7:01</td><td>12:40</td><td>3:48</td><td class="maghrib">6:19</td><td>7:34</td></tr>
+          <tr><td class="day-name">Mon</td><td class="ramadan-day">13</td><td>Mar 2</td><td class="fajr">5:45</td><td>7:00</td><td>12:40</td><td>3:49</td><td class="maghrib">6:20</td><td>7:35</td></tr>
+          <tr><td class="day-name">Tue</td><td class="ramadan-day">14</td><td>Mar 3</td><td class="fajr">5:43</td><td>6:58</td><td>12:39</td><td>3:50</td><td class="maghrib">6:21</td><td>7:36</td></tr>
+          <tr><td class="day-name">Wed</td><td class="ramadan-day">15</td><td>Mar 4</td><td class="fajr">5:42</td><td>6:57</td><td>12:39</td><td>3:50</td><td class="maghrib">6:22</td><td>7:37</td></tr>
+          <tr><td class="day-name">Thu</td><td class="ramadan-day">16</td><td>Mar 5</td><td class="fajr">5:40</td><td>6:55</td><td>12:39</td><td>3:51</td><td class="maghrib">6:24</td><td>7:38</td></tr>
+          <tr><td class="day-name">Fri</td><td class="ramadan-day">17</td><td>Mar 6</td><td class="fajr">5:39</td><td>6:53</td><td>12:39</td><td>3:52</td><td class="maghrib">6:25</td><td>7:40</td></tr>
+          <tr><td class="day-name">Sat</td><td class="ramadan-day">18</td><td>Mar 7</td><td class="fajr">5:37</td><td>6:52</td><td>12:38</td><td>3:52</td><td class="maghrib">6:26</td><td>7:41</td></tr>
+          <tr class="dst-row"><td class="day-name">Sun</td><td class="ramadan-day">19</td><td>Mar 8*</td><td class="fajr">5:35</td><td>6:50</td><td>12:38</td><td>3:53</td><td class="maghrib">6:27</td><td>7:42</td></tr>
+          <tr><td class="day-name">Mon</td><td class="ramadan-day">20</td><td>Mar 9</td><td class="fajr">6:34</td><td>7:49</td><td>1:38</td><td>4:54</td><td class="maghrib">7:28</td><td>8:43</td></tr>
+          <tr class="last-ten odd-night"><td class="day-name">Tue</td><td class="ramadan-day">21</td><td>Mar 10</td><td class="fajr">6:32</td><td>7:47</td><td>1:38</td><td>4:54</td><td class="maghrib">7:29</td><td>8:44</td></tr>
+          <tr class="last-ten"><td class="day-name">Wed</td><td class="ramadan-day">22</td><td>Mar 11</td><td class="fajr">6:31</td><td>7:45</td><td>1:37</td><td>4:55</td><td class="maghrib">7:30</td><td>8:45</td></tr>
+          <tr class="last-ten odd-night"><td class="day-name">Thu</td><td class="ramadan-day">23</td><td>Mar 12</td><td class="fajr">6:29</td><td>7:44</td><td>1:37</td><td>4:56</td><td class="maghrib">7:31</td><td>8:46</td></tr>
+          <tr class="last-ten"><td class="day-name">Fri</td><td class="ramadan-day">24</td><td>Mar 13</td><td class="fajr">6:27</td><td>7:42</td><td>1:37</td><td>4:56</td><td class="maghrib">7:32</td><td>8:47</td></tr>
+          <tr class="last-ten odd-night"><td class="day-name">Sat</td><td class="ramadan-day">25</td><td>Mar 14</td><td class="fajr">6:26</td><td>7:41</td><td>1:37</td><td>4:57</td><td class="maghrib">7:33</td><td>8:49</td></tr>
+          <tr class="last-ten"><td class="day-name">Sun</td><td class="ramadan-day">26</td><td>Mar 15</td><td class="fajr">6:24</td><td>7:39</td><td>1:36</td><td>4:58</td><td class="maghrib">7:35</td><td>8:50</td></tr>
+          <tr class="last-ten odd-night"><td class="day-name">Mon</td><td class="ramadan-day">27</td><td>Mar 16</td><td class="fajr">6:22</td><td>7:37</td><td>1:36</td><td>4:58</td><td class="maghrib">7:36</td><td>8:51</td></tr>
+          <tr class="last-ten"><td class="day-name">Tue</td><td class="ramadan-day">28</td><td>Mar 17</td><td class="fajr">6:20</td><td>7:36</td><td>1:36</td><td>4:59</td><td class="maghrib">7:37</td><td>8:52</td></tr>
+          <tr class="last-ten odd-night"><td class="day-name">Wed</td><td class="ramadan-day">29</td><td>Mar 18</td><td class="fajr">6:19</td><td>7:34</td><td>1:36</td><td>4:59</td><td class="maghrib">7:38</td><td>8:53</td></tr>
+          <tr class="last-ten"><td class="day-name">Thu</td><td class="ramadan-day">30</td><td>Mar 19</td><td class="fajr">6:17</td><td>7:32</td><td>1:35</td><td>5:00</td><td class="maghrib">7:39</td><td>8:54</td></tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="footer">
+      <div class="footer-left">
+        <div>ISNA Method (15°)</div>
+        <div>Standard Asr</div>
+        <div>Source: Islamic Finder</div>
+      </div>
+      <div class="footer-center">
+        <div class="legend">
+          <div class="legend-item"><div class="legend-box"></div> Last 10 Nights</div>
+          <div class="legend-item">★ Laylatul Qadr</div>
+          <div class="legend-item">* DST starts Mar 8</div>
+        </div>
+        <div class="eid-banner">🎉 EID UL-FITR: Friday, March 20, 2026</div>
+      </div>
+      <div class="footer-right">
+        <div class="donate">🤲 Support Your Masjid</div>
+        <div class="donate-link">micutah.org/donate</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

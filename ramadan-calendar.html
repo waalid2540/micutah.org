@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ramadan 2026 Prayer Calendar - Madina Islamic Center</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@400;600;700&display=swap');
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #1a5d3a 0%, #0d2e1d 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    
+    .header {
+      background: linear-gradient(135deg, #1a5d3a 0%, #2d8a5e 100%);
+      color: white;
+      padding: 40px;
+      text-align: center;
+      position: relative;
+    }
+    
+    .header::before {
+      content: '☪';
+      position: absolute;
+      top: 20px;
+      left: 30px;
+      font-size: 40px;
+      opacity: 0.3;
+    }
+    
+    .header::after {
+      content: '☪';
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 40px;
+      opacity: 0.3;
+    }
+    
+    .bismillah {
+      font-family: 'Amiri', serif;
+      font-size: 32px;
+      margin-bottom: 10px;
+      opacity: 0.9;
+    }
+    
+    .header h1 {
+      font-size: 42px;
+      font-weight: 700;
+      margin-bottom: 5px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .header h2 {
+      font-size: 24px;
+      font-weight: 400;
+      opacity: 0.9;
+      margin-bottom: 15px;
+    }
+    
+    .header .dates {
+      font-size: 18px;
+      background: rgba(255,255,255,0.2);
+      display: inline-block;
+      padding: 10px 30px;
+      border-radius: 30px;
+      margin-top: 10px;
+    }
+    
+    .masjid-info {
+      background: #f8f9fa;
+      padding: 25px;
+      text-align: center;
+      border-bottom: 3px solid #1a5d3a;
+    }
+    
+    .masjid-name {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1a5d3a;
+      margin-bottom: 10px;
+    }
+    
+    .masjid-details {
+      font-size: 16px;
+      color: #555;
+      line-height: 1.8;
+    }
+    
+    .masjid-details strong {
+      color: #1a5d3a;
+    }
+    
+    .calendar-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    
+    .calendar-table thead {
+      background: linear-gradient(135deg, #1a5d3a 0%, #2d8a5e 100%);
+      color: white;
+    }
+    
+    .calendar-table th {
+      padding: 15px 8px;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+    
+    .calendar-table td {
+      padding: 12px 8px;
+      text-align: center;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .calendar-table tbody tr:nth-child(even) {
+      background: #f8fdf9;
+    }
+    
+    .calendar-table tbody tr:hover {
+      background: #e8f5ec;
+    }
+    
+    .day-num {
+      font-weight: 700;
+      color: #1a5d3a;
+      font-size: 16px;
+    }
+    
+    .date-col {
+      font-weight: 600;
+      color: #333;
+      text-align: left;
+      padding-left: 15px !important;
+    }
+    
+    .suhoor {
+      color: #6b4c9a;
+      font-weight: 600;
+    }
+    
+    .iftar {
+      color: #c45c26;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    
+    .last-ten {
+      background: linear-gradient(135deg, #fdf6e3 0%, #fff9e6 100%) !important;
+    }
+    
+    .last-ten td {
+      border-bottom: 1px solid #e6d9a8;
+    }
+    
+    .odd-night {
+      position: relative;
+    }
+    
+    .odd-night::after {
+      content: '★';
+      color: #d4af37;
+      margin-left: 5px;
+    }
+    
+    .donation-section {
+      background: linear-gradient(135deg, #c45c26 0%, #e07830 100%);
+      color: white;
+      padding: 40px;
+      text-align: center;
+    }
+    
+    .donation-section h3 {
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+    
+    .donation-section p {
+      font-size: 18px;
+      opacity: 0.95;
+      max-width: 600px;
+      margin: 0 auto 20px;
+      line-height: 1.6;
+    }
+    
+    .donation-box {
+      background: white;
+      color: #333;
+      padding: 25px;
+      border-radius: 15px;
+      display: inline-block;
+      margin-top: 15px;
+    }
+    
+    .donation-box h4 {
+      color: #1a5d3a;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    
+    .donation-methods {
+      font-size: 16px;
+      line-height: 2;
+    }
+    
+    .footer {
+      background: #1a5d3a;
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
+    
+    .footer-logo {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    
+    .footer p {
+      opacity: 0.8;
+      font-size: 14px;
+    }
+    
+    .legend {
+      padding: 15px 25px;
+      background: #f0f0f0;
+      font-size: 12px;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .legend-color {
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+    }
+    
+    .legend-color.last-ten-legend {
+      background: linear-gradient(135deg, #fdf6e3 0%, #fff9e6 100%);
+      border: 1px solid #e6d9a8;
+    }
+    
+    .star-legend {
+      color: #d4af37;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+      <h1>RAMADAN 2026</h1>
+      <h2>Prayer & Fasting Calendar</h2>
+      <div class="dates">1447 Hijri • February 17 - March 18, 2026</div>
+    </div>
+    
+    <div class="masjid-info">
+      <div class="masjid-name">🕌 MADINA ISLAMIC CENTER</div>
+      <div class="masjid-details">
+        <strong>📍 Address:</strong> 1465 W 12600 S, Riverton, UT 84065<br>
+        <strong>📞 Phone:</strong> (801) 987-6543 &nbsp;|&nbsp; 
+        <strong>🌐 Website:</strong> micutah.org<br>
+        <strong>⏰ Open 24/7</strong> — Serving Travelers & Community
+      </div>
+    </div>
+    
+    <div class="legend">
+      <div class="legend-item">
+        <div class="legend-color last-ten-legend"></div>
+        <span>Last 10 Nights</span>
+      </div>
+      <div class="legend-item">
+        <span class="star-legend">★</span>
+        <span>Odd Nights (Laylatul Qadr)</span>
+      </div>
+      <div class="legend-item">
+        <span class="suhoor">■</span>
+        <span>Stop Eating (Suhoor ends)</span>
+      </div>
+      <div class="legend-item">
+        <span class="iftar">■</span>
+        <span>Break Fast (Iftar)</span>
+      </div>
+    </div>
+    
+    <table class="calendar-table">
+      <thead>
+        <tr>
+          <th>Day</th>
+          <th>Date</th>
+          <th>Suhoor Ends</th>
+          <th>Fajr</th>
+          <th>Sunrise</th>
+          <th>Dhuhr</th>
+          <th>Asr</th>
+          <th>Iftar/Maghrib</th>
+          <th>Isha</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="day-num">1</td><td class="date-col">Tue, Feb 17</td><td class="suhoor">6:03 AM</td><td>6:03 AM</td><td>7:19 AM</td><td>12:43 PM</td><td>4:23 PM</td><td class="iftar">6:05 PM</td><td>7:21 PM</td></tr>
+        <tr><td class="day-num">2</td><td class="date-col">Wed, Feb 18</td><td class="suhoor">6:02 AM</td><td>6:02 AM</td><td>7:17 AM</td><td>12:43 PM</td><td>4:24 PM</td><td class="iftar">6:06 PM</td><td>7:22 PM</td></tr>
+        <tr><td class="day-num">3</td><td class="date-col">Thu, Feb 19</td><td class="suhoor">6:00 AM</td><td>6:00 AM</td><td>7:16 AM</td><td>12:42 PM</td><td>4:26 PM</td><td class="iftar">6:07 PM</td><td>7:23 PM</td></tr>
+        <tr><td class="day-num">4</td><td class="date-col">Fri, Feb 20</td><td class="suhoor">5:59 AM</td><td>5:59 AM</td><td>7:15 AM</td><td>12:42 PM</td><td>4:27 PM</td><td class="iftar">6:09 PM</td><td>7:24 PM</td></tr>
+        <tr><td class="day-num">5</td><td class="date-col">Sat, Feb 21</td><td class="suhoor">5:58 AM</td><td>5:58 AM</td><td>7:13 AM</td><td>12:42 PM</td><td>4:28 PM</td><td class="iftar">6:10 PM</td><td>7:25 PM</td></tr>
+        <tr><td class="day-num">6</td><td class="date-col">Sun, Feb 22</td><td class="suhoor">5:56 AM</td><td>5:56 AM</td><td>7:12 AM</td><td>12:42 PM</td><td>4:29 PM</td><td class="iftar">6:11 PM</td><td>7:27 PM</td></tr>
+        <tr><td class="day-num">7</td><td class="date-col">Mon, Feb 23</td><td class="suhoor">5:55 AM</td><td>5:55 AM</td><td>7:10 AM</td><td>12:42 PM</td><td>4:30 PM</td><td class="iftar">6:12 PM</td><td>7:28 PM</td></tr>
+        <tr><td class="day-num">8</td><td class="date-col">Tue, Feb 24</td><td class="suhoor">5:54 AM</td><td>5:54 AM</td><td>7:09 AM</td><td>12:42 PM</td><td>4:31 PM</td><td class="iftar">6:13 PM</td><td>7:29 PM</td></tr>
+        <tr><td class="day-num">9</td><td class="date-col">Wed, Feb 25</td><td class="suhoor">5:52 AM</td><td>5:52 AM</td><td>7:07 AM</td><td>12:42 PM</td><td>4:32 PM</td><td class="iftar">6:15 PM</td><td>7:30 PM</td></tr>
+        <tr><td class="day-num">10</td><td class="date-col">Thu, Feb 26</td><td class="suhoor">5:51 AM</td><td>5:51 AM</td><td>7:06 AM</td><td>12:42 PM</td><td>4:33 PM</td><td class="iftar">6:16 PM</td><td>7:31 PM</td></tr>
+        <tr><td class="day-num">11</td><td class="date-col">Fri, Feb 27</td><td class="suhoor">5:49 AM</td><td>5:49 AM</td><td>7:04 AM</td><td>12:41 PM</td><td>4:34 PM</td><td class="iftar">6:17 PM</td><td>7:32 PM</td></tr>
+        <tr><td class="day-num">12</td><td class="date-col">Sat, Feb 28</td><td class="suhoor">5:48 AM</td><td>5:48 AM</td><td>7:03 AM</td><td>12:41 PM</td><td>4:35 PM</td><td class="iftar">6:18 PM</td><td>7:33 PM</td></tr>
+        <tr><td class="day-num">13</td><td class="date-col">Sun, Mar 1</td><td class="suhoor">5:46 AM</td><td>5:46 AM</td><td>7:01 AM</td><td>12:41 PM</td><td>4:36 PM</td><td class="iftar">6:19 PM</td><td>7:34 PM</td></tr>
+        <tr><td class="day-num">14</td><td class="date-col">Mon, Mar 2</td><td class="suhoor">5:45 AM</td><td>5:45 AM</td><td>7:00 AM</td><td>12:41 PM</td><td>4:37 PM</td><td class="iftar">6:20 PM</td><td>7:35 PM</td></tr>
+        <tr><td class="day-num">15</td><td class="date-col">Tue, Mar 3</td><td class="suhoor">5:43 AM</td><td>5:43 AM</td><td>6:58 AM</td><td>12:41 PM</td><td>4:38 PM</td><td class="iftar">6:21 PM</td><td>7:37 PM</td></tr>
+        <tr><td class="day-num">16</td><td class="date-col">Wed, Mar 4</td><td class="suhoor">5:42 AM</td><td>5:42 AM</td><td>6:57 AM</td><td>12:40 PM</td><td>4:39 PM</td><td class="iftar">6:23 PM</td><td>7:38 PM</td></tr>
+        <tr><td class="day-num">17</td><td class="date-col">Thu, Mar 5</td><td class="suhoor">5:40 AM</td><td>5:40 AM</td><td>6:55 AM</td><td>12:40 PM</td><td>4:40 PM</td><td class="iftar">6:24 PM</td><td>7:39 PM</td></tr>
+        <tr><td class="day-num">18</td><td class="date-col">Fri, Mar 6</td><td class="suhoor">5:39 AM</td><td>5:39 AM</td><td>6:54 AM</td><td>12:40 PM</td><td>4:41 PM</td><td class="iftar">6:25 PM</td><td>7:40 PM</td></tr>
+        <tr><td class="day-num">19</td><td class="date-col">Sat, Mar 7</td><td class="suhoor">5:37 AM</td><td>5:37 AM</td><td>6:52 AM</td><td>12:40 PM</td><td>4:42 PM</td><td class="iftar">6:26 PM</td><td>7:41 PM</td></tr>
+        <tr><td class="day-num">20</td><td class="date-col">Sun, Mar 8*</td><td class="suhoor">6:36 AM</td><td>6:36 AM</td><td>7:50 AM</td><td>1:39 PM</td><td>5:42 PM</td><td class="iftar">7:27 PM</td><td>8:42 PM</td></tr>
+        <tr class="last-ten"><td class="day-num odd-night">21</td><td class="date-col">Mon, Mar 9</td><td class="suhoor">6:34 AM</td><td>6:34 AM</td><td>7:49 AM</td><td>1:39 PM</td><td>5:43 PM</td><td class="iftar">7:28 PM</td><td>8:43 PM</td></tr>
+        <tr class="last-ten"><td class="day-num">22</td><td class="date-col">Tue, Mar 10</td><td class="suhoor">6:32 AM</td><td>6:32 AM</td><td>7:47 AM</td><td>1:39 PM</td><td>5:44 PM</td><td class="iftar">7:29 PM</td><td>8:44 PM</td></tr>
+        <tr class="last-ten"><td class="day-num odd-night">23</td><td class="date-col">Wed, Mar 11</td><td class="suhoor">6:31 AM</td><td>6:31 AM</td><td>7:46 AM</td><td>1:39 PM</td><td>5:45 PM</td><td class="iftar">7:30 PM</td><td>8:45 PM</td></tr>
+        <tr class="last-ten"><td class="day-num">24</td><td class="date-col">Thu, Mar 12</td><td class="suhoor">6:29 AM</td><td>6:29 AM</td><td>7:44 AM</td><td>1:38 PM</td><td>5:46 PM</td><td class="iftar">7:31 PM</td><td>8:47 PM</td></tr>
+        <tr class="last-ten"><td class="day-num odd-night">25</td><td class="date-col">Fri, Mar 13</td><td class="suhoor">6:27 AM</td><td>6:27 AM</td><td>7:42 AM</td><td>1:38 PM</td><td>5:47 PM</td><td class="iftar">7:32 PM</td><td>8:48 PM</td></tr>
+        <tr class="last-ten"><td class="day-num">26</td><td class="date-col">Sat, Mar 14</td><td class="suhoor">6:26 AM</td><td>6:26 AM</td><td>7:41 AM</td><td>1:38 PM</td><td>5:48 PM</td><td class="iftar">7:34 PM</td><td>8:49 PM</td></tr>
+        <tr class="last-ten"><td class="day-num odd-night">27</td><td class="date-col">Sun, Mar 15</td><td class="suhoor">6:24 AM</td><td>6:24 AM</td><td>7:39 AM</td><td>1:38 PM</td><td>5:49 PM</td><td class="iftar">7:35 PM</td><td>8:50 PM</td></tr>
+        <tr class="last-ten"><td class="day-num">28</td><td class="date-col">Mon, Mar 16</td><td class="suhoor">6:22 AM</td><td>6:22 AM</td><td>7:37 AM</td><td>1:37 PM</td><td>5:49 PM</td><td class="iftar">7:36 PM</td><td>8:51 PM</td></tr>
+        <tr class="last-ten"><td class="day-num odd-night">29</td><td class="date-col">Tue, Mar 17</td><td class="suhoor">6:21 AM</td><td>6:21 AM</td><td>7:36 AM</td><td>1:37 PM</td><td>5:50 PM</td><td class="iftar">7:37 PM</td><td>8:52 PM</td></tr>
+        <tr class="last-ten"><td class="day-num">30</td><td class="date-col">Wed, Mar 18</td><td class="suhoor">6:19 AM</td><td>6:19 AM</td><td>7:34 AM</td><td>1:37 PM</td><td>5:51 PM</td><td class="iftar">7:38 PM</td><td>8:53 PM</td></tr>
+      </tbody>
+    </table>
+    
+    <div style="padding: 10px 25px; font-size: 11px; color: #666; text-align: center; background: #f5f5f5;">
+      * Daylight Saving Time begins March 8 — clocks move forward 1 hour
+    </div>
+    
+    <div class="donation-section">
+      <h3>🤲 Support Iftar at MIC</h3>
+      <p>
+        Help us feed the community this Ramadan! Your generous donation provides 
+        iftar meals for travelers, families, and community members every night.
+      </p>
+      <p style="font-size: 24px; font-weight: 700;">
+        $10 feeds one person • $300 sponsors a full night
+      </p>
+      <div class="donation-box">
+        <h4>Ways to Donate</h4>
+        <div class="donation-methods">
+          🌐 <strong>Online:</strong> micutah.org/donate<br>
+          💳 <strong>Zelle:</strong> donate@micutah.org<br>
+          📱 <strong>Venmo:</strong> @MadinaIslamicCenter<br>
+          🏦 <strong>In Person:</strong> Visit the masjid
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+      <div class="footer-logo">MADINA ISLAMIC CENTER</div>
+      <p>Salt Lake City's 24/7 Masjid — Serving the Community & Travelers</p>
+      <p style="margin-top: 10px;">Calculation: ISNA Method (15°) | Hanafi Asr | Salt Lake City, UT</p>
+    </div>
+  </div>
+</body>
+</html>
