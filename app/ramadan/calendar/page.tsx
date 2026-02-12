@@ -60,7 +60,7 @@ export default function RamadanCalendarPage() {
             <div className="text-right text-sm">
               <p className="font-semibold text-lg">Madina Islamic Center</p>
               <p className="text-emerald-200">1773 W North Temple, SLC, UT 84116</p>
-              <p className="text-emerald-200">Near Love's & Flying J • Open 24/7</p>
+              <p className="text-emerald-200">Near Love&apos;s & Flying J • Open 24/7</p>
             </div>
           </div>
         </div>
@@ -174,7 +174,7 @@ export default function RamadanCalendarPage() {
         {/* Footer Info */}
         <div className="mt-6 text-center text-emerald-200 text-sm pb-8">
           <p>Source: Islamic Finder • ISNA Method (15°) • Standard Asr</p>
-          <p className="mt-1">Madina Islamic Center — Salt Lake City's 24/7 Masjid</p>
+          <p className="mt-1">Madina Islamic Center — Salt Lake City&apos;s 24/7 Masjid</p>
         </div>
       </div>
     </div>
