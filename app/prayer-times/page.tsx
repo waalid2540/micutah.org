@@ -7,13 +7,12 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { calculatePrayerTimes, getNextPrayer, getHijriDate, DEFAULT_IQAMAH_TIMES } from "@/lib/prayer-times";
+import { calculatePrayerTimes, getNextPrayer, getHijriDate } from "@/lib/prayer-times";
 import { formatTime } from "@/lib/utils";
 
 interface PrayerTime {
   name: string;
   adhan: string;
-  iqamah: string | null;
   isNext: boolean;
 }
 
@@ -29,12 +28,12 @@ export default function PrayerTimesPage() {
     setHijriDate(getHijriDate(currentDate));
 
     const prayerList: PrayerTime[] = [
-      { name: "Fajr", adhan: times.fajr, iqamah: DEFAULT_IQAMAH_TIMES.fajr, isNext: next.name === "Fajr" },
-      { name: "Sunrise", adhan: times.sunrise, iqamah: null, isNext: next.name === "Sunrise" },
-      { name: "Dhuhr", adhan: times.dhuhr, iqamah: DEFAULT_IQAMAH_TIMES.dhuhr, isNext: next.name === "Dhuhr" },
-      { name: "Asr", adhan: times.asr, iqamah: DEFAULT_IQAMAH_TIMES.asr, isNext: next.name === "Asr" },
-      { name: "Maghrib", adhan: times.maghrib, iqamah: DEFAULT_IQAMAH_TIMES.maghrib, isNext: next.name === "Maghrib" },
-      { name: "Isha", adhan: times.isha, iqamah: DEFAULT_IQAMAH_TIMES.isha, isNext: next.name === "Isha" },
+      { name: "Fajr", adhan: times.fajr, isNext: next.name === "Fajr" },
+      { name: "Sunrise", adhan: times.sunrise, isNext: next.name === "Sunrise" },
+      { name: "Dhuhr", adhan: times.dhuhr, isNext: next.name === "Dhuhr" },
+      { name: "Asr", adhan: times.asr, isNext: next.name === "Asr" },
+      { name: "Maghrib", adhan: times.maghrib, isNext: next.name === "Maghrib" },
+      { name: "Isha", adhan: times.isha, isNext: next.name === "Isha" },
     ];
 
     setPrayerTimes(prayerList);
@@ -146,23 +145,11 @@ export default function PrayerTimesPage() {
                       )}
                     </div>
 
-                    <div className="space-y-2">
-                      <div className="flex justify-between items-center">
-                        <span className="text-gray-600">Adhan</span>
-                        <span className="text-2xl font-bold">
-                          {formatTime(prayer.adhan)}
-                        </span>
-                      </div>
-                      {prayer.iqamah && (
-                        <div className="flex justify-between items-center">
-                          <span className="text-gray-600">Iqamah</span>
-                          <span className="text-lg text-accent font-semibold">
-                            {prayer.iqamah === "+10"
-                              ? "10 min after Adhan"
-                              : formatTime(prayer.iqamah)}
-                          </span>
-                        </div>
-                      )}
+                    <div className="flex justify-between items-center">
+                      <span className="text-gray-600">Time</span>
+                      <span className="text-2xl font-bold">
+                        {formatTime(prayer.adhan)}
+                      </span>
                     </div>
                   </CardContent>
                 </Card>
