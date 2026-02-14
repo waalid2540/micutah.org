@@ -319,6 +319,19 @@ model RamadanDonation {
   createdAt DateTime @default(now())
 }
 
+// ============== RAMADAN RECIPE LEADS ==============
+
+model RecipeLead {
+  id        String   @id @default(cuid())
+  name      String
+  phone     String
+  source    String   @default("ramadan-recipes-2026")
+  createdAt DateTime @default(now())
+  
+  @@index([phone])
+  @@index([createdAt])
+}
+
 // ============== RAMADAN PLANNER LEADS ==============
 
 model RamadanPlannerLead {
