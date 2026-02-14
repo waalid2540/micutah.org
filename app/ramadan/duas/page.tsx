@@ -14,191 +14,333 @@ interface Dua {
   translation: string;
   category: string;
   source: string;
+  reference?: string;
   occasion?: string;
 }
 
+// ALL AUTHENTIC DUAS - Quran & Sahih/Hasan Hadith ONLY
 const duas: Dua[] = [
-  // Iftar Duas
+  // ============ IFTAR ============
   {
     id: 1,
     arabic: "ذَهَبَ الظَّمَأُ وَابْتَلَّتِ الْعُرُوقُ وَثَبَتَ الْأَجْرُ إِنْ شَاءَ اللَّهُ",
     transliteration: "Dhahaba adh-dhama'u wabtallatil-'urooqu wa thabatal-ajru in shaa'Allah",
     translation: "The thirst has gone, the veins are moistened, and the reward is assured, if Allah wills.",
     category: "iftar",
-    source: "Abu Dawud",
+    source: "Sunan Abu Dawud 2357",
+    reference: "Graded Hasan by Al-Albani",
     occasion: "When breaking fast"
   },
+  
+  // ============ LAYLATUL QADR ============
   {
     id: 2,
-    arabic: "اللَّهُمَّ لَكَ صُمْتُ وَعَلَى رِزْقِكَ أَفْطَرْتُ",
-    transliteration: "Allahumma laka sumtu wa 'ala rizqika aftartu",
-    translation: "O Allah, for You I have fasted and upon Your provision I have broken my fast.",
-    category: "iftar",
-    source: "Abu Dawud",
-    occasion: "When breaking fast"
+    arabic: "اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي",
+    transliteration: "Allahumma innaka 'Afuwwun tuhibbul-'afwa fa'fu 'anni",
+    translation: "O Allah, You are the Pardoning One, You love to pardon, so pardon me.",
+    category: "laylatul-qadr",
+    source: "Sunan al-Tirmidhi 3513",
+    reference: "Graded Sahih by Al-Albani. Aisha (RA) asked the Prophet ﷺ what to say on Laylatul Qadr.",
+    occasion: "The Last 10 Nights"
   },
-  // Suhoor Duas
+
+  // ============ FASTING & RAMADAN ============
   {
     id: 3,
-    arabic: "اللَّهُمَّ إِنِّي أَسْأَلُكَ بَرَكَةَ هَذَا السَّحُورِ",
-    transliteration: "Allahumma inni as'aluka barakata hadha as-sahoor",
-    translation: "O Allah, I ask You for the blessing of this suhoor.",
-    category: "suhoor",
-    source: "General Dua",
-    occasion: "During suhoor"
+    arabic: "إِذَا أَفْطَرَ أَحَدُكُمْ فَلْيُفْطِرْ عَلَى تَمْرٍ فَإِنَّهُ بَرَكَةٌ",
+    transliteration: "Idha aftara ahadukum falyuftir 'ala tamr fa innahu barakah",
+    translation: "When one of you breaks his fast, let him break it with dates, for it is blessed.",
+    category: "iftar",
+    source: "Sunan Abu Dawud 2355",
+    reference: "Graded Sahih by Al-Albani",
+    occasion: "Breaking fast with dates"
   },
+
+  // ============ QURAN - RABBANA DUAS ============
   {
     id: 4,
-    arabic: "نَوَيْتُ صَوْمَ غَدٍ مِنْ شَهْرِ رَمَضَانَ",
-    transliteration: "Nawaytu sawma ghadin min shahri Ramadan",
-    translation: "I intend to fast tomorrow in the month of Ramadan.",
-    category: "suhoor",
-    source: "Intention for fasting",
-    occasion: "Before Fajr"
-  },
-  // Laylatul Qadr
-  {
-    id: 5,
-    arabic: "اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي",
-    transliteration: "Allahumma innaka 'afuwwun tuhibbul-'afwa fa'fu 'anni",
-    translation: "O Allah, You are the Most Forgiving, and You love forgiveness, so forgive me.",
-    category: "laylatul-qadr",
-    source: "Tirmidhi",
-    occasion: "Especially on Laylatul Qadr"
-  },
-  {
-    id: 6,
-    arabic: "اللَّهُمَّ بَلِّغْنَا لَيْلَةَ الْقَدْرِ",
-    transliteration: "Allahumma ballighna laylatal-qadr",
-    translation: "O Allah, allow us to reach Laylatul Qadr.",
-    category: "laylatul-qadr",
-    source: "General Dua",
-    occasion: "Throughout Ramadan"
-  },
-  // General Ramadan Duas
-  {
-    id: 7,
-    arabic: "رَبَّنَا تَقَبَّلْ مِنَّا إِنَّكَ أَنْتَ السَّمِيعُ الْعَلِيمُ",
-    transliteration: "Rabbana taqabbal minna innaka antas-Samee'ul-'Aleem",
-    translation: "Our Lord, accept from us. Indeed, You are the All-Hearing, All-Knowing.",
-    category: "general",
+    arabic: "رَبَّنَا تَقَبَّلْ مِنَّا إِنَّكَ أَنتَ السَّمِيعُ الْعَلِيمُ",
+    transliteration: "Rabbana taqabbal minna innaka Antas-Samee'ul-'Aleem",
+    translation: "Our Lord, accept [this] from us. Indeed, You are the All-Hearing, the All-Knowing.",
+    category: "quran",
     source: "Quran 2:127",
+    reference: "Dua of Ibrahim (AS) & Ismail (AS)",
     occasion: "After good deeds"
   },
   {
+    id: 5,
+    arabic: "رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ",
+    transliteration: "Rabbana atina fid-dunya hasanatan wa fil-akhirati hasanatan wa qina 'adhaban-nar",
+    translation: "Our Lord, give us in this world good and in the Hereafter good and protect us from the punishment of the Fire.",
+    category: "quran",
+    source: "Quran 2:201",
+    reference: "The Prophet ﷺ used to make this dua frequently (Bukhari & Muslim)",
+    occasion: "Comprehensive dua"
+  },
+  {
+    id: 6,
+    arabic: "رَبَّنَا لَا تُؤَاخِذْنَا إِن نَّسِينَا أَوْ أَخْطَأْنَا",
+    transliteration: "Rabbana la tu'akhidhna in nasina aw akhta'na",
+    translation: "Our Lord, do not impose blame upon us if we forget or make a mistake.",
+    category: "quran",
+    source: "Quran 2:286",
+    reference: "Allah said 'I have done so' (Sahih Muslim 126)",
+    occasion: "Seeking forgiveness"
+  },
+  {
+    id: 7,
+    arabic: "رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا وَهَبْ لَنَا مِن لَّدُنكَ رَحْمَةً إِنَّكَ أَنتَ الْوَهَّابُ",
+    transliteration: "Rabbana la tuzigh quloobana ba'da idh hadaytana wa hab lana min ladunka rahmah innaka Antal-Wahhab",
+    translation: "Our Lord, let not our hearts deviate after You have guided us and grant us from Yourself mercy. Indeed, You are the Bestower.",
+    category: "quran",
+    source: "Quran 3:8",
+    reference: "Dua for steadfastness",
+    occasion: "For guidance"
+  },
+  {
     id: 8,
+    arabic: "رَبَّنَا اغْفِرْ لَنَا ذُنُوبَنَا وَإِسْرَافَنَا فِي أَمْرِنَا وَثَبِّتْ أَقْدَامَنَا وَانصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ",
+    transliteration: "Rabbana-ghfir lana dhunubana wa israfana fi amrina wa thabbit aqdamana wansurna 'alal-qawmil-kafireen",
+    translation: "Our Lord, forgive us our sins and our excesses in our affairs, make our feet firm, and give us victory over the disbelieving people.",
+    category: "quran",
+    source: "Quran 3:147",
+    reference: "Dua of the righteous",
+    occasion: "For forgiveness & strength"
+  },
+  {
+    id: 9,
+    arabic: "رَبَّنَا ظَلَمْنَا أَنفُسَنَا وَإِن لَّمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُونَنَّ مِنَ الْخَاسِرِينَ",
+    transliteration: "Rabbana zalamna anfusana wa in lam taghfir lana wa tarhamna lanakoonanna minal-khasireen",
+    translation: "Our Lord, we have wronged ourselves, and if You do not forgive us and have mercy upon us, we will surely be among the losers.",
+    category: "forgiveness",
+    source: "Quran 7:23",
+    reference: "Dua of Adam (AS) & Hawwa (AS)",
+    occasion: "Seeking forgiveness"
+  },
+  {
+    id: 10,
+    arabic: "رَبِّ اغْفِرْ وَارْحَمْ وَأَنتَ خَيْرُ الرَّاحِمِينَ",
+    transliteration: "Rabbighfir warham wa Anta khayrur-rahimeen",
+    translation: "My Lord, forgive and have mercy, and You are the best of the merciful.",
+    category: "forgiveness",
+    source: "Quran 23:118",
+    reference: "Command from Allah to say this",
+    occasion: "Seeking mercy"
+  },
+  {
+    id: 11,
+    arabic: "رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا",
+    transliteration: "Rabbana hab lana min azwajina wa dhurriyyatina qurrata a'yunin waj'alna lil-muttaqeena imama",
+    translation: "Our Lord, grant us from among our spouses and offspring comfort to our eyes and make us leaders for the righteous.",
+    category: "family",
+    source: "Quran 25:74",
+    reference: "Dua of the servants of the Most Merciful",
+    occasion: "For family"
+  },
+  {
+    id: 12,
+    arabic: "رَبِّ زِدْنِي عِلْمًا",
+    transliteration: "Rabbi zidni 'ilma",
+    translation: "My Lord, increase me in knowledge.",
+    category: "quran",
+    source: "Quran 20:114",
+    reference: "Command to the Prophet ﷺ",
+    occasion: "For knowledge"
+  },
+  {
+    id: 13,
+    arabic: "رَبِّ أَوْزِعْنِي أَنْ أَشْكُرَ نِعْمَتَكَ الَّتِي أَنْعَمْتَ عَلَيَّ وَعَلَىٰ وَالِدَيَّ",
+    transliteration: "Rabbi awzi'ni an ashkura ni'matakal-lati an'amta 'alayya wa 'ala walidayya",
+    translation: "My Lord, enable me to be grateful for Your favor which You have bestowed upon me and upon my parents.",
+    category: "general",
+    source: "Quran 27:19 & 46:15",
+    reference: "Dua of Sulayman (AS) and for parents",
+    occasion: "For gratitude"
+  },
+  {
+    id: 14,
+    arabic: "رَبِّ اجْعَلْنِي مُقِيمَ الصَّلَاةِ وَمِن ذُرِّيَّتِي رَبَّنَا وَتَقَبَّلْ دُعَاءِ",
+    transliteration: "Rabbij'alni muqeemas-salati wa min dhurriyyati Rabbana wa taqabbal du'a",
+    translation: "My Lord, make me an establisher of prayer, and from my descendants. Our Lord, accept my supplication.",
+    category: "family",
+    source: "Quran 14:40",
+    reference: "Dua of Ibrahim (AS)",
+    occasion: "For prayer & family"
+  },
+
+  // ============ AUTHENTIC HADITH DUAS ============
+  {
+    id: 15,
     arabic: "اللَّهُمَّ أَعِنِّي عَلَى ذِكْرِكَ وَشُكْرِكَ وَحُسْنِ عِبَادَتِكَ",
     transliteration: "Allahumma a'inni 'ala dhikrika wa shukrika wa husni 'ibadatik",
     translation: "O Allah, help me to remember You, to thank You, and to worship You in the best way.",
     category: "general",
-    source: "Abu Dawud",
-    occasion: "Daily supplication"
+    source: "Sunan Abu Dawud 1522",
+    reference: "Graded Sahih by Al-Albani. The Prophet ﷺ told Mu'adh (RA) to say this after every prayer.",
+    occasion: "After salah"
   },
-  {
-    id: 9,
-    arabic: "اللَّهُمَّ إِنِّي أَسْأَلُكَ الْجَنَّةَ وَأَعُوذُ بِكَ مِنَ النَّارِ",
-    transliteration: "Allahumma inni as'alukal-jannah wa a'udhu bika minan-naar",
-    translation: "O Allah, I ask You for Paradise and seek refuge in You from the Fire.",
-    category: "general",
-    source: "Abu Dawud",
-    occasion: "Daily supplication"
-  },
-  // Forgiveness
-  {
-    id: 10,
-    arabic: "رَبِّ اغْفِرْ لِي وَتُبْ عَلَيَّ إِنَّكَ أَنْتَ التَّوَّابُ الرَّحِيمُ",
-    transliteration: "Rabbighfir li wa tub 'alayya innaka antat-Tawwabur-Raheem",
-    translation: "My Lord, forgive me and accept my repentance. Indeed, You are the Accepting of Repentance, the Merciful.",
-    category: "forgiveness",
-    source: "Tirmidhi",
-    occasion: "Seeking forgiveness"
-  },
-  {
-    id: 11,
-    arabic: "أَسْتَغْفِرُ اللَّهَ الَّذِي لَا إِلَهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ وَأَتُوبُ إِلَيْهِ",
-    transliteration: "Astaghfirullaha alladhi la ilaha illa huwal-Hayyul-Qayyumu wa atubu ilayh",
-    translation: "I seek forgiveness from Allah, there is no god but He, the Living, the Sustainer, and I repent to Him.",
-    category: "forgiveness",
-    source: "Abu Dawud & Tirmidhi",
-    occasion: "Seeking forgiveness"
-  },
-  // Quran & Worship
-  {
-    id: 12,
-    arabic: "اللَّهُمَّ اجْعَلْ الْقُرْآنَ رَبِيعَ قَلْبِي",
-    transliteration: "Allahumma-j'alil-Qur'ana rabee'a qalbi",
-    translation: "O Allah, make the Quran the spring of my heart.",
-    category: "quran",
-    source: "Ahmad",
-    occasion: "Before reciting Quran"
-  },
-  {
-    id: 13,
-    arabic: "اللَّهُمَّ ارْزُقْنِي تِلَاوَةَ كِتَابِكَ آنَاءَ اللَّيْلِ وَأَطْرَافَ النَّهَارِ",
-    transliteration: "Allahumma-rzuqni tilawata kitabika ana'al-layli wa atrafan-nahar",
-    translation: "O Allah, grant me the recitation of Your Book during the night and the ends of the day.",
-    category: "quran",
-    source: "General Dua",
-    occasion: "For Quran recitation"
-  },
-  // Family & Community
-  {
-    id: 14,
-    arabic: "رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ",
-    transliteration: "Rabbana hab lana min azwajina wa dhurriyyatina qurrata a'yun",
-    translation: "Our Lord, grant us from our spouses and offspring comfort to our eyes.",
-    category: "family",
-    source: "Quran 25:74",
-    occasion: "For family"
-  },
-  {
-    id: 15,
-    arabic: "اللَّهُمَّ أَصْلِحْ لِي دِينِي وَدُنْيَايَ وَآخِرَتِي",
-    transliteration: "Allahumma aslih li deeni wa dunyaya wa akhirati",
-    translation: "O Allah, set right my religion, my worldly life, and my Hereafter.",
-    category: "general",
-    source: "Muslim",
-    occasion: "Comprehensive dua"
-  },
-  // Guidance
   {
     id: 16,
-    arabic: "اللَّهُمَّ اهْدِنِي وَسَدِّدْنِي",
-    transliteration: "Allahumma-hdini wa saddidni",
-    translation: "O Allah, guide me and keep me on the right path.",
-    category: "guidance",
-    source: "Muslim",
-    occasion: "For guidance"
+    arabic: "اللَّهُمَّ إِنِّي أَسْأَلُكَ الْجَنَّةَ وَأَعُوذُ بِكَ مِنَ النَّارِ",
+    transliteration: "Allahumma inni as'alukal-jannata wa a'udhu bika minan-nar",
+    translation: "O Allah, I ask You for Paradise and seek refuge in You from the Fire.",
+    category: "general",
+    source: "Sunan Abu Dawud 792",
+    reference: "Graded Sahih by Al-Albani",
+    occasion: "Daily supplication"
   },
   {
     id: 17,
-    arabic: "رَبِّ زِدْنِي عِلْمًا",
-    transliteration: "Rabbi zidni 'ilma",
-    translation: "My Lord, increase me in knowledge.",
-    category: "guidance",
-    source: "Quran 20:114",
-    occasion: "For knowledge"
+    arabic: "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ وَالْعَجْزِ وَالْكَسَلِ وَالْبُخْلِ وَالْجُبْنِ وَضَلَعِ الدَّيْنِ وَغَلَبَةِ الرِّجَالِ",
+    transliteration: "Allahumma inni a'udhu bika minal-hammi wal-hazan, wal-'ajzi wal-kasal, wal-bukhli wal-jubn, wa dala'id-dayni wa ghalabatir-rijal",
+    translation: "O Allah, I seek refuge in You from anxiety and sorrow, from weakness and laziness, from miserliness and cowardice, from being burdened by debt and overpowered by people.",
+    category: "protection",
+    source: "Sahih al-Bukhari 6369",
+    reference: "The Prophet ﷺ used to say this frequently",
+    occasion: "For relief from distress"
   },
-  // Protection
   {
     id: 18,
+    arabic: "اللَّهُمَّ اغْفِرْ لِي ذَنْبِي كُلَّهُ دِقَّهُ وَجِلَّهُ وَأَوَّلَهُ وَآخِرَهُ وَعَلاَنِيَتَهُ وَسِرَّهُ",
+    transliteration: "Allahumma-ghfir li dhanbi kullahu, diqqahu wa jillahu, wa awwalahu wa akhirahu, wa 'alaniyyatahu wa sirrahu",
+    translation: "O Allah, forgive me all my sins, small and great, first and last, open and secret.",
+    category: "forgiveness",
+    source: "Sahih Muslim 483",
+    reference: "The Prophet ﷺ said this in sujood",
+    occasion: "In prostration"
+  },
+  {
+    id: 19,
+    arabic: "سُبْحَانَكَ اللَّهُمَّ رَبَّنَا وَبِحَمْدِكَ اللَّهُمَّ اغْفِرْ لِي",
+    transliteration: "Subhanaka Allahumma Rabbana wa bihamdika Allahumma-ghfir li",
+    translation: "Glory is to You, O Allah, our Lord, and praise is to You. O Allah, forgive me.",
+    category: "forgiveness",
+    source: "Sahih al-Bukhari 794, Sahih Muslim 484",
+    reference: "The Prophet ﷺ said this often in ruku' and sujood",
+    occasion: "In ruku' and sujood"
+  },
+  {
+    id: 20,
+    arabic: "أَسْتَغْفِرُ اللَّهَ الَّذِي لَا إِلَهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ وَأَتُوبُ إِلَيْهِ",
+    transliteration: "Astaghfirullaha alladhi la ilaha illa Huwal-Hayyul-Qayyum wa atubu ilayh",
+    translation: "I seek forgiveness from Allah, there is no god but He, the Ever-Living, the Sustainer, and I repent to Him.",
+    category: "forgiveness",
+    source: "Sunan Abu Dawud 1517, Sunan al-Tirmidhi 3577",
+    reference: "Graded Sahih. Whoever says this, Allah forgives him even if he fled from battle.",
+    occasion: "Seeking forgiveness"
+  },
+  {
+    id: 21,
+    arabic: "سَيِّدُ الاِسْتِغْفَارِ: اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ خَلَقْتَنِي وَأَنَا عَبْدُكَ وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ وَأَبُوءُ بِذَنْبِي فَاغْفِرْ لِي فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ",
+    transliteration: "Allahumma Anta Rabbi la ilaha illa Anta, khalaqtani wa ana 'abduka, wa ana 'ala 'ahdika wa wa'dika mastata'tu, a'udhu bika min sharri ma sana'tu, abu'u laka bini'matika 'alayya, wa abu'u bidhanbi, faghfir li, fa innahu la yaghfirudh-dhunuba illa Anta",
+    translation: "O Allah, You are my Lord, there is no god but You. You created me and I am Your servant. I uphold Your covenant and promise as best I can. I seek refuge in You from the evil I have done. I acknowledge Your blessings upon me and I acknowledge my sin. Forgive me, for none forgives sins but You.",
+    category: "forgiveness",
+    source: "Sahih al-Bukhari 6306",
+    reference: "Sayyid al-Istighfar - The Master of Seeking Forgiveness. Whoever says it in the morning with conviction and dies that day enters Paradise.",
+    occasion: "Morning & Evening"
+  },
+  {
+    id: 22,
+    arabic: "اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْمًا نَافِعًا وَرِزْقًا طَيِّبًا وَعَمَلاً مُتَقَبَّلاً",
+    transliteration: "Allahumma inni as'aluka 'ilman nafi'an, wa rizqan tayyiban, wa 'amalan mutaqabbalan",
+    translation: "O Allah, I ask You for beneficial knowledge, good provision, and accepted deeds.",
+    category: "general",
+    source: "Sunan Ibn Majah 925",
+    reference: "Graded Hasan by Al-Albani. The Prophet ﷺ said this after Fajr prayer.",
+    occasion: "After Fajr"
+  },
+  {
+    id: 23,
+    arabic: "اللَّهُمَّ أَصْلِحْ لِي دِينِي الَّذِي هُوَ عِصْمَةُ أَمْرِي وَأَصْلِحْ لِي دُنْيَايَ الَّتِي فِيهَا مَعَاشِي وَأَصْلِحْ لِي آخِرَتِي الَّتِي فِيهَا مَعَادِي",
+    transliteration: "Allahumma aslih li deeni alladhi huwa 'ismatu amri, wa aslih li dunyaya allati fiha ma'ashi, wa aslih li akhirati allati fiha ma'adi",
+    translation: "O Allah, set right my religion which is the safeguard of my affairs, set right my worldly life in which is my livelihood, and set right my Hereafter to which is my return.",
+    category: "general",
+    source: "Sahih Muslim 2720",
+    reference: "Authentic hadith",
+    occasion: "Comprehensive dua"
+  },
+  {
+    id: 24,
+    arabic: "اللَّهُمَّ اهْدِنِي وَسَدِّدْنِي",
+    transliteration: "Allahumma-hdini wa saddidni",
+    translation: "O Allah, guide me and keep me on the straight path.",
+    category: "guidance",
+    source: "Sahih Muslim 2725",
+    reference: "Authentic hadith",
+    occasion: "For guidance"
+  },
+  {
+    id: 25,
     arabic: "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ شَرِّ مَا عَمِلْتُ وَمِنْ شَرِّ مَا لَمْ أَعْمَلْ",
     transliteration: "Allahumma inni a'udhu bika min sharri ma 'amiltu wa min sharri ma lam a'mal",
     translation: "O Allah, I seek refuge in You from the evil of what I have done and from the evil of what I have not done.",
     category: "protection",
-    source: "Muslim",
+    source: "Sahih Muslim 2716",
+    reference: "Authentic hadith",
     occasion: "For protection"
+  },
+  {
+    id: 26,
+    arabic: "يَا مُقَلِّبَ الْقُلُوبِ ثَبِّتْ قَلْبِي عَلَى دِينِكَ",
+    transliteration: "Ya Muqallibal-qulub, thabbit qalbi 'ala deenik",
+    translation: "O Turner of hearts, make my heart firm upon Your religion.",
+    category: "guidance",
+    source: "Sunan al-Tirmidhi 2140",
+    reference: "Graded Sahih. The Prophet ﷺ used to say this often.",
+    occasion: "For steadfastness"
+  },
+  {
+    id: 27,
+    arabic: "اللَّهُمَّ إِنِّي أَسْأَلُكَ الْهُدَى وَالتُّقَى وَالْعَفَافَ وَالْغِنَى",
+    transliteration: "Allahumma inni as'alukal-huda wat-tuqa wal-'afafa wal-ghina",
+    translation: "O Allah, I ask You for guidance, piety, chastity, and self-sufficiency.",
+    category: "guidance",
+    source: "Sahih Muslim 2721",
+    reference: "Authentic hadith",
+    occasion: "Daily supplication"
+  },
+  {
+    id: 28,
+    arabic: "رَبَّنَا آتِنَا مِن لَّدُنكَ رَحْمَةً وَهَيِّئْ لَنَا مِنْ أَمْرِنَا رَشَدًا",
+    transliteration: "Rabbana atina min ladunka rahmatan wa hayyi' lana min amrina rashada",
+    translation: "Our Lord, grant us from Yourself mercy and prepare for us from our affair right guidance.",
+    category: "guidance",
+    source: "Quran 18:10",
+    reference: "Dua of the People of the Cave",
+    occasion: "For guidance & mercy"
+  },
+  {
+    id: 29,
+    arabic: "لَا إِلَهَ إِلَّا أَنتَ سُبْحَانَكَ إِنِّي كُنتُ مِنَ الظَّالِمِينَ",
+    transliteration: "La ilaha illa Anta Subhanaka inni kuntu minaz-zalimeen",
+    translation: "There is no deity except You; exalted are You. Indeed, I have been of the wrongdoers.",
+    category: "forgiveness",
+    source: "Quran 21:87",
+    reference: "Dua of Yunus (AS). The Prophet ﷺ said no Muslim supplicates with this except that Allah answers him.",
+    occasion: "In times of distress"
+  },
+  {
+    id: 30,
+    arabic: "حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ",
+    transliteration: "Hasbunallahu wa ni'mal-wakeel",
+    translation: "Sufficient for us is Allah, and He is the best Disposer of affairs.",
+    category: "protection",
+    source: "Quran 3:173",
+    reference: "Said by Ibrahim (AS) when thrown into the fire, and by the believers at Uhud (Bukhari 4563)",
+    occasion: "In times of difficulty"
   },
 ];
 
 const categories = [
   { id: 'all', label: 'All Duas', icon: Sparkles, color: 'from-purple-500 to-indigo-600' },
   { id: 'iftar', label: 'Iftar', icon: Utensils, color: 'from-orange-500 to-amber-600' },
-  { id: 'suhoor', label: 'Suhoor', icon: Sun, color: 'from-yellow-500 to-orange-500' },
   { id: 'laylatul-qadr', label: 'Laylatul Qadr', icon: Moon, color: 'from-violet-500 to-purple-700' },
+  { id: 'quran', label: 'From Quran', icon: BookOpen, color: 'from-emerald-500 to-green-600' },
   { id: 'forgiveness', label: 'Forgiveness', icon: Heart, color: 'from-rose-500 to-pink-600' },
-  { id: 'quran', label: 'Quran', icon: BookOpen, color: 'from-emerald-500 to-green-600' },
-  { id: 'general', label: 'General', icon: Star, color: 'from-blue-500 to-cyan-600' },
+  { id: 'guidance', label: 'Guidance', icon: Star, color: 'from-blue-500 to-cyan-600' },
+  { id: 'protection', label: 'Protection', icon: Sun, color: 'from-yellow-500 to-orange-500' },
+  { id: 'general', label: 'General', icon: Sparkles, color: 'from-slate-500 to-slate-700' },
+  { id: 'family', label: 'Family', icon: Heart, color: 'from-pink-500 to-rose-600' },
 ];
 
 export default function DuaGeneratorPage() {
@@ -227,7 +369,7 @@ export default function DuaGeneratorPage() {
   const copyDua = async () => {
     if (!currentDua) return;
     
-    const text = `${currentDua.arabic}\n\n${currentDua.transliteration}\n\n"${currentDua.translation}"\n\n— ${currentDua.source}`;
+    const text = `${currentDua.arabic}\n\n${currentDua.transliteration}\n\n"${currentDua.translation}"\n\n📚 ${currentDua.source}${currentDua.reference ? `\n${currentDua.reference}` : ''}`;
     
     await navigator.clipboard.writeText(text);
     setCopied(true);
@@ -237,7 +379,7 @@ export default function DuaGeneratorPage() {
   const shareDua = async () => {
     if (!currentDua) return;
     
-    const text = `🤲 Ramadan Dua\n\n${currentDua.arabic}\n\n${currentDua.transliteration}\n\n"${currentDua.translation}"\n\n— ${currentDua.source}\n\n🌙 More duas at micutah.org/ramadan/duas`;
+    const text = `🤲 ${currentDua.occasion || 'Dua'}\n\n${currentDua.arabic}\n\n${currentDua.transliteration}\n\n"${currentDua.translation}"\n\n📚 ${currentDua.source}\n\n🌙 More authentic duas: micutah.org/ramadan/duas`;
     
     if (navigator.share) {
       await navigator.share({ text });
@@ -270,6 +412,10 @@ export default function DuaGeneratorPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
+            <div className="inline-flex items-center gap-2 bg-emerald-500/20 text-emerald-300 text-sm font-medium px-4 py-2 rounded-full mb-6">
+              ✓ 100% Authentic • Quran & Sahih Hadith Only
+            </div>
+            
             <span className="text-5xl mb-4 block">🤲</span>
             
             <h1 className="text-4xl md:text-6xl font-bold mb-4">
@@ -279,7 +425,7 @@ export default function DuaGeneratorPage() {
             </h1>
             
             <p className="text-xl text-slate-300 max-w-xl mx-auto mb-8">
-              Beautiful supplications for every moment of the blessed month
+              30 authentic supplications from the Quran and Sunnah for the blessed month
             </p>
           </motion.div>
         </div>
@@ -287,8 +433,8 @@ export default function DuaGeneratorPage() {
 
       {/* Category Filter */}
       <section className="px-4 pb-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-3">
+        <div className="max-w-5xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-2">
             {categories.map((cat) => {
               const IconComponent = cat.icon;
               const isActive = selectedCategory === cat.id;
@@ -297,7 +443,7 @@ export default function DuaGeneratorPage() {
                 <button
                   key={cat.id}
                   onClick={() => setSelectedCategory(cat.id)}
-                  className={`flex items-center gap-2 px-4 py-2.5 rounded-full font-medium transition-all ${
+                  className={`flex items-center gap-2 px-4 py-2 rounded-full font-medium transition-all text-sm ${
                     isActive
                       ? `bg-gradient-to-r ${cat.color} text-white shadow-lg`
                       : 'bg-white/10 text-slate-300 hover:bg-white/20'
@@ -337,7 +483,7 @@ export default function DuaGeneratorPage() {
                     
                     {/* Arabic */}
                     <div className="text-center mb-8">
-                      <p className="text-3xl md:text-4xl leading-loose font-arabic" dir="rtl" style={{ fontFamily: 'Amiri, serif', lineHeight: '2.5' }}>
+                      <p className="text-3xl md:text-4xl leading-loose" dir="rtl" style={{ fontFamily: 'Amiri, serif', lineHeight: '2.5' }}>
                         {currentDua.arabic}
                       </p>
                     </div>
@@ -350,17 +496,22 @@ export default function DuaGeneratorPage() {
                     </div>
                     
                     {/* Translation */}
-                    <div className="text-center mb-8">
+                    <div className="text-center mb-6">
                       <p className="text-xl md:text-2xl text-white font-medium leading-relaxed">
                         "{currentDua.translation}"
                       </p>
                     </div>
                     
-                    {/* Source */}
-                    <div className="text-center">
-                      <span className="text-white/60 text-sm">
-                        — {currentDua.source}
+                    {/* Source & Reference */}
+                    <div className="text-center space-y-1">
+                      <span className="text-white/80 text-sm font-medium block">
+                        📚 {currentDua.source}
                       </span>
+                      {currentDua.reference && (
+                        <span className="text-white/60 text-xs block">
+                          {currentDua.reference}
+                        </span>
+                      )}
                     </div>
                   </CardContent>
                 </Card>
@@ -406,9 +557,12 @@ export default function DuaGeneratorPage() {
       {/* All Duas List */}
       <section className="px-4 py-16">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-bold text-center mb-8">
-            All {selectedCategory === 'all' ? '' : currentCategoryData.label} Duas ({getFilteredDuas().length})
+          <h2 className="text-2xl font-bold text-center mb-2">
+            All {selectedCategory === 'all' ? 'Authentic' : currentCategoryData.label} Duas
           </h2>
+          <p className="text-center text-slate-400 mb-8">
+            {getFilteredDuas().length} duas from Quran & Sahih Hadith
+          </p>
           
           <div className="space-y-4">
             {getFilteredDuas().map((dua, index) => (
@@ -416,7 +570,7 @@ export default function DuaGeneratorPage() {
                 key={dua.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.05 }}
+                transition={{ delay: index * 0.03 }}
               >
                 <Card 
                   className="bg-white/5 border-white/10 hover:bg-white/10 transition-colors cursor-pointer"
@@ -428,7 +582,7 @@ export default function DuaGeneratorPage() {
                   <CardContent className="p-6">
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex-1">
-                        <p className="text-xl mb-2 font-arabic" dir="rtl" style={{ fontFamily: 'Amiri, serif' }}>
+                        <p className="text-xl mb-2" dir="rtl" style={{ fontFamily: 'Amiri, serif' }}>
                           {dua.arabic}
                         </p>
                         <p className="text-white/70 text-sm mb-1 italic">
@@ -437,8 +591,8 @@ export default function DuaGeneratorPage() {
                         <p className="text-white/90">
                           "{dua.translation}"
                         </p>
-                        <div className="flex items-center gap-3 mt-3">
-                          <span className="text-xs text-white/50">{dua.source}</span>
+                        <div className="flex flex-wrap items-center gap-3 mt-3">
+                          <span className="text-xs text-emerald-400 font-medium">📚 {dua.source}</span>
                           {dua.occasion && (
                             <span className="text-xs bg-white/10 px-2 py-0.5 rounded">
                               {dua.occasion}
@@ -446,13 +600,27 @@ export default function DuaGeneratorPage() {
                           )}
                         </div>
                       </div>
-                      <ChevronDown className="h-5 w-5 text-white/30 rotate-[-90deg]" />
+                      <ChevronDown className="h-5 w-5 text-white/30 rotate-[-90deg] flex-shrink-0" />
                     </div>
                   </CardContent>
                 </Card>
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Source Note */}
+      <section className="px-4 py-8">
+        <div className="max-w-2xl mx-auto">
+          <Card className="bg-emerald-500/10 border-emerald-500/30">
+            <CardContent className="p-6 text-center">
+              <h3 className="text-lg font-bold text-emerald-300 mb-2">✓ Authenticity Guaranteed</h3>
+              <p className="text-slate-300 text-sm">
+                All duas on this page are sourced directly from the <strong>Quran</strong> or <strong>Sahih/Hasan Hadith</strong> collections (Bukhari, Muslim, Abu Dawud, Tirmidhi, Ibn Majah). Each dua includes its source and grading.
+              </p>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
