@@ -96,12 +96,30 @@ export default function RecipesPage() {
     setShowForm(true);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In production, save to database/send to API
-    setSubmitted(true);
-    // Trigger download
-    window.open("/downloads/healthy-iftar-recipes.html", "_blank");
+    
+    try {
+      // Save lead to database/file
+      const response = await fetch("/api/recipes", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      
+      if (!response.ok) {
+        throw new Error("Failed to save");
+      }
+      
+      setSubmitted(true);
+      // Trigger download
+      window.open("/downloads/healthy-iftar-recipes.html", "_blank");
+    } catch (error) {
+      console.error("Error:", error);
+      // Still allow download even if save fails
+      setSubmitted(true);
+      window.open("/downloads/healthy-iftar-recipes.html", "_blank");
+    }
   };
 
   return (
