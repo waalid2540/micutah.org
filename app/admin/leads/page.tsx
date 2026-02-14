@@ -33,7 +33,7 @@ interface LeadsData {
 }
 
 // Simple password protection - same as analytics
-const ADMIN_PASSWORD = "MICadmin2026!";
+const ADMIN_PASSWORD = "admin123";
 
 export default function LeadsAdminPage() {
   const [data, setData] = useState<LeadsData | null>(null);
