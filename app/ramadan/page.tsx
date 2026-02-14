@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Moon, Heart, Calendar, Clock, Utensils, BookOpen, Download, Sparkles, Library, Salad, Star, Gift, ArrowRight, FileText } from "lucide-react";
+import { Moon, Heart, Calendar, Clock, Utensils, BookOpen, Download, Sparkles, Library, Salad, Star, Gift, ArrowRight, FileText, HandMetal } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -49,6 +49,15 @@ const toolkitItems = [
     href: "/ramadan/planner",
     badge: "FREE",
     buttonText: "Get Planner",
+  },
+  {
+    title: "Dua Generator",
+    description: "Beautiful duas for iftar, suhoor, Laylatul Qadr & more. Copy & share!",
+    icon: Sparkles,
+    color: "from-violet-500 to-purple-600",
+    href: "/ramadan/duas",
+    badge: "NEW",
+    buttonText: "Get Duas",
   },
   {
     title: "Ramadan Books",
@@ -199,11 +208,15 @@ export default function RamadanPage() {
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap items-center justify-center gap-6 text-sm font-medium">
             <Link href="/ramadan/calendar" className="flex items-center gap-2 hover:text-white/80 transition-colors">
-              <Calendar className="h-4 w-4" /> Prayer Calendar
+              <Calendar className="h-4 w-4" /> Calendar
             </Link>
             <span className="text-white/40">•</span>
             <Link href="/ramadan/planner" className="flex items-center gap-2 hover:text-white/80 transition-colors">
-              <FileText className="h-4 w-4" /> Free Planner
+              <FileText className="h-4 w-4" /> Planner
+            </Link>
+            <span className="text-white/40">•</span>
+            <Link href="/ramadan/duas" className="flex items-center gap-2 hover:text-white/80 transition-colors">
+              <Sparkles className="h-4 w-4" /> Duas
             </Link>
             <span className="text-white/40">•</span>
             <Link href="/ramadan/books" className="flex items-center gap-2 hover:text-white/80 transition-colors">
