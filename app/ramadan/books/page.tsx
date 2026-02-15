@@ -6,6 +6,22 @@ import { Download, BookOpen, Clock, FileText, Sparkles, Moon, Heart, Leaf, Arrow
 
 const books = [
   {
+    slug: 'women-around-the-messenger',
+    title: 'Women Around the Messenger ﷺ',
+    subtitle: 'Inspiring Stories of the Sahabiyat',
+    description: 'Meet the remarkable women who shaped Islamic history. The mothers of the believers, the daughters, and companions of the Prophet ﷺ.',
+    pages: 347,
+    readTime: '4+ hours',
+    gradient: 'from-rose-600 via-pink-700 to-purple-900',
+    bgGlow: 'bg-pink-500',
+    icon: Heart,
+    emoji: '🌸',
+    isPdf: true,
+    pdfUrl: '/books/women-around-the-messenger.pdf',
+    featured: true,
+    color: 'rose',
+  },
+  {
     slug: 'days-of-prophet-with-wives',
     title: 'The Days of Prophet Muhammad ﷺ',
     subtitle: 'With His Wives',
