@@ -6,6 +6,22 @@ import { Download, BookOpen, Clock, FileText, Sparkles, Moon, Heart, Leaf, Arrow
 
 const books = [
   {
+    slug: 'days-of-prophet-with-wives',
+    title: 'The Days of Prophet Muhammad ﷺ',
+    subtitle: 'With His Wives',
+    description: 'Learn about the beautiful relationships of our beloved Prophet ﷺ with his wives. A glimpse into the household of the best of creation.',
+    pages: 59,
+    readTime: '45 min',
+    gradient: 'from-emerald-600 via-teal-700 to-cyan-900',
+    bgGlow: 'bg-teal-500',
+    icon: Heart,
+    emoji: '💚',
+    isPdf: true,
+    pdfUrl: '/books/days-of-prophet-with-wives.pdf',
+    featured: true,
+    color: 'teal',
+  },
+  {
     slug: 'last-10-nights',
     title: 'The Last 10 Nights',
     subtitle: 'Your Guide to Catching Laylatul Qadr',
