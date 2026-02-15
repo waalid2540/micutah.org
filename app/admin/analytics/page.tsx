@@ -29,7 +29,7 @@ interface Stats {
 }
 
 // Simple password protection
-const ADMIN_PASSWORD = "MICadmin2026!"; // Change this!
+const ADMIN_PASSWORD = "mic2026"; // Change this!
 
 export default function AnalyticsDashboard() {
   const [stats, setStats] = useState<Stats | null>(null);
