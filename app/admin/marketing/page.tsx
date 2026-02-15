@@ -257,7 +257,7 @@ export default function MarketingPage() {
                 className="bg-slate-700 border-slate-600 text-white"
               />
               <p className="text-xs text-slate-500 mt-1">
-                {message.length}/160 characters (SMS) • {"{name}"} will be replaced with lead's name
+                {message.length}/160 characters (SMS) • {"{name}"} will be replaced with lead&apos;s name
               </p>
             </div>
 

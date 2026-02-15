@@ -498,7 +498,7 @@ export default function DuaGeneratorPage() {
                     {/* Translation */}
                     <div className="text-center mb-6">
                       <p className="text-xl md:text-2xl text-white font-medium leading-relaxed">
-                        "{currentDua.translation}"
+                        &ldquo;{currentDua.translation}&rdquo;
                       </p>
                     </div>
                     
@@ -589,7 +589,7 @@ export default function DuaGeneratorPage() {
                           {dua.transliteration}
                         </p>
                         <p className="text-white/90">
-                          "{dua.translation}"
+                          &ldquo;{dua.translation}&rdquo;
                         </p>
                         <div className="flex flex-wrap items-center gap-3 mt-3">
                           <span className="text-xs text-emerald-400 font-medium">📚 {dua.source}</span>
