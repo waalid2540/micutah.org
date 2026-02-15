@@ -36,17 +36,9 @@ export default function AnalyticsDashboard() {
   const [period, setPeriod] = useState("7d");
   const [loading, setLoading] = useState(true);
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(true); // No password required
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  
-  // Check if already authenticated (stored in session)
-  useEffect(() => {
-    const auth = sessionStorage.getItem("mic_admin_auth");
-    if (auth === "true") {
-      setIsAuthenticated(true);
-    }
-  }, []);
   
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
