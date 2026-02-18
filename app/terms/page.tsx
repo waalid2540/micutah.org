@@ -90,7 +90,7 @@ export default function TermsPage() {
                   </p>
                   <ul className="list-disc pl-6 mb-4 text-gray-700 space-y-1">
                     <li>Reply <strong>HELP</strong> to any message for help information</li>
-                    <li>Call us at (385) 215-9346</li>
+                    <li>Call us at (408) 791-9652</li>
                     <li>Email us at info@micutah.org</li>
                   </ul>
 
@@ -185,7 +185,7 @@ export default function TermsPage() {
                   </p>
                   <div className="flex items-center gap-2 mb-2">
                     <Phone className="h-4 w-4 text-primary" />
-                    <span className="text-gray-700">(385) 215-9346</span>
+                    <span className="text-gray-700">(408) 791-9652</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Mail className="h-4 w-4 text-primary" />
